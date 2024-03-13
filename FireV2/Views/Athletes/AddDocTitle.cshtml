@@ -1,0 +1,14 @@
+﻿@model FireV2.Models.DocTypeAthelet
+<form action="/Athletes/AddDocTitle" method="post" id="detailsForm">
+    @Html.Hidden("AthleteId", Request.RequestContext.RouteData.Values["id"])
+    @Html.DropDownList("InfoDocTitleId", null, null, new { @class = "form-control" })
+    <div id="details">
+        @Html.Action("InfoDocumentTitleTypes", "DocTypeAthelets", new { id = 1, atid = Request.RequestContext.RouteData.Values["id"] })
+    </div>
+
+    <div id="detailsInputs">
+
+    </div>
+
+</form>
+

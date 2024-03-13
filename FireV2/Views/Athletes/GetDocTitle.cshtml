@@ -1,0 +1,203 @@
+﻿@model IEnumerable<FireV2.Models.DocTypeAthelet>
+@{
+    var CoorDetails = 0;
+    var CooperationP = 0;
+    var title = "";
+    var List = (List<int>)ViewBag.ListOfDocTitle;
+    var ll = (IEnumerable<FireV2.Models.InfoDocumentTitleType>)ViewBag.List;
+    var Emplist = (IEnumerable<FireV2.Models.InfoDocumentTitle>)ViewBag.li;
+}
+@foreach (var item in Emplist)
+{
+    bool found = false;
+    int f = 1;
+    foreach (var cor in Model)
+    {
+        if (cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitleId == item.InfoDocTitleId)
+        {
+            found = true;
+            if (f == 1)
+            {
+                <h4>
+                    @if (cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitleId == 1)
+                    {
+                        <b style="color:#113cb2">
+                            @cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitle
+                        </b>
+                    }
+                    else if (cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitleId == 2)
+                    {
+                        <b style="color:#3a8a0a">
+                            @cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitle
+                        </b>
+                    }
+                    else if (cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitleId == 3)
+                    {
+                        <b style="color:#a75b08">
+                            @cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitle
+                        </b>
+                    }
+                    else if (cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitleId == 4)
+                    {
+                        <b style="color:#11717e">
+                            @cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitle
+                        </b>
+                    }
+                    else if (cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitleId == 5)
+                    {
+                        <b style="color:#7219a8">
+                            @cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitle
+                        </b>
+                    }
+                    else if (cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitleId == 6)
+                    {
+                        <b style="color:#e21ade">
+                            @cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitle
+                        </b>
+                    }
+                </h4>
+                <br />
+                    f = 2;
+            }
+            if (cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitleId == 1)
+            {
+                <b style="color:#113cb2">
+                    @cor.InfoDocumentTitleType.InfoDocTitleType
+                </b>
+                if (@cor.Note == null)
+                {
+                    <a style="color:#F31B49" href="#" data-url="/Athletes/DeleteDocTitle/@cor.DocTypeAtId" title=" " class="fa fa-remove DeleteDocTitle"> </a>
+
+                }
+                else
+                {
+                    if (@cor.Note != null)
+                    {
+                        <b style="color:#113cb2">
+                            @cor.Note
+                            <a style="color:#F31B49" href="#" data-url="/Athletes/DeleteDocTitle/@cor.DocTypeAtId" title=" " class="fa fa-remove DeleteDocTitle"> </a>
+
+                        </b>
+
+                    }
+                }
+            }
+            else if (cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitleId == 2)
+            {
+                <b style="color:#3a8a0a">
+                    @cor.InfoDocumentTitleType.InfoDocTitleType
+                </b>
+                if (@cor.Note == null)
+                {
+                    <a style="color:#F31B49" href="#" data-url="/Athletes/DeleteDocTitle/@cor.DocTypeAtId" title=" " class="fa fa-remove DeleteDocTitle"> </a>
+
+                }
+                else
+                {
+                    if (@cor.Note != null)
+                    {
+                        <b style="color:#3a8a0a">
+                            @cor.Note
+                            <a style="color:#F31B49" href="#" data-url="/Athletes/DeleteDocTitle/@cor.DocTypeAtId" title=" " class="fa fa-remove DeleteDocTitle"> </a>
+
+                        </b>
+
+                    }
+                }
+            }
+            else if (cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitleId == 3)
+            {
+                <b style="color:#a75b08">
+                    @cor.InfoDocumentTitleType.InfoDocTitleType
+                </b>
+                if (@cor.Note == null)
+                {
+                    <a style="color:#F31B49" href="#" data-url="/Athletes/DeleteDocTitle/@cor.DocTypeAtId" title=" " class="fa fa-remove DeleteDocTitle"> </a>
+
+                }
+                else
+                {
+                    if (@cor.Note != null)
+                    {
+                        <b style="color:#a75b08">
+                            @cor.Note
+                            <a style="color:#F31B49" href="#" data-url="/Athletes/DeleteDocTitle/@cor.DocTypeAtId" title=" " class="fa fa-remove DeleteDocTitle"> </a>
+
+                        </b>
+
+                    }
+                }
+            }
+            else if (cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitleId == 4)
+            {
+                <b style="color:#11717e">
+                    @cor.InfoDocumentTitleType.InfoDocTitleType
+                </b>
+                if (@cor.Note == null)
+                {
+                    <a style="color:#F31B49" href="#" data-url="/Athletes/DeleteDocTitle/@cor.DocTypeAtId" title=" " class="fa fa-remove DeleteDocTitle"> </a>
+
+                }
+                else
+                {
+                    if (@cor.Note != null)
+                    {
+                        <b style="color:#11717e">
+                            @cor.Note
+                            <a style="color:#F31B49" href="#" data-url="/Athletes/DeleteDocTitle/@cor.DocTypeAtId" title=" " class="fa fa-remove DeleteDocTitle"> </a>
+
+                        </b>
+
+                    }
+                }
+            }
+            else if (cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitleId == 5)
+            {
+                <b style="color:#7219a8">
+                    @cor.InfoDocumentTitleType.InfoDocTitleType
+                </b>
+                if (@cor.Note == null)
+                {
+                    <a style="color:#F31B49" href="#" data-url="/Athletes/DeleteDocTitle/@cor.DocTypeAtId" title=" " class="fa fa-remove DeleteDocTitle"> </a>
+
+                }
+                else
+                {
+                    if (@cor.Note != null)
+                    {
+                        <b style="color:#7219a8">
+                            @cor.Note
+                            <a style="color:#F31B49" href="#" data-url="/Athletes/DeleteDocTitle/@cor.DocTypeAtId" title=" " class="fa fa-remove DeleteDocTitle"> </a>
+
+                        </b>
+
+                    }
+                }
+            }
+            else if (cor.InfoDocumentTitleType.InfoDocumentTitle.InfoDocTitleId == 6)
+            {
+                <b style="color:#e21ade">
+                    @cor.InfoDocumentTitleType.InfoDocTitleType
+                </b>
+                if (@cor.Note == null)
+                {
+                    <a style="color:#F31B49" href="#" data-url="/Athletes/DeleteDocTitle/@cor.DocTypeAtId" title=" " class="fa fa-remove DeleteDocTitle"> </a>
+
+                }
+                else
+                {
+                    if (@cor.Note != null)
+                    {
+                        <b style="color:#e21ade">
+                            @cor.Note
+                            <a style="color:#F31B49" href="#" data-url="/Athletes/DeleteDocTitle/@cor.DocTypeAtId" title=" " class="fa fa-remove DeleteDocTitle"> </a>
+
+                        </b>
+
+                    }
+                }
+            }
+        }
+
+    }
+}

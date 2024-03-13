@@ -1,0 +1,31 @@
+﻿@model IEnumerable<FireV2.Models.InfoDocumentTitleType>
+    @foreach (var item in Model)
+    {
+    <div style="width:70%">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="checkbox ">
+                        <input type="checkbox" class="detailsItem" value="@item.InfoDocTitleId" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="control-label">@item.InfoDocTitleType</label>
+                    </td>
+                  
+                </tr>
+            </tbody>
+        </table>
+       
+    </div>
+        <br />
+        
+    }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $('input[type="checkbox"]').checkbox({
+        checkedClass: 'icon-check',
+        uncheckedClass: 'icon-check-empty'
+    });
+    </script>
+
+}
+
+

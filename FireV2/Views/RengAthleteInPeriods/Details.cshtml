@@ -1,0 +1,66 @@
+﻿@model FireV2.Models.RengAthleteInPeriod
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RengAthleteInPeriod</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeReng)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeReng)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AthleteId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AthleteId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearOfP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearOfP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeRengeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeRengeId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RangePeriodId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,61 @@
+﻿@model FireV2.Models.Dissusion
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Dissusion</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.DissPerId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PeriodId, "PeriodId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PeriodId", String.Empty)
+                @Html.ValidationMessageFor(model => model.PeriodId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AthleteId, "AthleteId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("AthleteId", String.Empty)
+                @Html.ValidationMessageFor(model => model.AthleteId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Note, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Note)
+                @Html.ValidationMessageFor(model => model.Note)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Diss, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Diss)
+                @Html.ValidationMessageFor(model => model.Diss)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

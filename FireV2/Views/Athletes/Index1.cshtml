@@ -1,0 +1,99 @@
+﻿@model IEnumerable<FireV2.Models.Athlete>
+
+@{
+    ViewBag.Title = "..:لیست اطلاعات پایه:..";
+}
+<div class="panel panel-default">
+    <div class="panel-heading">
+
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                <th>
+                 سن
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Degree.DegreeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeStatu.EmStatusTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeType.EmTypeTitle)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.PostSazmani.PSazmaniTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Semat.SematName)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Reshteh)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NoteAthlete)
+                </th>
+               <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if (@item.Picture != null)
+                        {
+                            <a href="@Url.Content(@item.Picture)" target="_blank">
+                                <img class="img-thumbnail" style="width: 50px; height: 50px; float:left; margin:0 10px 5px 0" alt="@item.FullName" src="@Url.Content(@item.Picture)" />
+                            </a>
+                        }
+                        else
+                        {
+                            <img class="img-thumbnail" id="image_preview" style="width: 50px; height: 50px; float:left; margin:0 10px 5px 0" alt="" src="" />
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        ViewBag.age
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Degree.DegreeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeStatu.EmStatusTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeType.EmTypeTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PostSazmani.PSazmaniTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Semat.SematName)
+                    </td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Reshteh)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NoteAthlete)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.AthleteId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.AthleteId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.AthleteId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>

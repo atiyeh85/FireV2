@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FireV2.Models.IndividualHistory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Athlete.Fnam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Period.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IndOperTotalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IndOperTotalFaults)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IndOperTotalFinalOper)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IndOperScore)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Athlete.Fnam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Period.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IndOperTotalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IndOperTotalFaults)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IndOperTotalFinalOper)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IndOperScore)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IndHistoryId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IndHistoryId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IndHistoryId })
+        </td>
+    </tr>
+}
+
+</table>

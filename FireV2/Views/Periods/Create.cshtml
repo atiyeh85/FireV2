@@ -1,0 +1,250 @@
+﻿@model FireV2.Models.Period
+
+@{
+    ViewBag.Title = "..::..";
+}
+<br />
+<br />
+<br />
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal container">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <span style="color:#C53462;font-size:medium">*</span>
+                        عنوان دوره
+                        <div style="">
+                            <div class="input-group" style="margin-bottom: 10px">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user-circle-o fa-2x">
+                                    </i>
+                                </span>
+                                @Html.TextBoxFor(model => model.SeasonTitle, new { @class = "form-control input-lg", placeholder = "عنوان دوره ", autocomplete = "off" })
+                            </div>
+                            <b>
+                                @Html.ValidationMessageFor(model => model.SeasonTitle, "", new { @class = "text-danger" })
+                            </b>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <span style="color:#C53462;font-size:medium">*</span>
+                        از تاریخ
+                        <div style="">
+                            <div class="input-group" style="margin-bottom: 10px">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user-circle-o fa-2x">
+                                    </i>
+                                </span>
+                                @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control input-lg", placeholder = "سال ", autocomplete = "off" , @id = "date2" })
+                            </div>
+                            <b>
+                                @Html.ValidationMessageFor(model => model.FromDate, "", new { @class = "text-danger" })
+                            </b>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <span style="color:#C53462;font-size:medium">*</span>
+                        تا تاریخ
+                        <div style="">
+                            <div class="input-group" style="margin-bottom: 10px">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user-circle-o fa-2x">
+                                    </i>
+                                </span>
+                                @Html.TextBoxFor(model => model.Todate, new { @class = "form-control input-lg", placeholder = "سال ", autocomplete = "off", @id = "date1" })
+                            </div>
+                            <b>
+                                @Html.ValidationMessageFor(model => model.Todate, "", new { @class = "text-danger" })
+                            </b>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <span style="color:#C53462;font-size:medium">*</span>
+                        بسته عملیات تیمی
+                        <div class="input-group" style="margin-bottom: 10px">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user-circle-o fa-2x">
+                                </i>
+                            </span>
+                            @Html.DropDownList("PackTeamid", null, "---  بسته عملیات تیمی  --- ", new { @class = "form-control input-lg" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <span style="color:#C53462;font-size:medium">*</span>
+                        بسته عملیات انفرادی
+                        <div class="input-group" style="margin-bottom: 10px">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user-circle-o fa-2x">
+                                </i>
+                            </span>
+                            @Html.DropDownList("PackIndid", null, "---  بسته عملیات انفرادی   --- ", new { @class = "form-control input-lg" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <hr />
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-lg-offset-5 col-md-4">
+                            <button class="btn  btn-success  fa-x" data-last="Finish ">
+                                ثبت
+                                <i class="fa fa-floppy-o fa-2x"></i>
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body" style="width:100%">
+                <div class="col-sm-12" id="div-listindex">
+                    @Html.Action("index", "Periods")
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+    <div class="modal-dialog" role="document" style=" max-height: 100%; margin-top: 50px; margin-bottom: 50px;">
+        <div class="modal-content" style="background-color:#e5dede">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="بستن"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"> ویرایش دوره</h4>
+            </div>
+            <div class="modal-body">
+                <div id="modal-body-form">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="btnedit" class="btn btn-default btn-success "><span class="glyphicon glyphicon-edit">ثبت</span></button>
+
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span> بستن
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade " id="myModalDel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+    <div class="modal-dialog" role="document" style="max-height: 100%; margin-top: 50px; margin-bottom :50px;">
+        <div class="modal-content" style="background-color:#e5dede">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="بستن"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">   </h4>
+            </div>
+            <div class="modal-body">
+                <div id="modal-body-formD">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" data-dismiss="modal" id="btnDel">
+                    <span class="glyphicon glyphicon-ok"></span> حذف
+                </button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span> بستن
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts{
+<script>
+    $('#btnDel').on('click', function (e) {
+        e.preventDefault();
+        var form = $('#form-Delete');
+
+        $.ajax({
+            type: 'post',
+            url: $(form).attr('action'),
+            data: $(form).serialize(),
+            success: function (data) {
+                if (data.toString() == "true") {
+                    $('#myModalDel').modal('hide');
+                }
+
+
+            }
+
+        })
+    });
+    $('#btnedit').on('click', function (e) {
+        e.preventDefault();
+        var form = $('#form-Edit');
+
+        $.ajax({
+            type: 'post',
+            url: $(form).attr('action'),
+            data: $(form).serialize(),
+            success: function (data) {
+                if (data.toString() == "true") {
+                    $('#myModal').modal('hide');
+                }
+            }
+        })
+    });
+    $('#myModal').on('hide.bs.modal', function (event) {
+        window.location.reload();
+    });
+    $('#myModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        $('#modal-body-form').html('');
+        $('#modal-body-form').load($(button).attr('data-href'));
+    });
+
+    $('#myModalDel').on('hide.bs.modal', function (event) {
+        window.location.reload();
+    });
+    $('#myModalDel').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        $('#modal-body-formD').html('');
+        $('#modal-body-formD').load($(button).attr('data-href'));
+    });
+
+    kamaDatepicker('date1', customOptions);
+
+    var customOptions = {
+        placeholder: "روز / ماه / سال"
+        , twodigit: true
+        , closeAfterSelect: true
+        , nextButtonIcon: "fa fa-arrow-circle-right"
+        , previousButtonIcon: "fa fa-arrow-circle-left"
+        , buttonsColor: "blue"
+        , forceFarsiDigits: true
+        , markToday: true
+        , markHolidays: true
+        , highlightSelectedDay: true
+        , sync: true
+        , gotoToday: true
+    }
+    kamaDatepicker('date2', customOptions);
+
+    kamaDatepicker('date3', {
+        nextButtonIcon: "timeir_next.png"
+        , previousButtonIcon: "timeir_prev.png"
+        , forceFarsiDigits: true
+        , markToday: true
+        , markHolidays: true
+        , highlightSelectedDay: true
+        , sync: true
+    });
+
+    // for testing sync functionallity
+    $("#date2").val("1311/10/01");
+</script>
+
+
+
+}

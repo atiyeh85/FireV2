@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul style="">
+            @*<li>
+                    @Html.ActionLink("سلام  " + User.Identity.GetUserName() + "!", "login", "account", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>*@
+            <li>
+                <a href="javascript:document.getElementById('logoutForm').submit()" style="color:#000000"><i style="color:#920c8f" class="fa fa-fw fa-sign-out fa-2x"></i> خروج   </a>
+            </li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        @if (FireV2.Utility.UAC.Validate(User, "CanPhysicalExamHistoriesCreate") == true)
+        {
+            <li>@Html.ActionLink("ثبت نام", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+
+        }
+        <li>@Html.ActionLink(" ورود", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

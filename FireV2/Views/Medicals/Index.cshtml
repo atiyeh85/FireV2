@@ -1,0 +1,128 @@
+﻿@model IEnumerable<FireV2.ViewModels.MedicalVm>
+@using MvcFileUploader.HtmlHelper
+    @{
+        ViewBag.Title = "..::..";
+        Layout = null;
+        var count = 0;
+        var showingInline = false;
+
+    }
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <caption class="text-center"> لیست پرونده ها   </caption>
+                        <thead>
+                            <tr>
+                                <th>ردیف</th>
+                                <th>
+                                    پیوست
+                                </th>
+                                <th>
+                                    تصویر
+                                </th>
+                                <th>
+                                    دوره
+                                </th>
+                                <th>
+                                    نوع تست
+                                </th>
+                                <th>
+                                    عنوان
+                                </th>
+                                <th>
+                                    شرح معاینات
+                                </th>
+                                <th>
+                                    توضیحات
+                                </th>
+
+                                <th>
+                                    دستورات
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@(count += 1)</td>
+                                    <td>
+                                        @{
+
+                                            var str = Convert.ToString(@item.count);
+                                        }
+                                        @if (str != "0")
+                                        {
+                                            <a data-href="/FileUploads/index/@item.Medicalid" data-toggle="modal" data-target="#myModalAtt" class="controls fa fa-paperclip fa-2x" style="color:#8a1f81;" href="#">
+                                                @item.count
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa fa-paperclip fa-2x" style="color:#c7c5c5"></i>
+                                        }
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SeasonTitle)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Type)
+
+
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MItem)
+                                    </td>
+                                    <td>
+                                        @string.Join(",",item.Titles)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Note)
+                                    </td>
+                                    <td>
+                                        <a data-href="/Medicals/Edit/@item.Medicalid" data-toggle="modal" data-target="#myModal" class="controls fa fa-pencil fa-2x" style="color:#037512;" href="#">
+                                        </a>
+                                        <a data-href="/Medicals/Delete/@item.Medicalid" data-toggle="modal" data-target="#myModalDel" class="controls  fa fa-trash-o fa-2x" style="color: #9a1c8f;" href="#">
+                                        </a>
+                                       @{
+                                           var Medicalid = Convert.ToString(item.Medicalid);
+                                       }
+                                        @if (!showingInline)
+                                        {
+                                        @(
+                Html.MvcFileUpload()
+                .UploadAt(Url.Action("UploadFile", "FileUploads"))
+                .WithFileTypes(@"/(\.|\/)(jpe?g|png)$/i")
+                .WithMaxFileSize(5000000)
+                .AddFormField("entityId", Medicalid)
+                .RenderPopup("", "#dlgFileUpload", new { @class = " fa fa-file-image-o fa-2x my-class4 test ", title = "پیوست" })
+                                        )
+                                        }
+
+                                    </td>
+                                  
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="9">
+                                   
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div><!--end of .table-responsive-->
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+  

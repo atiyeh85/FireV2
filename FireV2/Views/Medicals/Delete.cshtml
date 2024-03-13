@@ -1,0 +1,15 @@
+﻿@model FireV2.Models.Medical
+@{
+    ViewBag.Title = "..:حذف :..";
+    Layout = null;
+}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h3>آیا از حذف سطر مورد نظر اطمینان دارید؟</h3>
+
+@using (Html.BeginForm("Delete", "Medicals", FormMethod.Post, new { id = "form-del", enctype = "multipart/form-data" }))
+{
+            @Html.AntiForgeryToken()
+        }
+    </div>
+</div>

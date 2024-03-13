@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="1">
+      <ListOfAthlete Ref="2" type="Stimulsoft.Report.Dictionary.StiBusinessObject" isKey="true">
+        <Alias>ListOfAthlete</Alias>
+        <BusinessObjects isList="true" count="0" />
+        <Category>ListOfAthlete</Category>
+        <Columns isList="true" count="9">
+          <value>AthleteId,System.String</value>
+          <value>FullName,System.String</value>
+          <value>DegreeName,System.String</value>
+          <value>PSazmaniTitle,System.String</value>
+          <value>Expertise,System.String</value>
+          <value>ShWorkTitle,System.String</value>
+          <value>StationTitle,System.String</value>
+          <value>Picture,System.Drawing.Image</value>
+          <value>Age,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Guid>49ca3636d3904bce805725a3dd028ac9</Guid>
+        <Name>ListOfAthlete</Name>
+      </ListOfAthlete>
+    </BusinessObjects>
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="0" />
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="3" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="3">
+        <Header Ref="4" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="8">
+            <HeaderListOfAthlete_Expertise Ref="5" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[118:146:60]</Brush>
+              <ClientRectangle>0,0,3.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderListOfAthlete_Expertise</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>تخصص</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderListOfAthlete_Expertise>
+            <HeaderListOfAthlete_ShWorkTitle Ref="6" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[118:146:60]</Brush>
+              <ClientRectangle>3.4,0,3.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderListOfAthlete_ShWorkTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>شیفت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderListOfAthlete_ShWorkTitle>
+            <HeaderListOfAthlete_StationTitle Ref="7" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[118:146:60]</Brush>
+              <ClientRectangle>6.8,0,3.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderListOfAthlete_StationTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>ایستگاه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderListOfAthlete_StationTitle>
+            <HeaderListOfAthlete_PSazmaniTitle Ref="8" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[118:146:60]</Brush>
+              <ClientRectangle>10.2,0,3.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderListOfAthlete_PSazmaniTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>پست سازمانی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderListOfAthlete_PSazmaniTitle>
+            <HeaderListOfAthlete_DegreeName Ref="9" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[118:146:60]</Brush>
+              <ClientRectangle>13.6,0,3.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderListOfAthlete_DegreeName</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>مدرک</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderListOfAthlete_DegreeName>
+            <HeaderListOfAthlete_Age Ref="10" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[118:146:60]</Brush>
+              <ClientRectangle>17,0,3.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderListOfAthlete_Age</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>سن</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderListOfAthlete_Age>
+            <HeaderListOfAthlete_FullName Ref="11" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[118:146:60]</Brush>
+              <ClientRectangle>20.4,0,3.4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderListOfAthlete_FullName</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>نام نام خانوادگی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderListOfAthlete_FullName>
+            <HeaderListOfAthlete_Picture Ref="12" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[118:146:60]</Brush>
+              <ClientRectangle>23.8,0,4,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,12,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderListOfAthlete_Picture</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>تصویر</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderListOfAthlete_Picture>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>Header</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </Header>
+        <Data Ref="13" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid>49ca3636d3904bce805725a3dd028ac9</BusinessObjectGuid>
+          <ClientRectangle>0,2,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="8">
+            <DataListOfAthlete_Expertise Ref="14" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,3.4,2.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataListOfAthlete_Expertise</Name>
+              <Page isRef="3" />
+              <Parent isRef="13" />
+              <Text>{ListOfAthlete.Expertise}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataListOfAthlete_Expertise>
+            <DataListOfAthlete_ShWorkTitle Ref="15" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.4,0,3.4,2.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataListOfAthlete_ShWorkTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="13" />
+              <Text>{ListOfAthlete.ShWorkTitle}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataListOfAthlete_ShWorkTitle>
+            <DataListOfAthlete_StationTitle Ref="16" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>6.8,0,3.4,2.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataListOfAthlete_StationTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="13" />
+              <Text>{ListOfAthlete.StationTitle}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataListOfAthlete_StationTitle>
+            <DataListOfAthlete_PSazmaniTitle Ref="17" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>10.2,0,3.4,2.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataListOfAthlete_PSazmaniTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="13" />
+              <Text>{ListOfAthlete.PSazmaniTitle}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataListOfAthlete_PSazmaniTitle>
+            <DataListOfAthlete_DegreeName Ref="18" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>13.6,0,3.4,2.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataListOfAthlete_DegreeName</Name>
+              <Page isRef="3" />
+              <Parent isRef="13" />
+              <Text>{ListOfAthlete.DegreeName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataListOfAthlete_DegreeName>
+            <DataListOfAthlete_Age Ref="19" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>17,0,3.4,2.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataListOfAthlete_Age</Name>
+              <Page isRef="3" />
+              <Parent isRef="13" />
+              <Text>{ListOfAthlete.Age}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataListOfAthlete_Age>
+            <DataListOfAthlete_FullName Ref="20" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>20.4,0,3.4,2.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataListOfAthlete_FullName</Name>
+              <Page isRef="3" />
+              <Parent isRef="13" />
+              <Text>{ListOfAthlete.FullName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataListOfAthlete_FullName>
+            <DataListOfAthlete_Picture Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>23.8,0,4,2.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataListOfAthlete_Picture</Name>
+              <Page isRef="3" />
+              <Parent isRef="13" />
+              <Text>{ListOfAthlete.Picture}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataListOfAthlete_Picture>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Name>Data</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <Sort isList="true" count="0" />
+        </Data>
+        <Footer Ref="22" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3.6,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="8">
+            <FooterListOfAthlete_Expertise Ref="23" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <ClientRectangle>0,1.4,3.4,2.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterListOfAthlete_Expertise</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterListOfAthlete_Expertise>
+            <FooterListOfAthlete_ShWorkTitle Ref="24" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <ClientRectangle>3.4,1.4,3.4,2.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterListOfAthlete_ShWorkTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterListOfAthlete_ShWorkTitle>
+            <FooterListOfAthlete_StationTitle Ref="25" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <ClientRectangle>6.8,1.4,3.4,2.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterListOfAthlete_StationTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterListOfAthlete_StationTitle>
+            <FooterListOfAthlete_PSazmaniTitle Ref="26" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <ClientRectangle>10.2,1.4,3.4,2.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterListOfAthlete_PSazmaniTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterListOfAthlete_PSazmaniTitle>
+            <FooterListOfAthlete_DegreeName Ref="27" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <ClientRectangle>13.6,1.4,3.4,2.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterListOfAthlete_DegreeName</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterListOfAthlete_DegreeName>
+            <FooterListOfAthlete_Age Ref="28" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <ClientRectangle>17,1.4,3.4,2.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterListOfAthlete_Age</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterListOfAthlete_Age>
+            <FooterListOfAthlete_FullName Ref="29" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <ClientRectangle>20.4,1.4,3.4,2.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterListOfAthlete_FullName</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterListOfAthlete_FullName>
+            <FooterListOfAthlete_Picture Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;True;4;Black</Border>
+              <Brush>[221:217:195]</Brush>
+              <ClientRectangle>23.8,1.4,4,2.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterListOfAthlete_Picture</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterListOfAthlete_Picture>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>Footer</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </Footer>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>1b3e5031b94748c1a6254e23ebfd904b</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <Report isRef="0" />
+      <Watermark Ref="31" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="32" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>12/21/2017 12:38:29 PM</ReportChanged>
+  <ReportCreated>12/21/2017 9:14:39 AM</ReportCreated>
+  <ReportFile>C:\Users\hstaghia\Desktop\ListAthelete.mrt</ReportFile>
+  <ReportGuid>4e7f9a349bb3445087ada0f4ccf4a29f</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2014.3.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

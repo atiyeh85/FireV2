@@ -1,0 +1,144 @@
+﻿@model FireV2.ViewModels.AthleteHistoryVM
+@{
+    Layout = null;
+
+}
+<style>
+    a {
+        color: #903c32;
+        text-decoration: none;
+    }
+
+    .panel {
+        background-color: rgba(153, 121, 100, 0.4);
+    }
+</style>
+<div class="row  " style="">
+    <div class="col-sm-6 ">
+        @*@if (Model.DissList != 1)
+        {
+            <input type="checkbox" @(Model.IndividualOperations ? "checked" : "")> <label for="">عملیات انفرادی</label> <a class="controls glyphicon glyphicon-edit fa-3x" style="color:#e76615;" href="/IndividualHistories/Create/@Model.PeriodId?atid=@Model.AthleteId">@(Model.IndividualOperations ? " " : " ")</a>
+        }
+        else
+        {
+            <p>غیر فعال به دلیل انصراف از عملیات انفرادی</p>
+        }*@
+        <br />
+        <input type="checkbox" @(Model.PhysicalReadiness ? "checked" : "")> <label for="">آمادگی جسمانی</label> <a class="controls glyphicon glyphicon-edit fa-3x" style="color:#c8b028;" href="/PhysicalExamHistories/Create/@Model.PeriodId?atid=@Model.AthleteId">@(Model.PhysicalReadiness ? " " : " ")</a>
+        <br />
+        <input type="checkbox" @(Model.SportsScore ? "checked" : "")> <label for=""> امتیاز تربیت بدنی</label> <a class="controls glyphicon glyphicon-edit fa-3x" style="color:#8e02a9;" href="/SportScoreByPeriods/Create/@Model.PeriodId?atid=@Model.AthleteId">@(Model.SportsScore ? "" : "")</a>
+        <br />
+
+        <input type="checkbox" @(Model.DissUsionPeriod ? "checked" : "")><label for=""> انصراف از آزمون</label>
+         <a class="controls glyphicon glyphicon-edit fa-3x" data-toggle="modal" data-target="#myModalD"  style="color:#17a885;" href="#" data-href="/Dissusion/AddDisTitle//@Model.PeriodId?atid=@Model.AthleteId">@(Model.DissUsionPeriod ? "" : " ") </a>
+        @*<a data-href="/Dissusion/AddDisTitle/15" data-toggle="modal" data-target="#myModalD" class="controls fa  fa fa-trash fa-2x" style="color: #990c0c;" href="#">
+        </a>*@
+    </div>
+   
+    <div class="col-sm-6  ">
+        <div>
+            @if (@Model.Picture != null)
+            {
+                <img class="img-rounded img-responsive" style="position:absolute;left:20px;top:0px;width:220px;height:260px" src="@Url.Content(@Model.Picture)" />
+            }
+            else
+            {
+                <img class="img-rounded img-responsive" id="image_preview" style="position:absolute;left:20px;top:0px;width:220px;height:260px" alt="" src="" />
+            }
+        </div>
+    </div>
+    <div class="col-md-12"  id="DisList">
+        @Html.Action("GetDisTitle", "Dissusion", new { id = Model.AthleteId })
+
+     
+    </div>
+</div>
+<div class="modal fade " id="myModalD" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #d4e3c6">
+                <button type="button" class="close" data-dismiss="modal" aria-label="بستن"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">  ثبت انصراف از آزمون  </h4>
+            </div>
+            <div class="modal-body">
+                <div id="modal-body-form">
+                </div>
+            </div>
+            <div class="modal-footer" style="background-color: #d4e3c6">
+                <button type="submit" class="btn btn-success" data-dismiss="modal" id="btnSaveD">
+                    <span class="glyphicon glyphicon-ok"></span> ذخیره
+                </button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span> بستن
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#eee">
+                <button type="button" class="close" data-dismiss="modal" aria-label="بستن"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">پیغام سیستم</h4>
+            </div>
+            <div class="modal-body">
+                <div id="modal-body-form">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    $('#myModalD').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        $('#modal-body-form').html('');
+        $('#modal-body-form').load($(button).attr('data-href'));
+    });
+
+    $(document).delegate('#DissTypeid', 'change', function (e) {
+        $('#details').load("/Dissusion/InfoDisTitleTypes/" + $(this).val()+'?&atid='+@Model.AthleteId);
+    });
+    $('#myModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        $('#modal-body-form').html('');
+        $('#modal-body-form').load($(button).attr('data-href'));
+    });
+    $(document).delegate('#btnSaveD', 'click', function (e) {
+        e.preventDefault();
+        $('#detailsInputs').html('');
+        var i = 0;
+
+        $('input[type=checkbox].detailsItem').each(function (idx, item) {
+            if ($(item).prop('checked') == true) {
+                var name = "details[" + i + "].";
+                var input = "<input type='hidden' value='" + $(item).val() + "' name='" + name + "DissTitleId' />";
+
+                $('#detailsInputs').append(input);
+
+                i++;
+                console.log("input=" + input);
+            }
+            else {
+                console.log('input not selected');
+            }
+        });
+
+        var form = $("#detailsForm");
+
+        $.ajax({
+            url: $(form).attr('action'),
+            data: $(form).serialize(),
+            method: 'post',
+            success: function (data) {
+                if (data == 'true') {
+                    $('#DisList').load('/Dissusion/GetDocTitle/'+@Model.AthleteId);
+                }
+            }
+        });
+    });
+
+</script>

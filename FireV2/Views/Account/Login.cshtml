@@ -1,0 +1,126 @@
+﻿@using FireV2.Models
+@model LoginViewModel
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap-rtl.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<script src="~/footer/assets/demo.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#side-one p").delay(1500).animate({ opacity: 1 }, 600);
+    });
+</script>
+
+
+<style>
+    body {
+        padding-top: 0px;
+    }
+
+    .row {
+        padding-top: 0px;
+    }
+
+    .st9 {
+        text-align: center;
+        font-size: large;
+    }
+
+    .panel-default > .panel-heading {
+        color: #ddd;
+        background-color: #971f00;
+        border-color: #ddd;
+    }
+</style>
+<img src="~/Content/Banner.jpg" width="100%" class="img-responsive" />
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form" }))
+{@Html.AntiForgeryToken()
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading st9">
+                    احراز هویت
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-8 col-lg-offset-2">
+                                <span class="fa fa-star faa-wrench animated " style="color:#a70808"></span>
+                                کلمه عبور
+                                <div style="">
+                                    <div class="input-group" style="margin-bottom: 10px">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-user-circle-o fa-2x">
+                                            </i>
+                                        </span>
+                                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control input-lg", placeholder = " نام کاربری   ", autocomplete = "off" })
+                                    </div>
+                                    <b>
+                                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                    </b>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-lg-offset-2">
+                                <span class="fa fa-star faa-wrench animated " style="color:#a70808"></span>
+                                کلمه عبور
+                                <div style="">
+                                    <div class="input-group" style="margin-bottom: 10px">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-user-circle-o fa-2x">
+                                            </i>
+                                        </span>
+                                        @Html.PasswordFor(model => model.Password, new { @class = "form-control input-lg", placeholder = " کلمه عبور   ", autocomplete = "off" })
+                                    </div>
+                                    <b>
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-success" value="ورود">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+
+        $(function () {
+
+            $('#login-form-link').click(function (e) {
+                $("#login-form").delay(100).fadeIn(100);
+                $("#register-form").fadeOut(100);
+                $('#register-form-link').removeClass('active');
+                $(this).addClass('active');
+                e.preventDefault();
+            });
+            $('#register-form-link').click(function (e) {
+                $("#register-form").delay(100).fadeIn(100);
+                $("#login-form").fadeOut(100);
+                $('#login-form-link').removeClass('active');
+                $(this).addClass('active');
+                e.preventDefault();
+            });
+
+        });
+
+    </script>
+}

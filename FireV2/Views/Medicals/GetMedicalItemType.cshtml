@@ -1,0 +1,49 @@
+﻿@model IEnumerable<FireV2.Models.MedicalTitleType>
+@{
+    ViewBag.Title = "..::..";
+    var MedicalTitleType = (List<FireV2.Models.MedicalTitleType>)ViewBag.List;
+    //var List = (List<int>)ViewBag.List;
+
+}
+<style>
+    .False {
+        background-color: red;
+    }
+
+    .True {
+        background-color: blue;
+    }
+
+    .disabled {
+        cursor: not-allowed;
+        color: #ebebeb;
+    }
+
+    .sgloc {
+        list-style: none;
+    }
+
+        .Medical li {
+            float: right;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+</style>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <ul class="Medical">
+
+            @foreach (var item in ViewBag.List)
+            {
+                string cls = "";
+                //if (List.Contains(item.HojTitleId))
+                //{ cls = "disabled"; }
+                <li>
+                    <input type="checkbox" class="detailsItem" value="@item.MTitleTypeid" /><label class="control-label">@item.MTType</label>
+                </li>
+
+            }
+        </ul>
+
+    </div>
+</div>

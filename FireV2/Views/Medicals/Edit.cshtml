@@ -1,0 +1,70 @@
+﻿@model FireV2.Models.Medical
+
+@{
+    ViewBag.Title = "..:::..";
+    var Athlete = ViewBag.Athlete;
+    Layout = null;
+    var list = (List<FireV2.Models.MedicalTitleType>)ViewBag.list;
+    var Listselected = (List<int>)ViewBag.Listselected;
+}
+
+
+@using (Html.BeginForm("Edit", "Medicals", FormMethod.Post, new { id = "form-Eitems", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal ">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <input type="hidden" name="Athlete" value="@Athlete" />
+        @Html.HiddenFor(model => model.Medicalid)
+        @Html.HiddenFor(model => model.Medicalid)
+        @Html.HiddenFor(model => model.UserInsert)
+       
+        <div class="panel panel-default ">
+            <div class="panel-heading">
+                <b> پرونده سلامت  آتشنشان @Model.Athlete.FullName </b>     
+            </div>
+            <div class="panel-body">
+                <div class="row ">
+                    <div class="col-md-12">
+                        دوره
+                        @Html.DropDownList("PeriodId", null, "---دوره   --- ", new { @class = "form-control input-lg" })
+                    </div>
+                    <div class="col-md-12">
+                        نوع تست
+                        @Html.DropDownList("TypeOfTestId", null, "---نوع تست   --- ", new { @class = "form-control input-lg" })
+                    </div>
+                    <div class="col-md-12 ">
+                        عنوان معاینات ادواری
+                        @Html.DropDownList("MedicalItemid", null, "---عنوان معاینات ادواری   --- ", new { @class = "form-control input-lg", onchange = @"CallChangefunc(this.value);" })
+
+
+                    </div>
+                    <div class="col-md-12 ">
+                        <br />
+                        شرح معاینات
+                        <div id="div-MedicalItemTypeE">
+                            @foreach (var li in list)
+                            {
+                                <input type="checkbox" class="detailsItem"  value="@li.MTitleTypeid" @(Listselected.Contains(li.MTitleTypeid) ? "checked" : "") />
+                                <label>
+                                    <b>
+                                        @li.MTType &nbsp;&nbsp;&nbsp;&nbsp;
+                                    </b>
+                                </label>
+                            }
+                        </div>
+                        <br />
+
+                    </div>
+                    <br />
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+   
+}

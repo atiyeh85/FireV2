@@ -1,0 +1,301 @@
+﻿@model FireV2.Models.PhysicalExamHistory
+
+@{
+    ViewBag.Title = "..:ثبت آمادگی جسمانی :..";
+
+    int i = 0;
+    string atid = Request.QueryString["atid"];
+    var prid = ViewBag.Id;
+    var Fromdate = ViewBag.Fromdate;
+    var Todate = ViewBag.Todate;
+}
+<style>
+    span {
+        color: #980909;
+    }
+
+    td {
+        padding: 3px;
+    }
+
+    #TotalTimeWorkTime {
+        background-color: #ed8e11;
+    }
+
+    #TotalScore {
+        background-color: #a8a21d;
+    }
+
+    #IndOperTotalFinalOper {
+        background-color: #ed8e11;
+    }
+
+    #TeamWorkScore {
+        background-color: #eee533;
+    }
+
+    #SportsScore {
+        background-color: #eee533;
+    }
+
+    #TeamWorkFaltTime {
+        background-color: red;
+    }
+
+    #IndTotalScore {
+        background-color: #eee533;
+    }
+
+    #TotalPhysicalScore {
+        background-color: #eee533;
+    }
+
+    #div {
+        width: 100%;
+        height: 400px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        border: 1px solid red;
+    }
+
+    #Team {
+        color: #86af20
+    }
+</style>
+<br />
+<br />
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row style3">
+                <div class="col-md-4">
+                    آمادگی جسمانی
+
+                </div>
+                <div class="col-md-3 ">
+                    نام آتشنشان:@Model.Athlete.FullName
+
+                </div>
+                <div class="col-md-5 ">
+                    عنوان دوره   :    @Model.Period.SeasonTitle
+                </div>
+            </div>
+
+        </div>
+        <div class="panel-body">
+            @foreach (var item in (List<FireV2.Models.PhReadinessItemByPeriod>)ViewBag.ItemsByPeriod)
+            {
+                var temp = Model.PhRedinessHistoryItems.Where(m => m.PhReadinessItemId == item.PhReadinessItemId).FirstOrDefault();
+                string prename = "items[" + i.ToString() + "].";
+                <input type="hidden" name="@(prename + "PhReadinessItemId")" value="@item.PhReadinessItemId" />
+                <div class="form-group">
+                    <div class="col-sm-4 ">
+                        <label>@item.PhysicalReadinesitem.PhReadinessItemTitle</label>
+                        <input type="text" name="@(prename + "Time")" value="@(null!=temp? temp.Time:"0")"
+                               class="phritem form-control input-lg" data-itemid="@item.PhReadinessItemId" />
+                        <span>امتیاز : </span>
+                        <span name="@(prename + "Score")" class="lblscore" data-itemid="@item.PhReadinessItemId"
+                              style="font-weight:bold">@(null != temp ? temp.Score : 0)</span>
+                        <input type="hidden" name="@(prename + "Score")" value="@(null!=temp? temp.Score: 0)"
+                               class="phrscore" data-itemid="@item.PhReadinessItemId" />
+                    </div>
+                </div>
+
+                i++;
+            }
+        </div>
+    </div>
+    <div class="form-horizontal panel panel-default">
+        @Html.HiddenFor(model => model.AthleteId)
+        @Html.HiddenFor(model => model.PeriodId)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="panel-body">
+            <div class="row ">
+
+                <div class="col-sm-3 container">
+                    <label>امتیاز آمادگی جسمانی</label>
+                    @Html.EditorFor(model => model.TotalPhysicalScore, new { htmlAttributes = new { @class = "form-control input-lg" } })
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-sm-3 container">
+                    <label> زمان عملیات انفرادی</label>
+                    <br />
+                    <b id="Team">
+                        @ViewBag.teamScore
+                    </b>
+                </div>
+                <label> زمان عملیات خطا انفرادی</label>
+                <br />
+                <b id="Team">
+                    @ViewBag.errortime
+                </b>
+            </div>
+
+            <div class="col-sm-3 container">
+                <label> زمان کل عملیات انفرادی</label>
+
+                @Html.EditorFor(model => model.IndOperTotalFinalOper, new { htmlAttributes = new { @class = "form-control input-lg" } })
+            </div>
+            <div class="col-sm-3 container">
+                <label> امتیاز عملیات انفرادی</label>
+                @Html.EditorFor(model => model.IndTotalScore, new { htmlAttributes = new { @class = "form-control input-lg" } })
+            </div>
+        </div>
+
+        <div class="row ">
+            @if (ViewBag.PhDis != true)
+            {
+                <div class="col-sm-3 ">
+                    <label> زمان عملیات تیمی</label>
+                    @Html.EditorFor(model => model.TeamWorkTime, new { htmlAttributes = new { @class = "form-control input-lg" } })
+                </div>
+
+                <div class="col-sm-3 ">
+                    <label>زمان خطا درعملیات تیمی</label>
+
+                    @Html.EditorFor(model => model.TeamWorkFaltTime, new { htmlAttributes = new { @class = "form-control input-lg" } })
+                </div>
+                <div class="col-sm-3 ">
+                    <label>  زمان کل درعملیات تیمی</label>
+                    @Html.EditorFor(model => model.TotalTimeWorkTime, new { htmlAttributes = new { @class = "form-control input-lg" } })
+                </div>
+                <div class="col-sm-3 ">
+                    <label> امتیاز عملیات تیمی</label>
+                    @Html.EditorFor(model => model.TeamWorkScore, new { htmlAttributes = new { @class = "form-control input-lg" } })
+                </div>
+            }
+            else
+            {
+                <div class="col-sm-3 ">
+                    <label> زمان عملیات تیمی</label>
+                </div>
+
+                <div class="col-sm-3 ">
+                    <label>زمان خطا درعملیات تیمی</label>
+
+                </div>
+                <div class="col-sm-3 ">
+                    <label>  زمان کل درعملیات تیمی</label>
+                </div>
+                <div class="col-sm-3 ">
+                    <label> امتیاز عملیات تیمی</label>
+                    @Html.EditorFor(model => model.TeamWorkScore, new { htmlAttributes = new { @class = "form-control input-lg" } })
+                </div>
+            }
+
+        </div>
+
+        <div class="row ">
+            <div class="col-sm-3 ">
+            </div>
+            <div class="col-sm-3 ">
+            </div>
+            <div class="col-sm-3 ">
+            </div>
+            <div class="col-sm-3 ">
+
+                <label>  امتیاز تربیت بدنی</label>
+                @Html.EditorFor(model => model.SportsScore, new { htmlAttributes = new { @class = "form-control input-lg" } })
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-sm-3 container">
+            </div>
+
+            <div class="col-sm-3 container">
+            </div>
+            <div class="col-sm-3 container">
+            </div>
+            <div class="col-sm-3 container">
+
+                <label>  امتیاز کل</label>
+                @Html.EditorFor(model => model.TotalScore, new { htmlAttributes = new { @class = "form-control input-lg" } })
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-sm-6 container">
+                <label>  توضیحات</label>
+                @Html.TextAreaFor(model => model.PhysicalExamHistoryNote, new { @class = "form-control input-lg ", placeholder = " توضیحات      ", autocomplete = "off" })
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div>
+        @{
+            var Date1 = Fromdate;
+            var Date2 = Todate;
+            var Date = PersianDateTime.Now.ToString(PersianDateTimeFormat.Date);
+        }
+        @*@if (string.Compare(Date, Fromdate) >= 0 && string.Compare(Date,Todate  ) <= 0)
+            {*@
+        <input type="submit" value="ثبت" class="btn btn-default" />
+        @*}*@
+
+
+        <a href="/Athletes/DataEntry/@prid?atid=@atid" style="color:#ffffff" class="elements btn btn-info"><span>بازگشت</span></a>
+    </div>
+}
+@section scripts{
+    <script>
+        $(document).delegate('.phritem', 'change', function () {
+            var input_selector = '.phrscore[data-itemid=' + $(this).attr('data-itemid') + ']';
+            var label_selector = '.lblscore[data-itemid=' + $(this).attr('data-itemid') + ']';
+            var url = '/PhysicalExamHistories/GetScoreByTime?id=' + $(this).attr('data-itemid') + '&time=' + $(this).val() + '&atid=@atid' + '&prid=@prid';
+            $.ajax({
+                type: 'get',
+                url: url,
+                data: null,
+                success: function (data) {
+                    $(input_selector).val(data);
+                    $(label_selector).text(data);
+                    var total = 0;
+                    $('.phrscore').each(function (item) {
+                        total += ToFloat($(this).val());
+                    });
+                    $('#TotalPhysicalScore').val(total);
+                    $('#TotalPhysicalScore').trigger('keyUp');
+                }
+            })
+        });
+        $(document).delegate('#TeamWorkTime', 'change', function (e) {
+            var totalTime = ToFloat($('#TeamWorkTime').val()) + ToFloat($('#TeamWorkFaltTime').val());
+            $('#TotalTimeWorkTime').val(totalTime.toFixed(2));
+            $('#TotalTimeWorkTime').trigger('change');
+        });
+        $(document).delegate('#TeamWorkFaltTime', 'change', function (e) {
+            var totalTime = ToFloat($('#TeamWorkTime').val()) + ToFloat($('#TeamWorkFaltTime').val());
+            $('#TotalTimeWorkTime').val(totalTime.toFixed(2));
+            $('#TotalTimeWorkTime').trigger('change');
+        });
+        $(document).delegate('#TotalTimeWorkTime', 'change', function () {
+            var url = '/PhysicalExamHistories/GetTeamScoreByTime?id=' +@prid + '&time=' + $(this).val();
+            $.ajax({
+                type: 'get',
+                url: url,
+                data: null,
+                success: function (data) {
+                    $('#TeamWorkScore').val(data);
+                    $('#TeamWorkScore').trigger('change');
+                }
+            })
+        });
+        $(document).delegate('#TotalPhysicalScore, #TeamWorkScore, #SportsScore, #IndTotalScore', 'keyUp', function (e) {
+            var total = ToFloat($('#TotalPhysicalScore').val()) + ToFloat($('#TeamWorkScore').val()) + ToFloat($('#SportsScore').val()) + ToFloat($('#IndTotalScore').val());
+            $('#TotalScore').val(total);
+        });
+        function ToFloat(input) {
+            return parseFloat(input.replace('/', '.'));
+        }
+        function ToFloatString(input) {
+            return input.toString().replace('.', '/');
+        }
+    </script>
+}

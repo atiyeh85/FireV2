@@ -1,0 +1,79 @@
+﻿@model IEnumerable<FireV2.ViewModels.AthleteReportVM>
+
+@{
+    ViewBag.Title = "Report";
+    var list = (List<FireV2.Models.Athlete>)ViewBag.ListAthlete;
+    var distinct = Model.Select(s => s.AthleteId).Distinct();
+
+    List<FireV2.ViewModels.AthleteRatingVM> Rates = new List<FireV2.ViewModels.AthleteRatingVM>()
+    {
+        new FireV2.ViewModels.AthleteRatingVM() { minAge=29, maxAge=35,minTotalScore=0, maxTotalScore=500, Rate="bad" },
+        new FireV2.ViewModels.AthleteRatingVM() { minAge=29, maxAge=35,minTotalScore=500, maxTotalScore=800, Rate="medium" },
+        new FireV2.ViewModels.AthleteRatingVM() { minAge=29, maxAge=35,minTotalScore=800, maxTotalScore=900, Rate="good" },
+        new FireV2.ViewModels.AthleteRatingVM() { minAge=29, maxAge=35,minTotalScore=900, maxTotalScore=double.MaxValue, Rate="Perfect" },
+        new FireV2.ViewModels.AthleteRatingVM() { minAge=36, maxAge=40,minTotalScore=0, maxTotalScore=400, Rate="bad" },
+        new FireV2.ViewModels.AthleteRatingVM() { minAge=36, maxAge=40,minTotalScore=400, maxTotalScore=600, Rate="medium" },
+        new FireV2.ViewModels.AthleteRatingVM() { minAge=36, maxAge=40,minTotalScore=600, maxTotalScore=700, Rate="good" },
+        new FireV2.ViewModels.AthleteRatingVM() { minAge=36, maxAge=40,minTotalScore=700, maxTotalScore=double.MaxValue, Rate="Perfect" },
+    };
+}
+
+
+
+
+   
+    <div class="panel-body">
+        <table class="table table-bordered">
+            <tr>
+                
+                <th>
+                 نام نام خانوادگی
+                </th>
+                <th>
+                   سن
+                </th>
+                <th>
+                   مجموع امتیازات
+                </th>
+            </tr>
+
+            @foreach (var item in distinct)
+            {
+                //int age = int.Parse(FireV2.Utility.PertionDate.GetAge(item.Birthdate));
+
+                var age = list.Where(m => m.AthleteId == item).Select(m => m.Birthdate).FirstOrDefault();
+                //int age = int.Parse(_age);
+                //var rate = Rates.Where(r => age >= r.minAge && age <= r.maxAge && item.TotalScore >= r.minTotalScore && item.TotalScore <= r.maxTotalScore).FirstOrDefault();
+                //if (rate == null)
+                //{ rate = Rates.FirstOrDefault(); }
+
+                //string prclass = "pr-low";
+                //if (rate.Rate == "good")
+                //{
+                //    prclass = "pr-good";
+                //}
+                //else if (rate.Rate == "medium")
+                //{
+                //    prclass = "pr-medium";
+                //}
+                //else if (rate.Rate == "Perfect")
+                //{
+                //    prclass = "pr-Perfect";
+                //}
+                <tr >
+                    <td>
+                        @Model.Where(s => s.AthleteId == item).FirstOrDefault().Name
+                    </td>
+                    <td>
+                        @FireV2.Utility.PertionDate.GetAge(age.ToString())
+                    </td>
+
+                    <td>
+                        @Model.Where(s => s.AthleteId == item).Sum(s => s.TotalScore)
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>

@@ -1,0 +1,1072 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{72D2BB0A-CAB7-4E98-ABEF-B2952D07324C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FireV2</RootNamespace>
+    <AssemblyName>FireV2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44354</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LibExcel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.LibExcel.2022.4.1\lib\net452\LibExcel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcFileUploader, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcFileUploader.1.3.6\lib\40\MvcFileUploader.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Base, Version=2023.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2023.2.2\lib\net472\Stimulsoft.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Blockly, Version=2023.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2023.2.2\lib\net472\Stimulsoft.Blockly.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Data, Version=2023.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2023.2.2\lib\net472\Stimulsoft.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Map, Version=2023.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2023.2.2\lib\net472\Stimulsoft.Map.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report, Version=2023.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2023.2.2\lib\net472\Stimulsoft.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Check, Version=2023.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2023.2.2\lib\net472\Stimulsoft.Report.Check.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Helper, Version=2023.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Engine.2023.2.2\lib\net472\Stimulsoft.Report.Helper.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Mvc, Version=2023.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Web.2023.2.2\lib\net472\Stimulsoft.Report.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Web, Version=2023.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Web.2023.2.2\lib\net472\Stimulsoft.Report.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.WebDesign, Version=2023.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Reports.Web.2023.2.2\lib\net472\Stimulsoft.Report.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Svg, Version=2023.2.2.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stimulsoft.Svg.2023.2.2\lib\net472\Stimulsoft.Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.2.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.2.2\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.2.2\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.2.2\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.2.2\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.2.2\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.2.2\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArchivesController.cs" />
+    <Compile Include="Controllers\AthletesController.cs" />
+    <Compile Include="Controllers\AthTypeMedicalsController.cs" />
+    <Compile Include="Controllers\BMIsController.cs" />
+    <Compile Include="Controllers\DissusionController.cs" />
+    <Compile Include="Controllers\DocTypeAtheletsController.cs" />
+    <Compile Include="Controllers\FileUploadsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndividualHistoriesController.cs" />
+    <Compile Include="Controllers\InfoDocumentTitleTypesController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MedicalsController.cs" />
+    <Compile Include="Controllers\MvcUploaderTestController.cs" />
+    <Compile Include="Controllers\PeriodsController.cs" />
+    <Compile Include="Controllers\PhReadinessItemByPeriodsController.cs" />
+    <Compile Include="Controllers\PhRedinessHistoryItemsController.cs" />
+    <Compile Include="Controllers\phRItemsPoints1Controller.cs" />
+    <Compile Include="Controllers\phRItemsPointsController.cs" />
+    <Compile Include="Controllers\PhysicalExamHistoriesController.cs" />
+    <Compile Include="Controllers\RengAthleteInPeriodsController.cs" />
+    <Compile Include="Controllers\SportScoreByPeriodsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AgeRenge.cs" />
+    <Compile Include="Models\Archive.cs" />
+    <Compile Include="Models\Athlete.cs" />
+    <Compile Include="Models\AthTypeMedical.cs" />
+    <Compile Include="Models\BMI.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Degree.cs" />
+    <Compile Include="Models\DissType.cs" />
+    <Compile Include="Models\DissuasionsTitle.cs" />
+    <Compile Include="Models\Dissusion.cs" />
+    <Compile Include="Models\DissusionItemByPeroid.cs" />
+    <Compile Include="Models\DocTypeAthelet.cs" />
+    <Compile Include="Models\EditTable.cs" />
+    <Compile Include="Models\EmployeeStatu.cs" />
+    <Compile Include="Models\EmployeType.cs" />
+    <Compile Include="Models\FileUpload.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IndividualHistory.cs" />
+    <Compile Include="Models\IndividualOperationItem.cs" />
+    <Compile Include="Models\IndivisualOperationHistoryItem.cs" />
+    <Compile Include="Models\IndOperationItemsByPeriod.cs" />
+    <Compile Include="Models\IndOperationPoint.cs" />
+    <Compile Include="Models\InfoDocumentTitle.cs" />
+    <Compile Include="Models\InfoDocumentTitleType.cs" />
+    <Compile Include="Models\IsAbsent.cs" />
+    <Compile Include="Models\JsonResponseFactory.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MaritalStatu.cs" />
+    <Compile Include="Models\MAthleteByPeriod.cs" />
+    <Compile Include="Models\Medical.cs" />
+    <Compile Include="Models\MedicalExam.cs" />
+    <Compile Include="Models\MedicalItem.cs" />
+    <Compile Include="Models\MedicalTitleType.cs" />
+    <Compile Include="Models\MRecord.cs" />
+    <Compile Include="Models\MyAction.cs" />
+    <Compile Include="Models\Occupationalfield.cs" />
+    <Compile Include="Models\Ostan.cs" />
+    <Compile Include="Models\PackPackInd.cs" />
+    <Compile Include="Models\PackPointTeam.cs" />
+    <Compile Include="Models\Period.cs" />
+    <Compile Include="Models\PhReadinessItemByPeriod.cs" />
+    <Compile Include="Models\PhRedinessHistoryItem.cs" />
+    <Compile Include="Models\phRItemsPoint.cs" />
+    <Compile Include="Models\PhysicalEducation.cs" />
+    <Compile Include="Models\PhysicalEducationItem.cs" />
+    <Compile Include="Models\PhysicalExamHistory.cs" />
+    <Compile Include="Models\PhysicalReadinesitem.cs" />
+    <Compile Include="Models\PostSazmani.cs" />
+    <Compile Include="Models\RengAthleteInPeriod.cs" />
+    <Compile Include="Models\RoleAction.cs" />
+    <Compile Include="Models\Season.cs" />
+    <Compile Include="Models\Semat.cs" />
+    <Compile Include="Models\Share.cs" />
+    <Compile Include="Models\ShiftWork.cs" />
+    <Compile Include="Models\SportScoreByPeriod.cs" />
+    <Compile Include="Models\SportsScoreTitle.cs" />
+    <Compile Include="Models\Station.cs" />
+    <Compile Include="Models\StoreDb.cs" />
+    <Compile Include="Models\TeamByPeriod.cs" />
+    <Compile Include="Models\TeamWorkPoint.cs" />
+    <Compile Include="Models\TeamWorkTitle.cs" />
+    <Compile Include="Models\TypeOfExam.cs" />
+    <Compile Include="Models\TypeOfTest.cs" />
+    <Compile Include="Models\Unjustified.cs" />
+    <Compile Include="Models\UserAction.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Utility\DateTimeExtension.cs" />
+    <Compile Include="Utility\PersionCulture.cs" />
+    <Compile Include="Utility\PertionDate.cs" />
+    <Compile Include="Utility\UAC.cs" />
+    <Compile Include="ViewModels\AthleteHistoryVM.cs" />
+    <Compile Include="ViewModels\AthleteRatingVM.cs" />
+    <Compile Include="ViewModels\AthleteReportVM.cs" />
+    <Compile Include="ViewModels\AthlVm.cs" />
+    <Compile Include="ViewModels\ListAtheletevm.cs" />
+    <Compile Include="ViewModels\MedicalVm.cs" />
+    <Compile Include="ViewModels\PhysicalHistoryReportVM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Banner.jpg" />
+    <Content Include="Content\bootstrap-rtl.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\buttons.dataTables.css" />
+    <Content Include="Content\buttons.dataTables.min.css" />
+    <Content Include="Content\dataTables.bootstrap.css" />
+    <Content Include="Content\dataTables.bootstrap.min.css" />
+    <Content Include="Content\dataTables.bootstrap4.css" />
+    <Content Include="Content\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\dataTables.foundation.css" />
+    <Content Include="Content\dataTables.foundation.min.css" />
+    <Content Include="Content\dataTables.jqueryui.css" />
+    <Content Include="Content\dataTables.jqueryui.min.css" />
+    <Content Include="Content\dataTables.material.css" />
+    <Content Include="Content\dataTables.material.min.css" />
+    <Content Include="Content\dataTables.semanticui.css" />
+    <Content Include="Content\dataTables.semanticui.min.css" />
+    <Content Include="Content\dataTables.uikit.css" />
+    <Content Include="Content\dataTables.uikit.min.css" />
+    <Content Include="Content\FileUpload\02.jpg" />
+    <Content Include="Content\FileUpload\06.jpg" />
+    <Content Include="Content\FileUpload\1397-04-10\1184\img0\pic.png" />
+    <Content Include="Content\FileUpload\1397-04-11\1184\img0\pic - Copy.png" />
+    <Content Include="Content\FileUpload\1397-04-11\1184\img0\pic.png" />
+    <Content Include="Content\FileUpload\1397-04-12\1184\img0\pic - Copy.png" />
+    <Content Include="Content\FileUpload\1397-04-13\1184\02.jpg" />
+    <Content Include="Content\FileUpload\1397-04-13\1184\06.jpg" />
+    <Content Include="Content\FileUpload\1397-04-17\1179\06.jpg" />
+    <Content Include="Content\FileUpload\1397-05-09\1184\thumb-01.jpg" />
+    <Content Include="Content\FileUpload\thumb-01.jpg" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Gridmvc.css" />
+    <Content Include="Content\ImageUpload\1348-01-02\70775-اکبر بهبودی\بهبودی %282%29.jpg" />
+    <Content Include="Content\ImageUpload\1349-12-10\70730-علی شیر بابا\علی شیر بابا.jpg" />
+    <Content Include="Content\ImageUpload\1351-06-05\72317-حسین حاجی آقاسی\آقاسی.jpg" />
+    <Content Include="Content\ImageUpload\1351-06-05\72317-حسین حاجی آقاسی\حسین حاجی آقاسی.jpg" />
+    <Content Include="Content\ImageUpload\1351-11-15\70936-عباس مصباحی آینده\مصباحی.jpg" />
+    <Content Include="Content\ImageUpload\1352-01-01\70745-کامبخش کریمی\کامبخش کریمی.jpg" />
+    <Content Include="Content\ImageUpload\1352-12-12\546645-نتل هعب\شیخی.jpg" />
+    <Content Include="Content\ImageUpload\1353-01-01\72316-محمد حسن قدیمی\قدیمی.jpg" />
+    <Content Include="Content\ImageUpload\1353-01-01\72453-شهرام اکبری\شهرام اکبری.jpg" />
+    <Content Include="Content\ImageUpload\1354-06-20\72319-اکبر برزگر\اکبر برزگر.jpg" />
+    <Content Include="Content\ImageUpload\1354-6-20\11-ضضض ضض\شیخی.jpg" />
+    <Content Include="Content\ImageUpload\1355-03-09\72455-اکبر  شیخی\شیخی.jpg" />
+    <Content Include="Content\ImageUpload\1355-03-1\11-شش شش\سعید شهسواری.jpg" />
+    <Content Include="Content\ImageUpload\1355-03-1\72453-شهرام  اکبری\شهرام اکبری.jpg" />
+    <Content Include="Content\ImageUpload\1355-06-01\73655-محمد  چگینی\image-41a48077e071c168d87b73960876e71f1f2f6367f7f3512a9e2e21591730fe2d-V.jpg" />
+    <Content Include="Content\ImageUpload\1355-06-01\73655-محمد چگینی\چگینی %282%29.jpg" />
+    <Content Include="Content\ImageUpload\1355-06-01\73655-محمد چیگینی\چگینی %282%29.jpg" />
+    <Content Include="Content\ImageUpload\1355-3-09\72455-اکبر  شیخی\شیخی.jpg" />
+    <Content Include="Content\ImageUpload\1356-06-06\72875-تقی کریمی\کریمی.jpg" />
+    <Content Include="Content\ImageUpload\1356-06-29\72314-حمید عبدی\عبدی.jpg" />
+    <Content Include="Content\ImageUpload\1356-09-20\72450-محرمعلی حیدری\حیدری.jpg" />
+    <Content Include="Content\ImageUpload\1356-11-01\72474-مظاهر یوسفی\یوسفی.jpg" />
+    <Content Include="Content\ImageUpload\1356-12-26\72319-رضا شیخلر\رضا شیخلر.jpg" />
+    <Content Include="Content\ImageUpload\1356-12-26\73550-مسلم چریکی\چریکی.jpg" />
+    <Content Include="Content\ImageUpload\135612-26\72319-رضا شیخلر\رضا شیخلر.jpg" />
+    <Content Include="Content\ImageUpload\1357-01-02\72451-علی نعمتی فرد\علی نعمتی فر.jpg" />
+    <Content Include="Content\ImageUpload\1357-04-01\72452-محمد علی غلامی روچی\محمد غلامی.jpg" />
+    <Content Include="Content\ImageUpload\1357-07-01\74172-بهرام سروری\سروری.jpg" />
+    <Content Include="Content\ImageUpload\1357-08-10\73564-حسین شریفی\شریفی.jpg" />
+    <Content Include="Content\ImageUpload\1358-06-13\73561-امید معروفخانی\امید معروفخانی.jpg" />
+    <Content Include="Content\ImageUpload\1358-07-01\72454-علیرضا رحمانی\رحمانی.jpg" />
+    <Content Include="Content\ImageUpload\1358-10-26\73558-محمد رضا نوری\محمد رضا نوری.jpg" />
+    <Content Include="Content\ImageUpload\1358-12-15\73565-محمد اکبرپور\اکبرپور.jpg" />
+    <Content Include="Content\ImageUpload\1359-01-01\74360-مسعود محمدی\مسعود محمدی.jpg" />
+    <Content Include="Content\ImageUpload\1359-02-15\73548-مجید قانع\قانع.jpg" />
+    <Content Include="Content\ImageUpload\1359-02-23\74118-رضا دادجوی شاه مردانی\دادجو.jpg" />
+    <Content Include="Content\ImageUpload\1359-06-05\74120-روح الله  سهرابی نودهی\سهرابی.jpg" />
+    <Content Include="Content\ImageUpload\1359-07-01\74115-محمد علی همتی\همتی.jpg" />
+    <Content Include="Content\ImageUpload\1359-08-20\74236-محسن پارسایی مهر\پارسایی مهر.jpg" />
+    <Content Include="Content\ImageUpload\1359-10-23\74335-ابوالفضل نعمتی\ابوالفضل نعمتی.jpg" />
+    <Content Include="Content\ImageUpload\1359-12-06\74377-کریم زینلی\کریم زینلی.jpg" />
+    <Content Include="Content\ImageUpload\1360-02-03\74170-اصغر گودرزوندچیگینی\اصغر چگینی.jpg" />
+    <Content Include="Content\ImageUpload\1360-03-04\74302-یاسر شکوری\شکوری.jpg" />
+    <Content Include="Content\ImageUpload\1360-03-09\74317-جواد احمدی\احمدی.jpg" />
+    <Content Include="Content\ImageUpload\1360-03-29\74278-روح الله نعمتی فرد\.روح اله نعمتی فر.jpg" />
+    <Content Include="Content\ImageUpload\1360-03-31\74339-سیدجمال حسینی\حسینی.jpg" />
+    <Content Include="Content\ImageUpload\1360-04-26\74380-محمد گنجی\گنجی.jpg" />
+    <Content Include="Content\ImageUpload\1360-08-02\74316-حمزه کریمی\حمزه کریمی.jpg" />
+    <Content Include="Content\ImageUpload\1360-09-15\74322-هاشم پیرمردوند چگینی\هاشم چگینی.jpg" />
+    <Content Include="Content\ImageUpload\1361-01-20\73556-امید خوئینی\خوئینی.jpg" />
+    <Content Include="Content\ImageUpload\1361-01-29\74334-بهرام زلف خانی\زلفخانی.jpg" />
+    <Content Include="Content\ImageUpload\1361-05-06\74330-عباس غلامی\عباس غلامی.jpg" />
+    <Content Include="Content\ImageUpload\1361-06-01\74282-میثم پورخانعلی\میثم پورخانعلی.jpg" />
+    <Content Include="Content\ImageUpload\1361-06-25\73549-مرتضی روزبه\روزبه.jpg" />
+    <Content Include="Content\ImageUpload\1361-06-27\73547-حمید رضا ململی\حمید ململی %284%29.jpg" />
+    <Content Include="Content\ImageUpload\1361-06-29\74313-حمید رضا کیان مهر\حمید کیانمهر.jpg" />
+    <Content Include="Content\ImageUpload\1361-06-30\74277-مرتضی دلسوز چهارده\مرتضی دلسوز چهارده.jpg" />
+    <Content Include="Content\ImageUpload\1361-07-01\73554-مجید بیگدلی\بیگدلی.jpg" />
+    <Content Include="Content\ImageUpload\1361-07-04\74325-ابوالفضل حاجی\حاجی..jpg" />
+    <Content Include="Content\ImageUpload\1361-07-05\74333-اسماعیل ملک محمدی\ملک محمدی.jpg" />
+    <Content Include="Content\ImageUpload\1361-07-09\73557-مرتضی جمالی\جمالی.jpg" />
+    <Content Include="Content\ImageUpload\1361-09-03\74238-محمد عباسقلیان\عباسقلیان.jpg" />
+    <Content Include="Content\ImageUpload\1361-10-08\1-aaa aa\اسپرورینی.jpg" />
+    <Content Include="Content\ImageUpload\1361-10-08\74395-قادر اصلان گیر\قادر اصلان گیر.jpg" />
+    <Content Include="Content\ImageUpload\1361-11-19\74329-مجتبی صفدری\صفدری.jpg" />
+    <Content Include="Content\ImageUpload\1361-11-20\73559-سعید شهسواری\سعید شهسواری.jpg" />
+    <Content Include="Content\ImageUpload\1361-12-03\74174-مرتضی اصغری\مرتضی اصغری.jpg" />
+    <Content Include="Content\ImageUpload\1362-01-01\33428800-محمد عباسقلیان\سعید شهسواری.jpg" />
+    <Content Include="Content\ImageUpload\1362-01-01\33428800-محمد عباسقلیان\سهرابی.jpg" />
+    <Content Include="Content\ImageUpload\1362-01-01\33428800-محمد عباسقلیان\محسن هاشمیان.jpg" />
+    <Content Include="Content\ImageUpload\1362-01-01\74353-غلامعلی چیگینی\غلامعلی چگینی.jpg" />
+    <Content Include="Content\ImageUpload\1362-01-15\74285-حسام الدین حق شناس\حق شناس.jpg" />
+    <Content Include="Content\ImageUpload\1362-01-21\74119-حسین دودانگه\دودانگه.jpg" />
+    <Content Include="Content\ImageUpload\1362-01-24\74304-هاشم زهرایی محمد آبادی\.زهرایی.jpg" />
+    <Content Include="Content\ImageUpload\1362-01-24\74304-هاشم زهرایی محمد آبادی\Zahrayi.jpg" />
+    <Content Include="Content\ImageUpload\1362-01-24\74304-هاشم زهرایی محمد آبادی\زهرایی.jpg" />
+    <Content Include="Content\ImageUpload\1362-01-29\74239-جواد بابایی\جواد بابایی.jpg" />
+    <Content Include="Content\ImageUpload\1362-02-11\74234-حامد کشاورز قاسمی\حامد کشاورز قاسمی.jpg" />
+    <Content Include="Content\ImageUpload\1362-02-18\74288-محمد صدیق دوست\صدیق دوست.jpg" />
+    <Content Include="Content\ImageUpload\1362-02-20\74364-مصطفی فلاح ترک\مصطفی فلاح.jpg" />
+    <Content Include="Content\ImageUpload\1362-04-06\74284-حسن اذربایجانی\حسن آذربایجانی.jpg" />
+    <Content Include="Content\ImageUpload\1362-04-18\74336-جواد یاربیگی\یاربیگی.jpg" />
+    <Content Include="Content\ImageUpload\1362-05-01\74237-رضا معروفی\معروفی.jpg" />
+    <Content Include="Content\ImageUpload\1362-06-08\74319-حامد ایوبی\ایوبی.jpg" />
+    <Content Include="Content\ImageUpload\1362-06-10\74310-وحید عبدلی\عبدلی.jpg" />
+    <Content Include="Content\ImageUpload\1362-06-18\74303-مصطفی ثقفی\ثقفی.jpg" />
+    <Content Include="Content\ImageUpload\1362-06-23\74294-سید حسین خورشیدی\خورشیدی.jpg" />
+    <Content Include="Content\ImageUpload\1362-06-28\74171-حسین مبارک ابادی\مبارک آبادی.jpg" />
+    <Content Include="Content\ImageUpload\1362-06-30\74235-حسین روشن منش\روشن منش.jpg" />
+    <Content Include="Content\ImageUpload\1362-08-01\74281-رسول بابایی\بابایی.jpg" />
+    <Content Include="Content\ImageUpload\1362-08-12\74169-محسن خاتونی سلخوری\محسن خاتونی.jpg" />
+    <Content Include="Content\ImageUpload\1362-10-08\74287-صالح عبدالهی\صالح عبدالهی.jpg" />
+    <Content Include="Content\ImageUpload\1362-10-08\74374-مهدی  رضایی\محمدرضایی.jpg" />
+    <Content Include="Content\ImageUpload\1362-10-08\74374-مهدی  رضایی\مهدی رضایی.jpg" />
+    <Content Include="Content\ImageUpload\1362-10-08\74374-مهدی رضایی\محمدرضایی.jpg" />
+    <Content Include="Content\ImageUpload\1362-11-03\74320-مجید بابا\بابا.jpg" />
+    <Content Include="Content\ImageUpload\1362-11-06\74332-مصطفی مددی\مددی.jpg" />
+    <Content Include="Content\ImageUpload\1362-11-17\74286-مهدی حاجی زاده\حاجی زاده.jpg" />
+    <Content Include="Content\ImageUpload\1362-12-07\74117-میثم محمودی\محمودی.jpg" />
+    <Content Include="Content\ImageUpload\1362-12-21\74308-پیمان کلیایی\کلیایی.jpg" />
+    <Content Include="Content\ImageUpload\1363-01-01\74372-رضا رمضانی\رضا رمضانی.jpg" />
+    <Content Include="Content\ImageUpload\1363-01-07\74373-ابوالفضل زینالی\ابوالفضل زینالی.jpg" />
+    <Content Include="Content\ImageUpload\1363-01-22\73551-رضا امیری خسروبیگی\خسروبیگی.jpg" />
+    <Content Include="Content\ImageUpload\1363-02-19\72314-اسماعیل پیرمردوندچیگینی\چگینی.jpg" />
+    <Content Include="Content\ImageUpload\1363-02-20\74356-داود چگینی\داود چگینی.jpg" />
+    <Content Include="Content\ImageUpload\1363-04-01\74298-مهدی امینی\مهدی امینی.jpg" />
+    <Content Include="Content\ImageUpload\1363-04-19\74326-مهدی حسین پور\حسین پور.jpg" />
+    <Content Include="Content\ImageUpload\1363-04-19\74326-مهدی حسین پور\مهدی حسین پور.jpg" />
+    <Content Include="Content\ImageUpload\1363-05-14\74311-حسین سلطانی\حسین سلطانی.jpg" />
+    <Content Include="Content\ImageUpload\1363-06-04\74359-محسن سلیمانی\محسن سلیمانی.jpg" />
+    <Content Include="Content\ImageUpload\1363-06-16\74331-حجت اله کلهر\حجت اله کلهر.jpg" />
+    <Content Include="Content\ImageUpload\1363-08-12\74363-علی شنازندی\علی شنازندی.jpg" />
+    <Content Include="Content\ImageUpload\1363-08-15\74328-ابراهیم دروسمان\دروسمان.jpg" />
+    <Content Include="Content\ImageUpload\1363-09-12\74315-محمد هاشم صفی خانی\صفی خانی.jpg" />
+    <Content Include="Content\ImageUpload\1363-09-13\74292-جعفر مختاری\مختاری.jpg" />
+    <Content Include="Content\ImageUpload\1363-10-12\74280-هادی ربیعی\هادی محمدی.jpg" />
+    <Content Include="Content\ImageUpload\1363-10-20\72429-حسین ابراهیمیان جنکانلو\ابراهیمیان.jpg" />
+    <Content Include="Content\ImageUpload\1363-11-08\74305-جواد افشار\افشار.jpg" />
+    <Content Include="Content\ImageUpload\1364-01-18\74353-علیرضا  محمدرضائی\علی رضا محمد رضایی.jpg" />
+    <Content Include="Content\ImageUpload\1364-02-01\74362-موسی صدری نژاد\موسی صدری نژاد.jpg" />
+    <Content Include="Content\ImageUpload\1364-02-24\74371-جمشید ترازی\جمشید ترازی.jpg" />
+    <Content Include="Content\ImageUpload\1364-03-04\74318-مسعود اکبرپور\مسعود اکبر پور.jpg" />
+    <Content Include="Content\ImageUpload\1364-03-24\74370-مهدی اعتدادی\مهدی اعتدادی.jpg" />
+    <Content Include="Content\ImageUpload\1364-03-31\74306-یوسف برزگر\یوسف برزگر.jpg" />
+    <Content Include="Content\ImageUpload\1364-04-16\74350-حمزه رحمان\حمزه رحمان.jpg" />
+    <Content Include="Content\ImageUpload\1364-04-26\74275-محمود حسین پور\حسین پور.jpg" />
+    <Content Include="Content\ImageUpload\1364-06-14\74299-سید محسن هاشمیان\محسن هاشمیان.jpg" />
+    <Content Include="Content\ImageUpload\1364-06-20\74321-مظاهر خان باباپور ترک\خان بابا پور.jpg" />
+    <Content Include="Content\ImageUpload\1365-03-02\74376-مهیار رحیمی\مهیار رحیمی.jpg" />
+    <Content Include="Content\ImageUpload\1365-04-04\23070-مهدی مردانی\مردانی.jpg" />
+    <Content Include="Content\ImageUpload\1365-04-10\74301-محسن کثیرلو\محسن کثیرلو.jpg" />
+    <Content Include="Content\ImageUpload\1365-06-01\74390-حمید جمالی\حمید جمالی.jpg" />
+    <Content Include="Content\ImageUpload\1365-06-17\74283-حسین محمدی\حسین محمدی.jpg" />
+    <Content Include="Content\ImageUpload\1365-06-24\74366-امیر محمدی ها\امیر محمدی ها.jpg" />
+    <Content Include="Content\ImageUpload\1365-0625\74375-هادی ربیعی\ربیعی.jpg" />
+    <Content Include="Content\ImageUpload\1365-07-03\74357-اسفندیار پیرزاده\اسفندیار پیرزاده.jpg" />
+    <Content Include="Content\ImageUpload\1365-08-04\74390-حمید  جمالی\حمید جمالی.jpg" />
+    <Content Include="Content\ImageUpload\1365-08-04\74393-میر یونس کیائی\میریونس کیائی.jpg" />
+    <Content Include="Content\ImageUpload\1365-10-01\74300-اسماعیل قاسمی\اسماعیل قاسمی.jpg" />
+    <Content Include="Content\ImageUpload\1366-01-30\74369-علی اولادی سلخوری\علی اولادی سلخوری.jpg" />
+    <Content Include="Content\ImageUpload\1366-02-18\74367-مسلم مددخانی\مسلم مددخانی.jpg" />
+    <Content Include="Content\ImageUpload\1366-04-09\2-ششش ششش\محمدخانلو.jpg" />
+    <Content Include="Content\ImageUpload\1366-04-09\74361-مهدی محمد خانلو\محمدخانلو.jpg" />
+    <Content Include="Content\ImageUpload\1366-04-14\79291430-حمید نصیری\حمید نصیری.jpg" />
+    <Content Include="Content\ImageUpload\1366-06-13\74327-عباس خوئینی\عباس خوئینی.jpg" />
+    <Content Include="Content\ImageUpload\1366-06-28\74296-امیر حسین جوانی\امیر حسین جوانی.jpg" />
+    <Content Include="Content\ImageUpload\1366-09-14\74379-سعید گودرزی\سعید گودرزی.jpg" />
+    <Content Include="Content\ImageUpload\1366-09-17\74368-محسن مجیدی لیائی\مجیدی.jpg" />
+    <Content Include="Content\ImageUpload\1367-04-19\74352-حمید نوروزی پلنگه\حمید نوروزی پلنگه.jpg" />
+    <Content Include="Content\ImageUpload\1367-05-13\74315-رضا رفیعی\رضا رفیعی.jpg" />
+    <Content Include="Content\ImageUpload\1367-06-28\74408-امین احمدی\امین احمدی.jpg" />
+    <Content Include="Content\ImageUpload\1367-09-28\74406-سعید نصیری\سعید نصیری.jpg" />
+    <Content Include="Content\ImageUpload\1367-10-26\74400-پویان فارسی\پویان فارسی.jpg" />
+    <Content Include="Content\ImageUpload\1368-02-01\74396-امیر نصری\امیر نصری.jpg" />
+    <Content Include="Content\ImageUpload\1368-02-23\74118-رضا  دادجو\photo_2017-02-13_13-11-27.jpg" />
+    <Content Include="Content\ImageUpload\1368-02-24\74351-محمدعلی قوامی شاد\قوامی شاد.jpg" />
+    <Content Include="Content\ImageUpload\1368-05-11\74402-سعید فیلو\سعید فیلو.jpg" />
+    <Content Include="Content\ImageUpload\1368-06-01\74407-افشین نوریانی\افشین نوریانی.jpg" />
+    <Content Include="Content\ImageUpload\1368-08-29\74401-کامران فرهمند نیا\کامران فرهمند نیا.jpg" />
+    <Content Include="Content\ImageUpload\1369-01-01\74391-محمد خالقی\محمد خالقی.jpg" />
+    <Content Include="Content\ImageUpload\1369-02-11\74358-احمد قهرمانی\احمد قهرمانی.jpg" />
+    <Content Include="Content\ImageUpload\1369-03-03\74393-میریونس کیایی\image-41a48077e071c168d87b73960876e71f1f2f6367f7f3512a9e2e21591730fe2d-V.jpg" />
+    <Content Include="Content\ImageUpload\1369-06-30\74386-حمید جمشیدی\حمید جمشیدی.jpg" />
+    <Content Include="Content\ImageUpload\1369-09-13\74398-عباس نوری\عباس نوری.jpg" />
+    <Content Include="Content\ImageUpload\1369-12-07\74378-رضا اسپرورینی\رضا اسپرور ینی.jpg" />
+    <Content Include="Content\ImageUpload\1370-01-01\74387-محمد رضا نجفیان\محمدرضا نجفیان.jpg" />
+    <Content Include="Content\ImageUpload\1370-01-03\74394-امید ملک محمدی\امید ملک محمدی.jpg" />
+    <Content Include="Content\ImageUpload\1370-02-29\74389-روح الله باقری\روح اله باقری.jpg" />
+    <Content Include="Content\ImageUpload\1370-04-08\74388-سعید باباقصابها\سعیدبابا قصابها.jpg" />
+    <Content Include="Content\ImageUpload\1370-04-22\74404-یونس محبی بارودباری\یونس محبی بارودباری.jpg" />
+    <Content Include="Content\ImageUpload\1370-06-16\74365-مهدی اسدی\مهدی اسدی.jpg" />
+    <Content Include="Content\ImageUpload\1370-06-16\74392-محمد فلاح کلیشمی\محمد فلاح کلیشمی.jpg" />
+    <Content Include="Content\ImageUpload\1370-06-26\74403-علی لموچی ولی\علی لموچی.jpg" />
+    <Content Include="Content\ImageUpload\1370-08-24\74395-سید میثم موسوی\سید میثم موسوی.jpg" />
+    <Content Include="Content\ImageUpload\1371-09-07\74397-محمد جواد نعمتی\محمد جواد نعمتی.jpg" />
+    <Content Include="Content\ImageUpload\1373-03-04\79291419-محمد جواد چگینی\محمد جواد چگینی.jpg" />
+    <Content Include="Content\ImageUpload\1375-12-08\22-aaa aaa\image-7a29bf223c7b151d2b8c1b450b4e6a945c940daadcdab61c01dacdf0d4019ddf-V.jpg" />
+    <Content Include="Content\ImageUpload\1375-12-08\22-aaa aaa\دادجو.jpg" />
+    <Content Include="Content\ImageUpload\1395-11-10\11-qqq qqq\afa_02.jpg" />
+    <Content Include="Content\ImageUpload\1395-12-12\11-aa aa\FireBack.jpg" />
+    <Content Include="Content\ImageUpload\1395-12-12\111-qqqq qqqq\FireBack.jpg" />
+    <Content Include="Content\image\1.png" />
+    <Content Include="Content\image\atash.png" />
+    <Content Include="Content\image\back2.jpg" />
+    <Content Include="Content\image\background.png" />
+    <Content Include="Content\image\BanerAtash.png" />
+    <Content Include="Content\image\bmi.png" />
+    <Content Include="Content\image\burning-house.gif" />
+    <Content Include="Content\image\FireBack.jpg" />
+    <Content Include="Content\image\firefighter-silhouette.png" />
+    <Content Include="Content\image\firefighter.png" />
+    <Content Include="Content\image\fireman.png" />
+    <Content Include="Content\image\logoMain.png" />
+    <Content Include="Content\image\one.jpg" />
+    <Content Include="Content\image\one.png" />
+    <Content Include="Content\image\one3.jpg" />
+    <Content Include="Content\image\one6.jpg" />
+    <Content Include="Content\image\one7.png" />
+    <Content Include="Content\image\one99.png" />
+    <Content Include="Content\image\one999.png" />
+    <Content Include="Content\image\one9999.png" />
+    <Content Include="Content\image\running-icon.png" />
+    <Content Include="Content\image\Untitled-2.png" />
+    <Content Include="Content\image\Untitled-3.png" />
+    <Content Include="Content\image\امتیاز-ورزشی.png" />
+    <Content Include="Content\image\عملیات-انفرادی.png" />
+    <Content Include="Content\image\لوگوی-آتشنشانی.png" />
+    <Content Include="Content\jquery.dataTables.css" />
+    <Content Include="Content\jquery.dataTables.min.css" />
+    <Content Include="Content\kamadatepicker.css" />
+    <Content Include="Content\kamadatepicker.min.css" />
+    <Content Include="Content\mvcfileupload\blueimp\jquery.fileupload-noscript.css" />
+    <Content Include="Content\mvcfileupload\blueimp\jquery.fileupload-ui-noscript.css" />
+    <Content Include="Content\mvcfileupload\blueimp\jquery.fileupload-ui.css" />
+    <Content Include="Content\mvcfileupload\blueimp\jquery.fileupload.css" />
+    <Content Include="Content\mvcfileupload\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\mvcfileupload\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\mvcfileupload\images\glyphicons-halflings.png" />
+    <Content Include="Content\mvcfileupload\images\loading.gif" />
+    <Content Include="Content\mvcfileupload\images\progressbar.gif" />
+    <Content Include="Content\mvcfileupload\vendor\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\uploads\readme.txt" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Localization\ar.xml" />
+    <Content Include="Localization\be.xml" />
+    <Content Include="Localization\bg.xml" />
+    <Content Include="Localization\bh.xml" />
+    <Content Include="Localization\ca-ES.xml" />
+    <Content Include="Localization\cs.xml" />
+    <Content Include="Localization\de.xml" />
+    <Content Include="Localization\el-GR.xml" />
+    <Content Include="Localization\en-GB.xml" />
+    <Content Include="Localization\en.xml" />
+    <Content Include="Localization\es.xml" />
+    <Content Include="Localization\eu-ES.xml" />
+    <Content Include="Localization\fa.xml" />
+    <Content Include="Localization\fr.xml" />
+    <Content Include="Localization\gl-ES.xml" />
+    <Content Include="Localization\hr.xml" />
+    <Content Include="Localization\hu.xml" />
+    <Content Include="Localization\id.xml" />
+    <Content Include="Localization\it.xml" />
+    <Content Include="Localization\ja.xml" />
+    <Content Include="Localization\ka.xml" />
+    <Content Include="Localization\ko.xml" />
+    <Content Include="Localization\ku.xml" />
+    <Content Include="Localization\lt.xml" />
+    <Content Include="Localization\nb-NO.xml" />
+    <Content Include="Localization\nl.xml" />
+    <Content Include="Localization\pl.xml" />
+    <Content Include="Localization\pt-BR.xml" />
+    <Content Include="Localization\pt.xml" />
+    <Content Include="Localization\ro.xml" />
+    <Content Include="Localization\ru.xml" />
+    <Content Include="Localization\sk.xml" />
+    <Content Include="Localization\sr.xml" />
+    <Content Include="Localization\sv.xml" />
+    <Content Include="Localization\tr.xml" />
+    <Content Include="Localization\uk.xml" />
+    <Content Include="Localization\vi.xml" />
+    <Content Include="Localization\zh-CHS.xml" />
+    <Content Include="Localization\zh-CHT.xml" />
+    <Content Include="obj\Debug\FireV2.csproj.FileListAbsolute.txt" />
+    <Content Include="Persian-Jalali-Calendar-Data-Picker-Plugin-With-jQuery-kamaDatepicker\demo\index.html" />
+    <Content Include="Persian-Jalali-Calendar-Data-Picker-Plugin-With-jQuery-kamaDatepicker\demo\timeir_next.png" />
+    <Content Include="Persian-Jalali-Calendar-Data-Picker-Plugin-With-jQuery-kamaDatepicker\demo\timeir_prev.png" />
+    <Content Include="Persian-Jalali-Calendar-Data-Picker-Plugin-With-jQuery-kamaDatepicker\src\kamadatepicker.js" />
+    <Content Include="Persian-Jalali-Calendar-Data-Picker-Plugin-With-jQuery-kamaDatepicker\src\kamadatepicker.min.js" />
+    <Content Include="Persian-Jalali-Calendar-Data-Picker-Plugin-With-jQuery-kamaDatepicker\style\kamadatepicker.css" />
+    <Content Include="Persian-Jalali-Calendar-Data-Picker-Plugin-With-jQuery-kamaDatepicker\style\kamadatepicker.min.css" />
+    <Content Include="Properties\PublishProfiles\PublishFireN.pubxml.user" />
+    <Content Include="Scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\mvcfileupload\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\mvcfileupload\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\mvcfileupload\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\mvcfileupload\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Scripts\jquery-1.12.4.min.map" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\FireV2.csproj.AssemblyReference.cache" />
+    <Content Include="obj\Debug\FireV2.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\FireV2.csprojResolveAssemblyReference.cache" />
+    <Content Include="Persian-Jalali-Calendar-Data-Picker-Plugin-With-jQuery-kamaDatepicker\LICENSE" />
+    <Content Include="Persian-Jalali-Calendar-Data-Picker-Plugin-With-jQuery-kamaDatepicker\package.json" />
+    <Content Include="Persian-Jalali-Calendar-Data-Picker-Plugin-With-jQuery-kamaDatepicker\README.md" />
+    <None Include="Properties\PublishProfiles\PublishFireN.pubxml" />
+    <Content Include="Report\ListAthelete - Copy.mrt" />
+    <Content Include="Report\ListAthelete.mrt" />
+    <Content Include="Report\RPhysical - Copy.mrt" />
+    <Content Include="Report\RPhysical.mrt" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\buttons.colVis.js" />
+    <Content Include="Scripts\buttons.colVis.min.js" />
+    <Content Include="Scripts\buttons.flash.js" />
+    <Content Include="Scripts\buttons.flash.min.js" />
+    <Content Include="Scripts\buttons.html5.js" />
+    <Content Include="Scripts\buttons.html5.min.js" />
+    <Content Include="Scripts\buttons.print.js" />
+    <Content Include="Scripts\buttons.print.min.js" />
+    <Content Include="Scripts\dataTables.bootstrap.js" />
+    <Content Include="Scripts\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\dataTables.bootstrap4.js" />
+    <Content Include="Scripts\dataTables.bootstrap4.min.js" />
+    <Content Include="Scripts\dataTables.buttons.js" />
+    <Content Include="Scripts\dataTables.buttons.min.js" />
+    <Content Include="Scripts\dataTables.dataTables.js" />
+    <Content Include="Scripts\dataTables.dataTables.min.js" />
+    <Content Include="Scripts\dataTables.foundation.js" />
+    <Content Include="Scripts\dataTables.foundation.min.js" />
+    <Content Include="Scripts\dataTables.jqueryui.js" />
+    <Content Include="Scripts\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\dataTables.material.js" />
+    <Content Include="Scripts\dataTables.material.min.js" />
+    <Content Include="Scripts\dataTables.responsive.js" />
+    <Content Include="Scripts\dataTables.responsive.min.js" />
+    <Content Include="Scripts\dataTables.select.js" />
+    <Content Include="Scripts\dataTables.select.min.js" />
+    <Content Include="Scripts\dataTables.semanticui.js" />
+    <Content Include="Scripts\dataTables.semanticui.min.js" />
+    <Content Include="Scripts\dataTables.uikit.js" />
+    <Content Include="Scripts\dataTables.uikit.min.js" />
+    <Content Include="Scripts\gridmvc.js" />
+    <Content Include="Scripts\gridmvc.lang.ru.js" />
+    <Content Include="Scripts\gridmvc.min.js" />
+    <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.js" />
+    <Content Include="Scripts\jquery-ui-1.12.1.min.js" />
+    <Content Include="Scripts\jquery.dataTables.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\kamadatepicker.js" />
+    <Content Include="Scripts\kamadatepicker.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\mvcfileupload\blueimp\canvas-to-blob.min.js" />
+    <Content Include="Scripts\mvcfileupload\blueimp\jquery.fileupload-image.js" />
+    <Content Include="Scripts\mvcfileupload\blueimp\jquery.fileupload-jquery-ui.js" />
+    <Content Include="Scripts\mvcfileupload\blueimp\jquery.fileupload-process.js" />
+    <Content Include="Scripts\mvcfileupload\blueimp\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\mvcfileupload\blueimp\jquery.fileupload-validate.js" />
+    <Content Include="Scripts\mvcfileupload\blueimp\jquery.fileupload.js" />
+    <Content Include="Scripts\mvcfileupload\blueimp\jquery.iframe-transport.js" />
+    <Content Include="Scripts\mvcfileupload\blueimp\jquery.ui.widget.js" />
+    <Content Include="Scripts\mvcfileupload\blueimp\load-image.min.js" />
+    <Content Include="Scripts\mvcfileupload\blueimp\tmpl.min.js" />
+    <Content Include="Scripts\mvcfileupload\vendor\bootstrap.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\webGrid.js" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="slider\img\01.jpg" />
+    <Content Include="slider\img\02.jpg" />
+    <Content Include="slider\img\03.jpg" />
+    <Content Include="slider\img\04.jpg" />
+    <Content Include="slider\img\05.jpg" />
+    <Content Include="slider\img\06.jpg" />
+    <Content Include="slider\img\07.jpg" />
+    <Content Include="slider\img\08.jpg" />
+    <Content Include="slider\img\09.jpg" />
+    <Content Include="slider\img\10.jpg" />
+    <Content Include="slider\img\11.jpg" />
+    <Content Include="slider\img\12.jpg" />
+    <Content Include="slider\img\a17.png" />
+    <Content Include="slider\img\loading.gif" />
+    <Content Include="slider\img\t01.png" />
+    <Content Include="slider\img\thumb-01.jpg" />
+    <Content Include="slider\img\thumb-02.jpg" />
+    <Content Include="slider\img\thumb-03.jpg" />
+    <Content Include="slider\img\thumb-04.jpg" />
+    <Content Include="slider\img\thumb-05.jpg" />
+    <Content Include="slider\img\thumb-06.jpg" />
+    <Content Include="slider\img\thumb-07.jpg" />
+    <Content Include="slider\img\thumb-08.jpg" />
+    <Content Include="slider\img\thumb-09.jpg" />
+    <Content Include="slider\img\thumb-10.jpg" />
+    <Content Include="slider\img\thumb-11.jpg" />
+    <Content Include="slider\img\thumb-12.jpg" />
+    <Content Include="slider\js\jssor.slider-23.1.1.min.js" />
+    <Content Include="slider\standard.html" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Account\Login - Copy %282%29.cshtml" />
+    <Content Include="Views\Account\Login - Copy.cshtml" />
+    <Content Include="Views\Archives\Ciculate.cshtml" />
+    <Content Include="Views\Archives\Circulate.cshtml" />
+    <Content Include="Views\Archives\Create.cshtml" />
+    <Content Include="Views\Archives\Delete.cshtml" />
+    <Content Include="Views\Archives\Details.cshtml" />
+    <Content Include="Views\Archives\Edit.cshtml" />
+    <Content Include="Views\Archives\Index.cshtml" />
+    <Content Include="Views\Athletes\AddCooperation.cshtml" />
+    <Content Include="Views\Athletes\AddDocTitle.cshtml" />
+    <Content Include="Views\Athletes\AddInFoDoc.cshtml" />
+    <Content Include="Views\Athletes\AllList.cshtml" />
+    <Content Include="Views\Athletes\Archive.cshtml" />
+    <Content Include="Views\Athletes\ChangeImage.cshtml" />
+    <Content Include="Views\Athletes\Create - Copy %282%29.cshtml" />
+    <Content Include="Views\Athletes\Create - Copy.cshtml" />
+    <Content Include="Views\Athletes\Create.cshtml" />
+    <Content Include="Views\Athletes\DataEntry.cshtml" />
+    <Content Include="Views\Athletes\Delete.cshtml" />
+    <Content Include="Views\Athletes\Details - Copy.cshtml" />
+    <Content Include="Views\Athletes\Details.cshtml" />
+    <Content Include="Views\Athletes\dfdf.cshtml" />
+    <Content Include="Views\Athletes\Edit - Copy.cshtml" />
+    <Content Include="Views\Athletes\Edit.cshtml" />
+    <Content Include="Views\Athletes\EditArchive.cshtml" />
+    <Content Include="Views\Athletes\FullFlag.cshtml" />
+    <Content Include="Views\Athletes\GetCity.cshtml" />
+    <Content Include="Views\Athletes\GetDocTitle.cshtml" />
+    <Content Include="Views\Athletes\GetShift.cshtml" />
+    <Content Include="Views\Athletes\GetTitle.cshtml" />
+    <Content Include="Views\Athletes\HistoryByPeriod.cshtml" />
+    <Content Include="Views\Athletes\Index.cshtml" />
+    <Content Include="Views\Athletes\Index1.cshtml" />
+    <Content Include="Views\Athletes\MathA.cshtml" />
+    <Content Include="Views\Athletes\MathAge.cshtml" />
+    <Content Include="Views\Athletes\mathAgeRenge.cshtml" />
+    <Content Include="Views\Athletes\Report - Copy.cshtml" />
+    <Content Include="Views\Athletes\Report.cshtml" />
+    <Content Include="Views\Athletes\ReportA.cshtml" />
+    <Content Include="Views\Athletes\SportsScore.cshtml" />
+    <Content Include="Views\Athletes\TitleDoc.cshtml" />
+    <Content Include="Views\Athletes\_AllList.cshtml" />
+    <Content Include="Views\Athletes\_Archive.cshtml" />
+    <Content Include="Views\Athletes\_Index333.cshtml" />
+    <Content Include="Views\Athletes\_Report.cshtml" />
+    <Content Include="Views\AthTypeMedicals\Create.cshtml" />
+    <Content Include="Views\AthTypeMedicals\Delete.cshtml" />
+    <Content Include="Views\AthTypeMedicals\Details.cshtml" />
+    <Content Include="Views\AthTypeMedicals\Edit.cshtml" />
+    <Content Include="Views\AthTypeMedicals\Index.cshtml" />
+    <Content Include="Views\BMIs\Create.cshtml" />
+    <Content Include="Views\BMIs\Delete.cshtml" />
+    <Content Include="Views\BMIs\Details.cshtml" />
+    <Content Include="Views\BMIs\Edit.cshtml" />
+    <Content Include="Views\BMIs\Index.cshtml" />
+    <Content Include="Views\Dissusionns\Create.cshtml" />
+    <Content Include="Views\Dissusionns\Delete.cshtml" />
+    <Content Include="Views\Dissusionns\Details.cshtml" />
+    <Content Include="Views\Dissusionns\Edit.cshtml" />
+    <Content Include="Views\Dissusionns\Index.cshtml" />
+    <Content Include="Views\Dissusion\AddDisTitle.cshtml" />
+    <Content Include="Views\Dissusion\Create.cshtml" />
+    <Content Include="Views\Dissusion\Delete.cshtml" />
+    <Content Include="Views\Dissusion\Details.cshtml" />
+    <Content Include="Views\Dissusion\Edit.cshtml" />
+    <Content Include="Views\Dissusion\GetDisTitle.cshtml" />
+    <Content Include="Views\Dissusion\GetFullDisTitle.cshtml" />
+    <Content Include="Views\Dissusion\HistoryByPeriod.cshtml" />
+    <Content Include="Views\Dissusion\Index.cshtml" />
+    <Content Include="Views\Dissusion\InfoDisTitleTypes.cshtml" />
+    <Content Include="Views\DocTypeAthelets\Create.cshtml" />
+    <Content Include="Views\DocTypeAthelets\Delete.cshtml" />
+    <Content Include="Views\DocTypeAthelets\Details.cshtml" />
+    <Content Include="Views\DocTypeAthelets\Edit.cshtml" />
+    <Content Include="Views\DocTypeAthelets\Index.cshtml" />
+    <Content Include="Views\DocTypeAthelets\InfoDocumentTitleTypes.cshtml" />
+    <Content Include="Views\FileUploads1\Create.cshtml" />
+    <Content Include="Views\FileUploads1\Delete.cshtml" />
+    <Content Include="Views\FileUploads1\Details.cshtml" />
+    <Content Include="Views\FileUploads1\Edit.cshtml" />
+    <Content Include="Views\FileUploads1\Index.cshtml" />
+    <Content Include="Views\FileUploads\Create.cshtml" />
+    <Content Include="Views\FileUploads\Delete.cshtml" />
+    <Content Include="Views\FileUploads\Details.cshtml" />
+    <Content Include="Views\FileUploads\Edit.cshtml" />
+    <Content Include="Views\FileUploads\Index.cshtml" />
+    <Content Include="Views\IndividualHistories\Create.cshtml" />
+    <Content Include="Views\IndividualHistories\Delete.cshtml" />
+    <Content Include="Views\IndividualHistories\Details.cshtml" />
+    <Content Include="Views\IndividualHistories\Edit.cshtml" />
+    <Content Include="Views\IndividualHistories\Index.cshtml" />
+    <Content Include="Views\InfoDocumentTitleTypes\Create.cshtml" />
+    <Content Include="Views\InfoDocumentTitleTypes\Delete.cshtml" />
+    <Content Include="Views\InfoDocumentTitleTypes\Details.cshtml" />
+    <Content Include="Views\InfoDocumentTitleTypes\Edit.cshtml" />
+    <Content Include="Views\InfoDocumentTitleTypes\Index.cshtml" />
+    <Content Include="Views\InfoDocumentTitleTypes\InfoDocumentTitleTypes.cshtml" />
+    <Content Include="Views\Medicals\Create - Copy.cshtml" />
+    <Content Include="Views\Medicals\Create.cshtml" />
+    <Content Include="Views\Medicals\Delete.cshtml" />
+    <Content Include="Views\Medicals\Details.cshtml" />
+    <Content Include="Views\Medicals\Edit.cshtml" />
+    <Content Include="Views\Medicals\GetMedicalItemType.cshtml" />
+    <Content Include="Views\Medicals\Index.cshtml" />
+    <Content Include="Views\MvcUploaderTest\Demo.cshtml" />
+    <Content Include="Views\Periods\Create.cshtml" />
+    <Content Include="Views\Periods\Delete.cshtml" />
+    <Content Include="Views\Periods\Details.cshtml" />
+    <Content Include="Views\Periods\Edit.cshtml" />
+    <Content Include="Views\Periods\Index.cshtml" />
+    <Content Include="Views\PhRedinessHistoryItems\Create.cshtml" />
+    <Content Include="Views\PhRedinessHistoryItems\Delete.cshtml" />
+    <Content Include="Views\PhRedinessHistoryItems\Details.cshtml" />
+    <Content Include="Views\PhRedinessHistoryItems\dfdf.cshtml" />
+    <Content Include="Views\PhRedinessHistoryItems\Edit.cshtml" />
+    <Content Include="Views\PhRedinessHistoryItems\Index.cshtml" />
+    <Content Include="Views\phRItemsPoints\Create.cshtml" />
+    <Content Include="Views\phRItemsPoints\Delete.cshtml" />
+    <Content Include="Views\phRItemsPoints\Details.cshtml" />
+    <Content Include="Views\phRItemsPoints\Edit.cshtml" />
+    <Content Include="Views\phRItemsPoints\Index.cshtml" />
+    <Content Include="Views\PhysicalExamHistories\1_Index.cshtml" />
+    <Content Include="Views\PhysicalExamHistories\AgeRengeAthlete.cshtml" />
+    <Content Include="Views\PhysicalExamHistories\Create.cshtml" />
+    <Content Include="Views\PhysicalExamHistories\Delete.cshtml" />
+    <Content Include="Views\PhysicalExamHistories\Details.cshtml" />
+    <Content Include="Views\PhysicalExamHistories\Edit.cshtml" />
+    <Content Include="Views\PhysicalExamHistories\firstpage.cshtml" />
+    <Content Include="Views\PhysicalExamHistories\Index - Copy.cshtml" />
+    <Content Include="Views\PhysicalExamHistories\Index.cshtml" />
+    <Content Include="Views\PhysicalExamHistories\Index55.cshtml" />
+    <Content Include="Views\PhysicalExamHistories\ListOfAthlet.cshtml" />
+    <Content Include="Views\PhysicalExamHistories\Report.cshtml" />
+    <Content Include="Views\RengAthleteInPeriods\Create.cshtml" />
+    <Content Include="Views\RengAthleteInPeriods\Delete.cshtml" />
+    <Content Include="Views\RengAthleteInPeriods\Details.cshtml" />
+    <Content Include="Views\RengAthleteInPeriods\Edit.cshtml" />
+    <Content Include="Views\RengAthleteInPeriods\Index.cshtml" />
+    <Content Include="Views\Shared\1_Layout.cshtml" />
+    <Content Include="Views\Shared\ConfirmEmail.cshtml" />
+    <Content Include="Views\Shared\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Shared\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Shared\ForgotPassword.cshtml" />
+    <Content Include="Views\Shared\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Shared\Login.cshtml" />
+    <Content Include="Views\Shared\Register.cshtml" />
+    <Content Include="Views\Shared\ResetPassword.cshtml" />
+    <Content Include="Views\Shared\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Shared\SendCode.cshtml" />
+    <Content Include="Views\Shared\VerifyCode.cshtml" />
+    <Content Include="Views\Shared\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Shared\_GridPager.cshtml" />
+    <Content Include="Views\Shared\_MvcFileUpload.cshtml" />
+    <Content Include="Views\Shared\_MvcFileUploaderLayout.cshtml" />
+    <Content Include="Views\Shared\_MvcFileUploaderLayout_jui.cshtml" />
+    <Content Include="Views\SportScoreByPeriods\Create.cshtml" />
+    <Content Include="Views\SportScoreByPeriods\Delete.cshtml" />
+    <Content Include="Views\SportScoreByPeriods\Details.cshtml" />
+    <Content Include="Views\SportScoreByPeriods\Edit.cshtml" />
+    <Content Include="Views\SportScoreByPeriods\Index.cshtml" />
+    <Content Include="Views\PhReadinessItemByPeriods\Create.cshtml" />
+    <Content Include="Views\PhReadinessItemByPeriods\Delete.cshtml" />
+    <Content Include="Views\PhReadinessItemByPeriods\Details.cshtml" />
+    <Content Include="Views\PhReadinessItemByPeriods\Edit.cshtml" />
+    <Content Include="Views\PhReadinessItemByPeriods\Index.cshtml" />
+    <Content Include="Views\PhReadinessItemByPeriods\GetItems.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Stimulsoft\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52066</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44354/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

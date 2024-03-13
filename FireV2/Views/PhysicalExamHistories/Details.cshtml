@@ -1,0 +1,106 @@
+﻿@model FireV2.Models.PhysicalExamHistory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PhysicalExamHistory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Athlete.Fnam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Athlete.Fnam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PeriodId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PeriodId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamByPeriodId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamByPeriodId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPhysicalScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPhysicalScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamWorkTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamWorkTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamWorkScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamWorkScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalExamHistoryNote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalExamHistoryNote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SportsScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SportsScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndTotalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndTotalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndTotalScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndTotalScore)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalScore)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalScore)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PhysicalExamHistoryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

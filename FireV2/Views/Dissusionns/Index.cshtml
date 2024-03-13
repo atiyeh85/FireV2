@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FireV2.Models.Dissusion>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Athlete.UserInsert)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DissType.DissTypeTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Period.SeasonTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Isactive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diss)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Athlete.UserInsert)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DissType.DissTypeTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Period.SeasonTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Note)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Isactive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diss)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DissPerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DissPerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DissPerId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,269 @@
+﻿@model FireV2.Models.Athlete
+@{
+    ViewBag.Title = "..:نمایش اطلاعات:..";
+}
+<br />
+<br />
+<div>
+    <a href="/Athletes/AllList" style="color:#ffffff" class="elements btn btn-info"><span>بازگشت</span></a>
+</div>
+<div style="position:relative; padding:10px 10px 10px 10px;background-image:url(../../Content/image/one9999.png) ;background-size: cover;background-repeat:no-repeat;background-color:#fffbe0;" class="panel panel-default img-responsive">
+    <dl class="dl-horizontal">
+
+       
+        <dd>
+            <b style="font-size:20px;color:#88164a">
+                @Html.DisplayFor(model => model.FullName)
+            </b>
+        </dd>
+        <dt>
+            کد
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AthleteId)
+        </dd>
+
+        <dt>
+            نام پدر
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatherName)
+        </dd>
+        <dt>
+            کد ملی
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Melicode)
+        </dd>
+        <dt>
+            تاریخ تولد
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birthdate)
+        </dd>
+        <dt>
+            صادره
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sadereh)
+        </dd>
+        <dt>
+            شماره بیمه
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.bimeh)
+        </dd>
+        <dt>
+            نوع استخدام
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeStatu.EmStatusTitle)
+        </dd>
+        <dt>
+            مدرک
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Degree.DegreeName)
+        </dd>
+        <dt>
+            گروه خونی
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GoorohKhoni)
+        </dd>
+
+        <dt>
+            شماره پرسنلی
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PersonalCode)
+        </dd>
+        <dt>
+            رشته
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Reshteh)
+        </dd>
+        <dt>
+            سهمیه خانواده شهدا و جانبازان
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Share.IsShare)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.EmployeType.EmTypeTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaritalStatu.MaritalStatusTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaritalStatu.MaritalStatusTitle)
+        </dd>
+        <dt>
+            پست سازمانی
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostSazmani.PSazmaniTitle)
+        </dd>
+
+        <dt>
+            تلفن
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Telephone)
+        </dd>
+        <dt>
+            شماره همراه
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mobile)
+        </dd>
+
+
+        <dt>
+            تاریخ ورود به سازمان
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PointEnter)
+        </dd>
+        <dt>
+        </dt>
+
+    </dl>
+    <div style=" position:absolute; top:110px; left:550px; overflow:hidden">
+
+
+        @if (@Model.Picture != null)
+        {
+            <a href="@Url.Content(@Model.Picture)" target="_blank">
+                <img class="img-thumbnail" style="width: 215px; height: 270px; float:left; margin:0 10px 5px 0" alt="@Model.FullName" src="@Url.Content(@Model.Picture)" />
+            </a>
+
+        }
+        else
+        {
+            <img class="img-thumbnail" id="image_preview" style="width: 215px; height: 270px; float:left; margin:0 10px 5px 0" alt="" src="" />
+        }
+    </div>
+    <br />
+
+    <div id="Cooperations">
+        @Html.Action("GetDocTitle", new { id = Model.AthleteId })
+    </div>
+</div>
+<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" style="overflow-y: scroll; max-height: 50%; margin-top: 50px; margin-bottom: 50px;">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #d4e3c6">
+                <button type="button" class="close" data-dismiss="modal" aria-label="بستن"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">افزودن تخصص های ورزشی   </h4>
+            </div>
+            <div class="modal-body">
+                <div id="modal-body-form">
+                </div>
+            </div>
+            <div class="modal-footer" style="background-color: #d4e3c6">
+                <button type="submit" class="btn btn-success" data-dismiss="modal" id="btnSave">
+                    <span class="glyphicon glyphicon-ok"></span> ذخیره
+                </button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-remove"></span> بستن
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default" style="background-color:#fffbe0">
+    <table>
+        <tr>
+            <td>
+                <p>
+                    <i style="color:#000000;font-size:large" class="glyphicon glyphicon-ok"></i>
+                    برای ویرایش اطلاعات پایه
+                    @Html.ActionLink(" ", "Edit", new { id = Model.AthleteId }, new { @class = "editLink glyphicon glyphicon-edit fa-3x", title = " ویرایش اطلاعات" })
+                    کلیلک کنید!   |  <i style="color:#000000;font-size:large" class="glyphicon glyphicon-ok"></i>لطفا برای ثبت  تخصص های ورزشی ، گزینه
+                    <a href="#" data-toggle="modal" data-target="#myModal" title="اضافه کردن تخصص های ورزشی" class="controls fa  fa-user-plus fa-3x" style="color:green"></a>
+                    را کلیلک کنید!
+                </p>
+                <p>
+
+                </p>
+            </td>
+        </tr>
+
+    </table>
+</div>
+
+@section scripts{
+    <script>
+        $('#myModal').on('show.bs.modal', function (event) {
+            $('#modal-body-form').html('');
+            $('#modal-body-form').load('/Athletes/AddDocTitle/'+@Model.AthleteId);
+        });
+
+        $(document).delegate('#InfoDocTitleId', 'change', function (e) {
+            console.log("/DocTypeAthelets/InfoDocumentTitleTypes/" + $(this).val()+'?&atid='+@Model.AthleteId);
+            $('#details').load("/DocTypeAthelets/InfoDocumentTitleTypes/" + $(this).val()+'?&atid='+@Model.AthleteId);
+        });
+
+        $(document).delegate('#btnSave', 'click', function (e) {
+            e.preventDefault();
+            $('#detailsInputs').html('');
+            var i = 0;
+
+            $('input[type=checkbox].detailsItem').each(function (idx, item) {
+                if ($(item).prop('checked') == true) {
+                    var name = "details[" + i + "].";
+                    var input = "<input type='hidden' value='" + $(item).val() + "' name='" + name + "InfoDocTitleTypeId' />";
+                    $('#detailsInputs').append(input);
+                    var textinput=$(item).closest('td').find('input[type=text]');
+                    console.log('textinput='+$(textinput).val());
+                    input = "<input type='hidden' value='" + $(textinput).val() + "' name='" + name + "Note' />";
+                    $('#detailsInputs').append(input);
+                    i++;
+                    console.log("input=" + input);
+                }
+                else {
+                    console.log('input not selected');
+                }
+            });
+
+            var form = $("#detailsForm");
+
+            $.ajax({
+                url: $(form).attr('action'),
+                data: $(form).serialize(),
+                method: 'post',
+                success: function (data) {
+                    if (data == 'true') {
+                        $('#Cooperations').load('/Athletes/GetDocTitle/'+@Model.AthleteId);
+                    }
+                }
+            });
+        });
+
+        $(document).delegate('.DeleteDocTitle', 'click', function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: $(this).attr('data-url'),
+                method: 'post',
+                data: null,
+                success: function (data) {
+                    if (data == 'true') {
+                        $('#Cooperations').load('/Athletes/GetDocTitle/'+@Model.AthleteId);
+                    }
+                }
+            })
+        });
+
+    </script>
+}

@@ -1,0 +1,260 @@
+﻿@model FireV2.Models.Athlete
+@{
+    ViewBag.Title = "Details";
+}
+<div class="panel panel-default">
+    @*<div class="panel-heading">
+    </div>*@
+    <table cellpadding="4" cellspacing="4" width="100%">
+        <tbody>
+            <tr>
+                <td style="color:#ac1c74">
+                    @Html.DisplayNameFor(model => model.FullName) :
+
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.FullName)
+                </td>
+                <td style="color:#ac1c74">
+                    @Html.DisplayNameFor(model => model.FatherName) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.FatherName)
+                </td>
+                <td style="color:#ac1c74">
+                    @Html.DisplayNameFor(model => model.Melicode) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Melicode)
+                </td>
+                <td style="color:#ac1c74">
+                    @Html.DisplayNameFor(model => model.Shenasnameh) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Shenasnameh)
+                </td>
+            </tr>
+            <tr>
+                <td style="color:#ac1c74">
+                    @Html.DisplayNameFor(model => model.Birthdate) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Birthdate)
+                </td>
+                <td style="color:#ac1c74">
+                    @Html.DisplayNameFor(model => model.Sadereh) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Sadereh)
+                </td>
+                <td style="color:#ac1c74">
+                    @Html.DisplayNameFor(model => model.bimeh) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.bimeh)
+                </td>
+                <td style="color:#ac1c74">
+                    @Html.DisplayNameFor(model => model.EmployeeStatu.EmStatusTitle) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.EmployeeStatu.EmStatusTitle)
+                </td>
+            </tr>
+            <tr>
+                <td style="color:#ac1c74">
+                    @Html.DisplayNameFor(model => model.Degree.DegreeName) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Degree.DegreeName)
+                </td>
+                <td style="color:#ac1c74">
+                    @Html.DisplayNameFor(model => model.EmployeType.EmTypeTitle) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.EmployeType.EmTypeTitle)
+                </td>
+                <td style="color:#ac1c74">
+                    @Html.DisplayNameFor(model => model.PersonalCode) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PersonalCode)
+                </td>
+                <td style="color:#ac1c74">
+                    @Html.DisplayNameFor(model => model.Reshteh) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Reshteh)
+                </td>
+            </tr>
+         
+            <tr>
+               
+                <td style="color:#ac1c74">
+                    @Html.DisplayNameFor(model => model.Share.IsShare) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Share.IsShare)
+                </td>
+                <td style="color:#AC1C74">
+                    @Html.DisplayNameFor(model => model.DateEnter) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.DateEnter)
+                </td>
+                <td style="color:#AC1C74">
+                    @Html.DisplayNameFor(model => model.DateEnter) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.DateEnter)
+                </td>
+            </tr>
+            <tr>
+               
+            </tr>
+            <tr>
+                <td style="color:#AC1C74">
+                    @Html.DisplayNameFor(model => model.PostSazmani.PSazmaniTitle) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PostSazmani.PSazmaniTitle)
+                </td>
+                <td style="color:#AC1C74">
+                    @Html.DisplayNameFor(model => model.PersonalCode) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PersonalCode)
+                </td>
+                <td style="color:#AC1C74">
+                    @Html.DisplayNameFor(model => model.ShiftWork.ShWorkTitle) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.ShiftWork.ShWorkTitle)
+                </td>
+                <td style="color:#AC1C74">
+                    @Html.DisplayNameFor(model => model.Semat.SematName) :
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Semat.SematName)
+                </td>
+            </tr>
+            <tr>
+               
+                </tr>
+                <tr>
+                    <td style="color:#AC1C74">
+                        @Html.DisplayNameFor(model => model.NoteAthlete) :
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.NoteAthlete)
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="color:#AC1C74">
+                        تصویر الحاق شده :
+                    </td>
+                    <td style="direction:rtl">
+                        @if (@Model.Picture != null)
+                        {
+                            <img id="image_preview" class="img-thumbnail" style="width:210px; height: 200px; float:right; margin:0 10px 5px 0" alt="@Model.Picture" src="@Url.Content(@Model.Picture)" />
+                        }
+                        else
+                        {
+                            <img class="img-thumbnail" id="image_preview" style="width: 210px; height: 200px; float:right; margin:0 10px 5px 0" alt="" src="" />
+                        }
+                    </td>
+                </tr>
+                <tr></tr>
+            </tbody>
+        </table>
+    </div>
+<div class="panel panel-danger" style="padding:20px;width:100%">
+    
+    <p>
+        <i style="color:#AC1C74;font-size:large" class="glyphicon glyphicon-asterisk"></i>
+        برای ویرایش اطلاعات پایه
+        @Html.ActionLink(" ", "Edit", new { id = Model.AthleteId }, new { @class = "editLink glyphicon glyphicon-edit fa-3x", title = " ویرایش اطلاعات" })
+        کلیلک کنید!
+    </p>
+    <p>
+        <i style="color:#AC1C74;font-size:large" class="glyphicon glyphicon-asterisk"></i>لطفا برای ثبت  تخصص های ورزشی ، گزینه  <a href="#" data-toggle="modal" data-target="#myModal" title="اضافه کردن تخصص های وورزشی" class="controls fa  fa-user-plus fa-3x" style="color:green"></a>
+        را کلیلک کنید!
+    </p>
+</div>
+<div id="Cooperations" class="panel panel-info">
+    @Html.Action("GetDocTitle", new { id = Model.AthleteId })
+</div>
+<td>
+    <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("AllList", "Athletes")'">
+        <span class="glyphicon glyphicon-backward"></span> بازگشت
+    </button>
+</td>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#8CC5D6">
+                <button type="button" class="close" data-dismiss="modal" aria-label="بستن"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">افزودن  ضمینه همکاری</h4>
+            </div>
+            <div class="modal-body">
+                <div id="modal-body-form">
+
+                </div>
+
+
+            </div>
+            <div class="modal-footer" style="background-color:#8CC5D6">
+
+                <button type="submit" class="btn btn-info" data-dismiss="modal" id="btnSave">ذخیره</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">بستن</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $('#myModal').on('show.bs.modal', function (event) {
+            $('#modal-body-form').html('');
+            $('#modal-body-form').load('/Athletes/AddDocTitle/'+@Model.AthleteId);
+        });
+
+        $(document).delegate('#InfoDocTitleId', 'change', function (e) {
+            $('#details').load("/DocTypeAthelets/InfoDocumentTitleTypes/" + $(this).val());
+        });
+
+        $(document).delegate('#btnSave', 'click', function (e) {
+            e.preventDefault();
+            $('#detailsInputs').html('');
+            var i = 0;
+
+            $('.detailsItem').each(function (idx, item) {
+                if ($(item).prop('checked') == true) {
+                    var name = "details[" + i + "]";
+                    var input = "<input type='hidden' value='" + $(item).val() + "' name='" + name + "' />";
+                    $('#detailsInputs').append(input);
+                    i++;
+                    console.log("input=" + input);
+                }
+                else {
+                    console.log('input not selected');
+                }
+            });
+            var form = $("#detailsForm");
+
+            $.ajax({
+                url: $(form).attr('action'),
+                data: $(form).serialize(),
+                method: 'post',
+                success: function (data) {
+                    //alert(data);
+                    if (data == 'true') {
+                        $('#Cooperations').load('/Athletes/GetDocTitle/'+@Model.AthleteId);
+                    }
+                }
+            });
+        });
+
+       
+
+    </script>
+}

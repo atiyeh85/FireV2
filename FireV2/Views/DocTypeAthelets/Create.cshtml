@@ -1,0 +1,89 @@
+﻿@model FireV2.Models.DocTypeAthelet
+           
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>@*@Model.Athlete.FatherName*@</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.Hidden("AthleteId", Model.AthleteId)
+        <div class="panel panel-default panel-transparent" style="text-align:center;font-family:Tahoma;color:black;">
+            <div class="panel-heading" style=" background-image: url(../../Content/image/Untitled-1.png)  ;background-repeat:no-repeat;background-position:center;height:40px">
+
+
+            </div>
+            <div class="panel-body">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <table cellspacing="3" cellpadding="3" style="width:100%">
+                    <tbody>
+                        <tr>
+                            <td width="30%">
+                                عنوان
+                                <div class="input-group" style="margin-bottom: 10px">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-user">
+                                        </i>
+                                    </span>
+                                    @Html.DropDownList("InfoDocTitleId", null, htmlAttributes: new { @class = "form-control" })
+                                </div>
+                               
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="details">
+                                    @Html.Action("InfoDocumentTitleTypes", new { id = 1 })
+                                </div>
+                                <div id="detailsInputs">
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="ثبت" class="btn btn-primary" id="btnSave" />
+        </div>
+        
+    </div>
+}
+@section scripts{
+
+    <script>
+        $(document).delegate('#InfoDocTitleId', 'change', function (e) {
+            $('#details').load("/DocTypeAthelets/InfoDocumentTitleTypes/" + $(this).val());
+        });
+
+        $(document).delegate('#btnSave', 'click', function (e) {
+            e.preventDefault();
+            $('#detailsInputs').html('');
+            var i = 0;
+
+            $('.detailsItem').each(function (idx, item) {
+                if ($(item).prop('checked') == true) {
+                    var name = "details[" + i + "]";
+                    var input = "<input type='hidden' value='" + $(item).val() + "' name='" + name + "' />";
+                    $('#detailsInputs').append(input);
+                    i++;
+                    console.log("input=" + input);
+                }
+                else {
+                    console.log('input not selected');
+                }
+            });
+            var form = $(this).closest('form');
+            $(form).submit();
+        });
+    </script>
+}

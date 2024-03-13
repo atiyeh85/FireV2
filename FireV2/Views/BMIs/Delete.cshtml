@@ -1,0 +1,54 @@
+﻿@model FireV2.Models.BMI
+
+@{
+    ViewBag.Title = "..::..";
+    Layout = null;
+}
+
+<h3>آیا از حذف اطلاعات مطمئن هستید؟</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Period.SeasonTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Period.SeasonTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BMIRenj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BMIRenj)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-default" />
+        </div>
+    }
+</div>

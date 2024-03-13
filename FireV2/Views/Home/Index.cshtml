@@ -1,0 +1,124 @@
+﻿<style>
+.navbar-nav > li:hover > .dropdown-menu {
+    display: block;
+}
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <div class="navbar-template text-center">
+        <h1>Bootstrap Expanding Navbar with Dropdown on Hover</h1>
+        <p class="lead text-info">NavBar with too many childs.</p>
+        <a target="_blank" href="http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3">Thanks to msurguy (Multi level dropdown menu BS3)</a>
+    </div>
+    <div class="text-left col-xs-4 col-xs-offset-4">
+        <code class="text-left">
+            <br>/* To Dropdown navbar dropdown on hover */<br>
+            .navbar-nav > li:hover > .dropdown-menu {<br>
+            display: block;<br>
+            }
+        </code>
+    </div>
+</div>
+
+@section scripts{
+
+<script>
+    $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
+        if (!$(this).next().hasClass('show')) {
+            $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+        }
+        var $subMenu = $(this).next(".dropdown-menu");
+        $subMenu.toggleClass('show');
+
+
+        $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
+            $('.dropdown-submenu .show').removeClass("show");
+        });
+
+
+        return false;
+    });
+		kamaDatepicker('date1', { buttonsColor: "red" });
+
+		var customOptions = {
+			placeholder: "روز / ماه / سال"
+			, twodigit: false
+			, closeAfterSelect: false
+			, nextButtonIcon: "fa fa-arrow-circle-right"
+			, previousButtonIcon: "fa fa-arrow-circle-left"
+			, buttonsColor: "blue"
+			, forceFarsiDigits: true
+			, markToday: true
+			, markHolidays: true
+			, highlightSelectedDay: true
+			, sync: true
+			, gotoToday: true
+		}
+		kamaDatepicker('date2', customOptions);
+
+		kamaDatepicker('date3', {
+			nextButtonIcon: "timeir_next.png"
+			, previousButtonIcon: "timeir_prev.png"
+			, forceFarsiDigits: true
+			, markToday: true
+			, markHolidays: true
+			, highlightSelectedDay: true
+			, sync: true
+		});
+
+		// for testing sync functionallity
+		$("#date2").val("1311/10/01");
+</script>
+}

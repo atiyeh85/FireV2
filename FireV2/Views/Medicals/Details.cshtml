@@ -1,0 +1,50 @@
+﻿@model FireV2.Models.Medical
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Medical</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Athlete.Fnam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Athlete.Fnam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Period.SeasonTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Period.SeasonTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Medicaltitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medicaltitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Medicalid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,578 @@
+﻿@model IEnumerable<FireV2.ViewModels.PhysicalHistoryReportVM>
+@{
+    var PostSazmani = (IEnumerable<FireV2.Models.PostSazmani>)ViewBag.PostSazmani;
+    var RengAge = (IEnumerable<FireV2.Models.AgeRenge>)ViewBag.Reng;
+    var selectedItems = ViewBag.items;
+    var selectedRengs = ViewBag.Rengs;
+    var count = 0;
+    var PNote = "";
+    var ListDiss = (IEnumerable<FireV2.Models.Dissusion>)ViewBag.Dissusions;
+    List<FireV2.ViewModels.AthleteRatingVM> Rates = new List<FireV2.ViewModels.AthleteRatingVM>()
+{
+
+new FireV2.ViewModels.AthleteRatingVM() { minAge=0, maxAge=29,minTotalScore=0, maxTotalScore=499, Rate="verybad" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=0, maxAge=29,minTotalScore=500, maxTotalScore=599, Rate="bad" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=0, maxAge=29,minTotalScore=600, maxTotalScore=699, Rate="medium" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=0, maxAge=29,minTotalScore=700, maxTotalScore=899, Rate="good" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=0, maxAge=29,minTotalScore=900, maxTotalScore=double.MaxValue, Rate="Perfect" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=30, maxAge=34,minTotalScore=0, maxTotalScore=499, Rate="verybad" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=30, maxAge=34,minTotalScore=500, maxTotalScore=599, Rate="bad" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=30, maxAge=34,minTotalScore=600, maxTotalScore=699, Rate="medium" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=30, maxAge=34,minTotalScore=700, maxTotalScore=899, Rate="good" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=30, maxAge=34,minTotalScore=900, maxTotalScore=double.MaxValue, Rate="Perfect" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=35, maxAge=39,minTotalScore=0, maxTotalScore=499, Rate="verybad" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=35, maxAge=39,minTotalScore=500, maxTotalScore=599, Rate="bad" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=35, maxAge=39,minTotalScore=600, maxTotalScore=699, Rate="medium" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=35, maxAge=39,minTotalScore=700, maxTotalScore=899, Rate="good" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=35, maxAge=39,minTotalScore=900, maxTotalScore=double.MaxValue, Rate="Perfect" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=40, maxAge=100,minTotalScore=0, maxTotalScore=499, Rate="verybad" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=40, maxAge=100,minTotalScore=500, maxTotalScore=599, Rate="bad" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=40, maxAge=100,minTotalScore=600, maxTotalScore=699, Rate="medium" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=40, maxAge=100,minTotalScore=700, maxTotalScore=899, Rate="good" },
+new FireV2.ViewModels.AthleteRatingVM() { minAge=40, maxAge=100,minTotalScore=900, maxTotalScore=double.MaxValue, Rate="Perfect" },
+};
+
+}
+
+<style>
+    .pr-Perfect {
+        background: #95cbf1 !important;
+        color: #000000;
+    }
+
+    .pr-good {
+        background: #91d579 !important;
+        color: #000000;
+    }
+
+    .pr-medium {
+        background: #ead560 !important;
+        color: #000000;
+    }
+
+    .pr-low {
+        background: #f8893a !important;
+        color: #000000;
+    }
+
+    .pr-verylow {
+        background: #fb8686 !important;
+        color: #000000;
+    }
+
+    td {
+        width: 20px;
+        height: 20px;
+    }
+
+    th {
+        background-color: #b3b1b1;
+    }
+</style>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        @using (Html.BeginForm("Report", "PhysicalExamHistories", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            int i = 0;
+            int k = 0;
+            foreach (var item in Model)
+            {
+                string PhysicalExamHistoryId = "ids[" + i.ToString() + "]";
+                string DissPerId = "idss[" + k.ToString() + "]";
+                if (item.PhysicalExamHistoryId == 0)
+                {
+                    <input type="hidden" name="@DissPerId" id="@DissPerId" value="@item.DissPerId " />
+                    k++;
+                }
+                else
+                {
+                    <input type="hidden" name="@PhysicalExamHistoryId" id="@PhysicalExamHistoryId" value="@item.PhysicalExamHistoryId " />
+                    i++;
+                }
+            }
+            <button type="submit" name="Export" id="Exportbtn" value="خروجی " class="btn" title="خروجی " formtarget="_blank"><span style="color:#ae2121" class="glyphicon glyphicon-file fa-2x"></span>دریافت خروجی</button>
+        }
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            <div class="row">
+                <div class="col-md-2">
+                    <span style="color:#C53462;font-size:medium">*</span>
+                    نام
+                    <input type="text" id="Fname" name="Fname" value="@ViewBag.Fname" class="form-control input-lg " />
+                </div>
+                <div class="col-md-2">
+                    نام خانوادگی
+                    <input type="text" id="Lname" name="Lname" value="@ViewBag.Lname" class="form-control input-lg" />
+                </div>
+                <div class="col-md-3">
+                    دوره
+                    @Html.DropDownList("PeriodId", null, "---دوره---", new { @class = "form-control input-lg" })
+                </div>
+                <div class="col-md-2">
+                    ایستگاه
+                    @Html.DropDownList("StationId", null, "---ایستگاه---", new { @class = "form-control input-lg" })
+                </div>
+                <div class="col-md-2">
+                    شیفت
+                    <div id="Shift-div">
+                        @Html.DropDownList("ShiftWorkId", null, "---شیفت کاری---", new { @class = "form-control input-lg " })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <hr />
+            </div>
+            <div class="row" style="background-color:#b6ff00">
+                @if (selectedItems != null)
+                {
+                    <div class="col-xs-8 col-sm-12">
+                        پست سازمانی
+                        @foreach (var station in PostSazmani)
+                        {
+
+                            <input type="checkbox" name="items" value="@station.PostSazmaniId" @(selectedItems.Contains(station.PostSazmaniId) ? "checked" : "" ) />
+                            <label>
+                                @station.PSazmaniTitle &nbsp;&nbsp;&nbsp;&nbsp;
+                            </label>
+                        }
+
+                    </div>
+
+                }
+                else
+                {
+                    <div class="col-xs-8 col-sm-12">
+                        پست سازمانی
+                        @foreach (var station in PostSazmani)
+                        {
+
+                            <input type="checkbox" name="items" value="@station.PostSazmaniId" />
+                            <label>
+                                @station.PSazmaniTitle &nbsp;&nbsp;&nbsp;&nbsp;
+                            </label>
+                        }
+
+                    </div>
+                }
+            </div>
+            <div class="row">
+                <hr />
+            </div>
+            <div class="row" style="background-color:#d79cee">
+                <div class="col-md-12"></div>
+                @if (selectedRengs != null)
+                {
+                    <div class="col-xs-8 col-sm-12">
+                        رنج سنی
+                        @foreach (var reng in RengAge)
+                        {
+
+                            <input type="checkbox" name="Rengs" value="@reng.AgeRengeId" @(selectedRengs.Contains(reng.AgeRengeId) ? "checked" : "") />
+                            <label>
+                                @reng.TitleAge &nbsp;&nbsp;&nbsp;&nbsp;
+                            </label>
+                        }
+
+                    </div>
+
+                }
+                else
+                {
+                    <div class="col-xs-8 col-sm-12">
+                        رنج سنی
+                        @foreach (var reng in RengAge)
+                        {
+
+                            <input type="checkbox" name="Rengs" value="@reng.AgeRengeId" />
+                            <label>
+                                @reng.TitleAge &nbsp;&nbsp;&nbsp;&nbsp;
+                            </label>
+                        }
+                    </div>
+                }
+            </div>
+            <div class="col-md-12" style="color:blue">
+                <br />
+                <i class="fa fa-check"></i> سن:کوچکتر و مساوی 29 سال رنج سنی اول  | 30تا 34 سال رنج سنی دوم |35تا 39 سال رنج سنی سوم |بزرگتر از 40رنج سنی چهارم
+            </div>
+            <div class="row">
+                <hr />
+            </div>
+            <div class="row">
+                <div class="col-xs-8 col-sm-2">
+                    <br />
+                    <input type="submit" class="btn btn-success" value="جستجو" />
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table id="example6" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th># </th>
+                                <th> تصویر     </th>
+                                <th>
+                                    نام و نام خانوادگی
+                                </th>
+                                <th>
+                                    سن
+                                </th>
+                                <th>
+                                    پست سازمانی
+                                </th>
+                                <th>
+                                    دوره
+                                </th>
+
+                                <th>
+                                    امتیاز آمادگی جسمانی
+                                </th>
+                                <th style="background-color:#d7d3d3">
+                                    زمان عملیات انفرادی
+                                </th>
+                                <th>
+                                    امتیاز عملیات انفرادی
+                                </th>
+                                <th style="background-color:#d7d3d3">
+                                    زمان عملیات تیمی
+                                </th>
+                                <th>
+                                    امتیاز عملیات تیمی
+                                </th>
+                                <th>
+                                    امتیاز تربیت بدنی
+                                </th>
+                                <th style="background-color:#979696;color:#ffffff">
+                                    مجموع امتیازات
+                                </th>
+                                <th style="background-color:#fdfdfd">
+                                    توضیحات
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var age = Convert.ToInt32(item.Age);
+                                //int age = Convert.ToInt32(item.Age);
+                                var rate = Rates.Where(mm => age >= mm.minAge && age <= mm.maxAge && item.TotalScore >= mm.minTotalScore && item.TotalScore <= mm.maxTotalScore).FirstOrDefault();
+                                if (rate == null)
+                                { rate = Rates.FirstOrDefault(); }
+
+                                string prclass = "pr-verylow";
+                                if (rate.Rate == "good")
+                                {
+                                    prclass = "pr-good";
+                                }
+                                else if (rate.Rate == "pr-low")
+                                {
+                                    prclass = "pr-low";
+                                }
+                                else if (rate.Rate == "medium")
+                                {
+                                    prclass = "pr-medium";
+                                }
+                                else if (rate.Rate == "Perfect")
+                                {
+                                    prclass = "pr-Perfect";
+                                }
+                                <tr class="@prclass">
+                                    <td></td>
+                                    <td>
+                                        @if (@item.Picture != null)
+                                        {
+                                            <a href="@Url.Content(@item.Picture)" target="_blank">
+                                                <img class="img-thumbnail" style="width: 50px; height: 50px; float:left; margin:0 10px 5px 0" alt="@item.AthleteName" src="@Url.Content(@item.Picture)" />
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <img class="img-thumbnail" id="image_preview" style="width: 50px; height: 50px; float:left; margin:0 10px 5px 0" alt="" src="" />
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.AthleteName)
+                                    </td>
+                                    <td>
+                                        @age
+                                        @if (item.Reng == 1)
+                                        {
+                                            <p>
+                                                ( رنج سنی اول)
+                                            </p>
+                                        }
+                                        else if (item.Reng == 2)
+                                        {
+                                            <p>
+                                                (رنج سنی دوم)
+                                            </p>
+                                        }
+                                        else if (item.Reng == 3)
+                                        {
+                                            <p>
+                                                (رنج سنی سوم)
+                                            </p>
+                                        }
+                                        else if (item.Reng == 5)
+                                        {
+                                            <p>
+                                                (رنج سنی چهارم)
+                                            </p>
+                                        }
+
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PSazmaniTitle)
+                                    </td>
+                                    <td style="width:35%">
+                                        @Html.DisplayFor(modelItem => item.PeriodTitle)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TotalPhysicalScore)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IndOperTotalFinalOper)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IndTotalScore)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TeamWorkTime)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TeamWorkScore)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SportsScore)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TotalScore)
+                                    </td>
+                                    @if (item.Titles.Contains("غیبت"))
+                                    {
+                                        <td style="color:#ce1818;background-color:#fdfdfd">
+                                            <b>
+                                                @string.Join("", item.Titles)
+                                            </b>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td style="background-color:#fdfdfd">
+                                            <b>
+                                                @string.Join(",", item.Titles)
+                                            </b>
+                                        </td>
+                                    }
+                                    <td></td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+                    $(document).ready(function () {
+
+                        $('#Fname').autocomplete(
+                            {
+                                source: '@Url.Action("GetAutoCompleteFnam", "PhysicalExamHistories")'
+                            });
+                    })
+                  $(document).ready(function () {
+
+                      $('#Lname').autocomplete(
+                            {
+                                source: '@Url.Action("GetAutoCompleteLname", "PhysicalExamHistories")'
+                            });
+                    })
+                    $(document).ready(function () {
+                        $('#StationId').trigger('change');
+                    });
+                    $(document).ready(function () {
+                        $("#StationId").change(function () {
+                            $('#Shift-div').html('');
+                            $('#Shift-div').load('/Athletes/GetShift?StationId=' + $('#StationId').val());
+                        });
+                    });
+
+                    $(document).delegate('.isready', 'click', function (e) {
+                        e.preventDefault();
+                        var link = $(this);
+                        $.ajax({
+                            type: 'Post',
+                            url: $(this).attr('href'),
+                            data: null,
+                            success: function (data) {
+                                if (data == 'True') {
+                                    link.removeClass('glyphicon-ok-circle');
+                                    link.addClass('glyphicon-ok');
+                                    link.closest('tr').css('color', 'green');
+                                }
+                                else {
+                                    link.removeClass('glyphicon-ok');
+                                    link.addClass('glyphicon-ok-circle');
+                                    link.closest('tr').css('color', 'b');
+                                }
+                            },
+                            error: function () {
+                                alert('error');
+                            }
+                        });
+                    });
+
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            var t = $('#example6').DataTable({
+
+                'paging': true,
+                'lengthChange': true,
+                'searching': true,
+                'ordering': true,
+                'info': true,
+                'autoWidth': true,
+                "pageLength": 5,
+                //"responsive": true,
+                "lengthMenu": [5, 10, 25, 50, "All"],
+                "language": {
+                    select: {
+                        rows: "%d سطرانتخاب شده "
+                    },
+
+                    "sEmptyTable": "هیچ داده‌ای در جدول وجود ندارد",
+                    "sInfo": "نمایش _START_ تا _END_ از _TOTAL_ ردیف",
+                    "sInfoEmpty": "نمایش 0 تا 0 از 0 ردیف",
+                    "sInfoFiltered": "(فیلتر شده از _MAX_ ردیف)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ",",
+                    "sLengthMenu": "نمایش _MENU_ ردیف",
+                    "sLoadingRecords": "در حال بارگزاری...",
+                    "sProcessing": "در حال پردازش...",
+                    "sSearch": "جستجو:",
+                    "sZeroRecords": "رکوردی با این مشخصات پیدا نشد",
+
+                    "oPaginate": {
+                        "sFirst": "برگه‌ی نخست",
+                        "sLast": "برگه‌ی آخر",
+                        "sNext": "بعدی",
+                        "sPrevious": "قبلی"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": فعال سازی نمایش به صورت صعودی",
+                        "sSortDescending": ": فعال سازی نمایش به صورت نزولی"
+                    },
+
+                },
+                'stateSave': true,
+
+                dom: 'Bfrtip',
+                buttons: [
+                    'pageLength',
+                    {
+
+                        extend: 'print',
+                        text: 'پرینت',
+                        exportOptions: {
+                            columns: ':visible'
+                        },
+                        customize: function (win) {
+                            $(win.document.body)
+                                .css('font-size', '10pt')
+                                .prepend(
+                                    //'<img src="http://datatables.net/media/images/logo-fade.png" style="position:absolute; top:0; left:0;" />'
+                                );
+
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                        }
+                    }
+                    ,
+
+
+                    //{
+                    //    extend: 'colvis',
+                    //    text: 'تغییر ستونها',
+
+                    //    collectionLayout: 'fixed three-column'
+                    //}
+                ],
+
+                columnDefs: [{
+                    targets: -1,
+                    visible: false
+                }],
+                initComplete: function () {
+                    this.api().columns().every(function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo($("#filters").find("th").eq(column.index()))
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val());
+
+                                column.search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        console.log(select);
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });
+                },
+                select: true
+            }); t.on('order.dt search.dt', function () {
+                t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
+            $('a.toggle-vis').on('click', function (e) {
+                e.preventDefault();
+                var column = table.column($(this).attr('data-column'));
+                column.visible(!column.visible());
+            });
+        });
+    </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

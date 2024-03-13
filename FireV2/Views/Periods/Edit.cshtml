@@ -1,0 +1,94 @@
+﻿@model FireV2.Models.Period
+
+@{
+    ViewBag.Title = "..::..";
+    Layout = null;
+}
+@using (Html.BeginForm("Edit", "Periods", FormMethod.Post, new { id = "form-Edit" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PeriodId)
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+
+                    <div class="col-sm-12">
+                        <span style="color:#C53462;font-size:medium">*</span>
+                        عنوان دوره
+                        <div style="">
+                            <div class="input-group" style="margin-bottom: 10px">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user-circle-o fa-2x">
+                                    </i>
+                                </span>
+                                @Html.TextBoxFor(model => model.SeasonTitle, new { @class = "form-control input-lg", placeholder = "عنوان دوره ", autocomplete = "off" })
+                            </div>
+                            <b>
+                                @Html.ValidationMessageFor(model => model.SeasonTitle, "", new { @class = "text-danger" })
+                            </b>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <span style="color:#C53462;font-size:medium">*</span>
+                        از تاریخ
+                        <div style="">
+                            <div class="input-group" style="margin-bottom: 10px">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user-circle-o fa-2x">
+                                    </i>
+                                </span>
+                                @Html.TextBoxFor(model => model.FromDate, new { @class = "form-control input-lg", placeholder = "سال ", autocomplete = "off", @id = "date2" })
+                            </div>
+                            <b>
+                                @Html.ValidationMessageFor(model => model.FromDate, "", new { @class = "text-danger" })
+                            </b>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <span style="color:#C53462;font-size:medium">*</span>
+                        تا تاریخ
+                        <div style="">
+                            <div class="input-group" style="margin-bottom: 10px">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user-circle-o fa-2x">
+                                    </i>
+                                </span>
+                                @Html.TextBoxFor(model => model.Todate, new { @class = "form-control input-lg", placeholder = "سال ", autocomplete = "off", @id = "date1" })
+                            </div>
+                            <b>
+                                @Html.ValidationMessageFor(model => model.Todate, "", new { @class = "text-danger" })
+                            </b>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <span style="color:#C53462;font-size:medium">*</span>
+                        بسته عملیات تیمی
+                        <div class="input-group" style="margin-bottom: 10px">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user-circle-o fa-2x">
+                                </i>
+                            </span>
+                            @Html.DropDownList("PackTeamid", null, "---  بسته عملیات تیمی  --- ", new { @class = "form-control input-lg" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 ">
+                        <span style="color:#C53462;font-size:medium">*</span>
+                        بسته عملیات انفرادی
+                        <div class="input-group" style="margin-bottom: 10px">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user-circle-o fa-2x">
+                                </i>
+                            </span>
+                            @Html.DropDownList("PackIndid", null, "---  بسته عملیات انفرادی   --- ", new { @class = "form-control input-lg" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

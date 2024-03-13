@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FireV2.ViewModels.AthleteReportVM>
+
+@{
+    ViewBag.Title = "..::..";
+    var distinct = Model.Select(s => s.AthleteId).Distinct();
+}
+@using (Html.BeginForm())
+{
+    if (ViewBag.message != null)
+    {
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                &times;
+            </button>
+            <p>
+                @ViewBag.message
+            </p>
+        </div>
+    }
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        </div>
+        <div class="panel-body">
+            <div class="row" style="width:70%">
+                <div class="col-sm-4 col-lg-3">
+                  <input type="text" id="From" name="From" class="form-control " placeholder="ازسال -دوره" />
+                </div>
+                <div class="col-sm-4 col-lg-3">
+                    <input type="text" id="To" name="To" class="form-control " placeholder="تا سال - دوره" />
+                </div>
+                <div class="col-sm-4 col-lg-3">
+                    <input type="submit" id="btnsearch" class="btn btn-info " value="جستجو" />
+                </div>
+            </div>
+            <div id="div-index">
+                @Html.Partial("_Report", Model)
+            </div>
+        </div>
+    </div>
+}
+@section scripts{
+    <script type="text/javascript">
+        $(document).delegate('#btnsearch', 'click', function (e) {
+
+            $('#div-index').load('/PersonProfiles/Index/' + '?from=' + $("#From") + "&To=" + $("#To"), function () {
+            });
+        });
+    </script>
+}
+
+

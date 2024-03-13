@@ -1,0 +1,77 @@
+﻿@model FireV2.Models.BMI
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>BMI</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ABmiid)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ABmiText, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ABmiText)
+                @Html.ValidationMessageFor(model => model.ABmiText)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date)
+                @Html.ValidationMessageFor(model => model.Date)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Size, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Size)
+                @Html.ValidationMessageFor(model => model.Size)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Weight, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Weight)
+                @Html.ValidationMessageFor(model => model.Weight)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BMIRenj, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BMIRenj)
+                @Html.ValidationMessageFor(model => model.BMIRenj)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AthleteId, "AthleteId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("AthleteId", String.Empty)
+                @Html.ValidationMessageFor(model => model.AthleteId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

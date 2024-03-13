@@ -1,0 +1,46 @@
+﻿;@model IEnumerable<FireV2.Models.DocTypeAthelet>
+
+@{
+    var CoorDetails = 0;
+    var CooperationP = 0;
+    var InfoDTitles = (IEnumerable<FireV2.Models.InfoDocumentTitle>)ViewBag.InfoDocumentTitles;
+    var DocTAthelets = (IEnumerable<FireV2.Models.DocTypeAthelet>)ViewBag.DocTypeAthelets;
+
+}
+@foreach (var List2 in InfoDTitles)
+{ 
+    bool found = false;
+    string infTitle = "";
+    @List2.InfoDocTitle
+    foreach (var List4 in DocTAthelets)
+    {
+        if (List2.InfoDocTitleId == List4.InfoDocumentTitleType.InfoDocTitleId)
+        {
+            found = true;
+            @infTitle= List4.InfoDocumentTitleType.InfoDocTitleType;
+        }
+    }
+}
+
+
+@*@foreach (var cor in Model)
+{
+    <div style=" margin:5px; padding:10px;">
+        <h3>
+            @cor.InfoDocumentTitle.InfoDocTitle
+            <a style="color:#F31B49" href="#" data-url="/Athletes/DeleteCooperation/@cor.DocTypeAtId" title="حذف  زمینه کاری " class="fa fa-remove deleteCooperation"> </a>
+
+    </h3>
+    <ul>
+        @foreach (var item in cor.InfoDocumentTitleTypes)
+        {
+            <li>
+                @item.InfoDocTitleType
+                <a href="#" data-url="/Athletes/DeleteCooperationDetails/?CoorDetails=@item.InfoDocTitleTypeId&CooperationP=@cor.DocTypeAtId" class="fa fa-remove DeleteCooperationDetails "> </a>
+        </li>
+        }
+    </ul>
+    
+
+</div>
+}*@

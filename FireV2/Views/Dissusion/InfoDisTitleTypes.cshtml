@@ -1,0 +1,14 @@
+﻿@model IEnumerable<FireV2.Models.DissuasionsTitle>
+@{
+    var AthleteId = TempData["atid"];
+}
+
+<input type="text" name="AthleteId" value="@AthleteId" hidden />
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-6 checkbox">
+            <input type="checkbox" class="detailsItem checkbox" value="@item.DissTitleId" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="control-label">@item.DissTitles</label>
+        </div>
+    </div>
+}

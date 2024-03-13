@@ -1,0 +1,46 @@
+﻿
+@{
+    var selected = ViewBag.selected;
+}
+
+@if (selected != null)
+{
+    <div class="form-check">
+        @foreach (var item in ViewBag.items)
+        {
+            <div class="col-md-8">
+                <label class="form-check-label" for="PhReadinessItemId">@item.PhReadinessItemTitle</label>
+
+            </div>
+            <div class="col-md-1">
+                <input type="checkbox" name="items" value="@item.PhReadinessItemId" @(ViewBag.selected.Contains(item.PhReadinessItemId) ? "checked" : "") />
+
+            </div>
+            <br />
+        }
+
+
+    </div>
+
+}
+else
+{
+    <div class="form-check">
+        @foreach (var item in ViewBag.items)
+        {
+            <div class="col-md-8">
+                <label class="form-check-label" for="PhReadinessItemId">@item.PhReadinessItemTitle</label>
+            </div>
+            <div class="col-md-1">
+                @Html.CheckBox("PhReadinessItemId", new { value = item.PhReadinessItemId, @class = "form-check-input",name= "items" })
+            </div>
+
+            <br />
+        }
+
+
+    </div>
+
+}
+
+

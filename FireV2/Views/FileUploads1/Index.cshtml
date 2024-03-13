@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FireV2.Models.FileUpload>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Medical.DateInsert)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddressFile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateUpload)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserUpload)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medical.DateInsert)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressFile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateUpload)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserUpload)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FileUploadid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FileUploadid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FileUploadid })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,50 @@
+﻿@model FireV2.Models.PhRedinessHistoryItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PhRedinessHistoryItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalExamHistory.TeamWorkTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalExamHistory.TeamWorkTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalReadinesitem.PhReadinessItemTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalReadinesitem.PhReadinessItemTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PhRHistoryItemId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

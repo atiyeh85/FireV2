@@ -1,0 +1,117 @@
+﻿@using FireV2.Models
+@model LoginViewModel
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Site.css" rel="stylesheet" />
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+<script src="~/footer/assets/demo.js"></script>
+@*<div class="row">
+    <div class="col-md-12">
+        <img src="~/Content/image/BanerAtash.png" class="img-responsive center-block" />
+    </div>
+</div>*@
+<script>
+    $(document).ready(function () {
+        $("#side-one p").delay(1500).animate({ opacity: 1 }, 600);
+    });
+</script>
+<div class="row ">
+    <div class="col-md-12 visible-lg visible-md  visible-sm " style="height:300px;width:100%;">
+        <iframe src="~/slider/standard.html" width="100%" height="500" scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+    </div>
+    <div class="col-md-12 hidden-lg hidden-md hidden-sm visible-xs " style="height:200;width:100%;">
+        <iframe src="~/slider/standard.html" width="100%" height="300" scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+    </div>
+    
+   
+</div>
+
+    <style>
+        body {
+            padding-top: 0px;
+        }
+
+        .row {
+            padding-top: 0px;
+        }
+    </style>
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form" }))
+    {    @Html.AntiForgeryToken()
+        <br />
+        <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-login">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-12">
+
+                                <a href="#" class="active" id="login-form-link">احراز هویت</a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group" style="text-align:right">
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control ", placeholder = "نام کاربری ", autocomplete = "off" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.PasswordFor(model => model.Password, new { @class = "form-control ", placeholder = " کلمه عبور ", autocomplete = "off" })
+                                </div>
+                                <div class="form-group text-center">
+                                    <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                                    <label for="remember">به خاطر بسپار من را؟  </label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-sm-offset-3">
+                                            <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value=" ورود ">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <footer id="myFooter">
+
+            <div class="footer-copyright" style="text-align:center;font-family:Tahoma;color:#808080">
+                <p>© 2016   تمام حقوق   این وب سایت متعلق به شهرداری قزوین می باشد </p>
+            </div>
+        </footer>
+
+    }
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script>
+
+            $(function () {
+
+                $('#login-form-link').click(function (e) {
+                    $("#login-form").delay(100).fadeIn(100);
+                    $("#register-form").fadeOut(100);
+                    $('#register-form-link').removeClass('active');
+                    $(this).addClass('active');
+                    e.preventDefault();
+                });
+                $('#register-form-link').click(function (e) {
+                    $("#register-form").delay(100).fadeIn(100);
+                    $("#login-form").fadeOut(100);
+                    $('#login-form-link').removeClass('active');
+                    $(this).addClass('active');
+                    e.preventDefault();
+                });
+
+            });
+
+        </script>
+    }

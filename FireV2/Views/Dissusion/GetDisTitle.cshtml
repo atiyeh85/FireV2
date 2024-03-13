@@ -1,0 +1,47 @@
+﻿@model IEnumerable<FireV2.Models.Dissusion>
+@{
+    var List = (List<int>)ViewBag.ListOfDocTitle;
+    var ll = (IEnumerable<FireV2.Models.DissType>)ViewBag.List;
+}
+<style>
+    .st7 {
+        color: #763506;
+    }
+
+    .st6 {
+        color: #ffffff;
+    }
+</style>
+@foreach (var item in ll)
+{
+    <br />
+    <br />
+    <div class="row" id="DisList2">
+        <div class="col-md-12 ">
+          
+            @if (Model.Where(m=>m.DissuasionsTitle.DissTypeid==item.DissTypeid).Count()>0)
+            {
+            <b class="st7">
+                @item.DissTypeTitle
+
+            </b>
+            }
+            <div class="col-lg-12 st6">
+                @foreach (var m in Model)
+                {
+                   
+                    <div class="col-md-12">
+                        @if (m.DissuasionsTitle.DissTypeid == item.DissTypeid)
+                        {
+                            <i style="color:#763506;font-size:large" class="glyphicon glyphicon-ok"></i>
+
+                            @m.DissuasionsTitle.DissTitles
+                            <a style="color:#F31B49" href="#" data-url="/Dissusion/DeleteDicTitle/@m.DissPerId" class="fa fa-remove fa-2x DeleteDicTitle"> </a>
+
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

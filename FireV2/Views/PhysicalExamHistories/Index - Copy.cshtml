@@ -1,0 +1,230 @@
+﻿@model IEnumerable<FireV2.ViewModels.PhysicalHistoryReportVM>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    //var Period = (IEnumerable<FireV2.Models.Period>)ViewBag.PeriodId;
+    var PostSazmani = (IEnumerable<FireV2.Models.PostSazmani>)ViewBag.PostSazmani;
+    var RengAge = (IEnumerable<FireV2.Models.AgeRenge>)ViewBag.Reng;
+    var selectedItems = ViewBag.items;
+    var selectedRengs = ViewBag.Rengs;
+}
+<br />
+<br />
+<br />
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    @using (Html.BeginForm("Report", "PhysicalExamHistories", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        int i = 0;
+                        int k = 0;
+                        foreach (var item in Model)
+                        {
+                            string PhysicalExamHistoryId = "ids[" + i.ToString() + "]";
+                            string DissPerId = "idss[" + k.ToString() + "]";
+                            if (item.PhysicalExamHistoryId == 0)
+                            {
+                                <input type="hidden" name="@DissPerId" id="@DissPerId" value="@item.DissPerId " />
+                                k++;
+                            }
+                            else
+                            {
+                                <input type="hidden" name="@PhysicalExamHistoryId" id="@PhysicalExamHistoryId" value="@item.PhysicalExamHistoryId " />
+                                i++;
+                            }
+                        }
+                        <button type="submit" name="Export" id="Exportbtn" value="خروجی " class="btn" title="خروجی " formtarget="_blank"><span style="color:#ae2121" class="glyphicon glyphicon-file fa-2x"></span>دریافت خروجی</button>
+                    }
+                </div>
+                <div class="panel-body">
+@using (Html.BeginForm())
+{
+                    <div class="row">
+                        <div  class="col-md-2">
+                            <span style="color:#C53462;font-size:medium">*</span>
+                            نام
+                            <input type="text" id="Fname" name="Fname" value="@ViewBag.Fname" class="form-control input-lg " />
+                        </div>
+                        <div  class="col-md-2">
+                            نام خانوادگی
+                            <input type="text" id="Lname" name="Lname" value="@ViewBag.Lname" class="form-control input-lg" />
+                        </div>
+                        <div  class="col-md-3">
+                            دوره
+                            @Html.DropDownList("PeriodId", null,"---دوره---", new { @class = "form-control input-lg" })
+                        </div>
+                        <div class="col-md-2">
+                            ایستگاه
+                            @Html.DropDownList("StationId", null, "---ایستگاه---", new { @class = "form-control input-lg" })
+                        </div>
+                        <div class="col-md-2">
+                            شیفت
+                            <div id="Shift-div">
+                                @Html.DropDownList("ShiftWorkId", null, "---شیفت کاری---", new { @class = "form-control input-lg " })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <hr />
+                    </div>
+                    <div class="row" style="background-color:#b6ff00">
+                        @if (selectedItems != null)
+                        {
+                            <div class="col-xs-8 col-sm-12">
+                                پست سازمانی
+                                @foreach (var station in PostSazmani)
+                                {
+
+                                    <input type="checkbox" name="items" value="@station.PostSazmaniId" @(selectedItems.Contains(station.PostSazmaniId) ? "checked" : "" ) />
+                                    <label>
+                                        @station.PSazmaniTitle &nbsp;&nbsp;&nbsp;&nbsp;
+                                    </label>
+                                }
+
+                            </div>
+
+                        }
+                        else
+                        {
+                            <div class="col-xs-8 col-sm-12">
+                                پست سازمانی
+                                @foreach (var station in PostSazmani)
+                                {
+
+                                    <input type="checkbox" name="items" value="@station.PostSazmaniId" />
+                                    <label>
+                                        @station.PSazmaniTitle &nbsp;&nbsp;&nbsp;&nbsp;
+                                    </label>
+                                }
+
+                            </div>
+                        }
+                    </div>
+                    <div class="row">
+                        <hr />
+                    </div>
+                    <div class="row" style="background-color:#d79cee">
+                        <div class="col-md-12"></div>
+                    @if (selectedRengs!=null)
+                    {
+                        <div class="col-xs-8 col-sm-12">
+                            رنج سنی
+                            @foreach (var reng in RengAge)
+                            {
+
+                                <input type="checkbox" name="Rengs" value="@reng.AgeRengeId" @(selectedRengs.Contains(reng.AgeRengeId) ? "checked" : "") />
+                                <label>
+                                    @reng.TitleAge &nbsp;&nbsp;&nbsp;&nbsp;
+                                </label>
+                            }
+
+                        </div>
+                       
+                    }
+                    else
+                    {
+                        <div class="col-xs-8 col-sm-12">
+                            رنج سنی
+                            @foreach (var reng in RengAge)
+                            {
+
+                                <input type="checkbox" name="Rengs" value="@reng.AgeRengeId"  />
+                                <label>
+                                    @reng.TitleAge &nbsp;&nbsp;&nbsp;&nbsp;
+                                </label>
+                            }
+                        </div>
+                    }
+                    </div>
+                    <div class="col-md-12" style="color:blue">
+                        <br />
+                        <i class="fa fa-check"></i> سن:کوچکتر و مساوی 29 سال رنج سنی اول  | 30تا 34 سال رنج سنی دوم |35تا 39 سال رنج سنی سوم |بزرگتر از 40رنج سنی چهارم
+                    </div>
+                    <div class="row">
+                        <hr />
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8 col-sm-2">
+                            <br />
+                            <input type="submit" class="btn btn-success" value="جستجو" />
+                        </div>
+                    </div>
+}
+                </div>
+            </div>
+            <br />
+            <div id="div-index">
+                @Html.Partial("_index", Model)
+            </div>
+            @section scripts{
+                <script type="text/javascript">
+                    $(document).ready(function () {
+
+                        $('#Fname').autocomplete(
+                            {
+                                source: '@Url.Action("GetAutoCompleteFnam", "PhysicalExamHistories")'
+                            });
+                    })
+                  $(document).ready(function () {
+
+                      $('#Lname').autocomplete(
+                            {
+                                source: '@Url.Action("GetAutoCompleteLname", "PhysicalExamHistories")'
+                            });
+                    })
+                    $(document).ready(function () {
+                        $('#StationId').trigger('change');
+                    });
+                    $(document).ready(function () {
+                        $("#StationId").change(function () {
+                            $('#Shift-div').html('');
+                            $('#Shift-div').load('/Athletes/GetShift?StationId=' + $('#StationId').val());
+                        });
+                    });
+
+                    $(document).delegate('.isready', 'click', function (e) {
+                        e.preventDefault();
+                        var link = $(this);
+                        $.ajax({
+                            type: 'Post',
+                            url: $(this).attr('href'),
+                            data: null,
+                            success: function (data) {
+                                if (data == 'True') {
+                                    link.removeClass('glyphicon-ok-circle');
+                                    link.addClass('glyphicon-ok');
+                                    link.closest('tr').css('color', 'green');
+                                }
+                                else {
+                                    link.removeClass('glyphicon-ok');
+                                    link.addClass('glyphicon-ok-circle');
+                                    link.closest('tr').css('color', 'b');
+                                }
+                            },
+                            error: function () {
+                                alert('error');
+                            }
+                        });
+                    });
+                  
+                  
+                </script>
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

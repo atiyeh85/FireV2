@@ -1,0 +1,75 @@
+﻿@model IEnumerable<FireV2.Models.SportsScoreTitle>
+
+@{
+    ViewBag.Title = "Create";
+    var Selected = (List<int>)ViewBag.Selected;
+    var Fromdate = ViewBag.Fromdate;
+    var Todate = ViewBag.Todate;
+}
+<br />
+<br />
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" name="AthleteId" value="@ViewBag.AthleteId" />
+    <input type="hidden" name="PeriodId" value="@ViewBag.PeriodId" />
+    <div class="panel panel-default"  >
+        <div class="panel-heading">
+            <div class="row style3">
+                <div class="col-md-4">
+                   امتیاز ورزشی
+
+                </div>
+                <div class="col-md-3 ">
+                     نام آتشنشان :@ViewBag.FullName
+
+                </div>
+                <div class="col-md-5 ">
+                    عنوان دوره   :    @ViewBag.SeasonTitle
+                </div>
+            </div>
+
+        </div>
+        <div class="panel-body">
+            <div class="row">
+
+@foreach (var item in Model)
+{
+    <div class="col-md-6">
+        <input type="checkbox" class="ssp" value="@item.SScoreId" @(Selected.Contains(item.SScoreId) ? "checked" : "") />
+        <label>@item.SScoreTitle</label>
+    </div>
+               
+}
+               
+            </div>
+          
+        </div>
+    </div>
+    <input name="items" id="items" type="hidden" />
+
+        <button type="button" class="btn btn-info" id="btn-save">
+            <span class="glyphicon glyphicon-ok"></span> ثبت
+        </button>
+
+    <a href="/Athletes/DataEntry/@ViewBag.PeriodId?atid=@ViewBag.AthleteId" class="elements"><span>بازگشت</span></a>
+
+}
+@section scripts{
+    <script>
+        $(document).delegate('#btn-save', 'click', function (e) {
+            e.preventDefault();
+            var items = '';
+
+            $('.ssp').each(function (idx, input) {
+                if ($(input).prop('checked') == true)
+                    items += $(input).val() + ';';
+            })
+            $('#items').val(items);
+            $(this).closest('form').submit();
+        });
+    </script>
+}

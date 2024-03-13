@@ -1,0 +1,34 @@
+﻿@model FireV2.Models.SportScoreByPeriod
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SportScoreByPeriod</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Period.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Period.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SportsScoreTitle.SsScoreTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SportsScoreTitle.SsScoreTitle)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SScoreBypriodId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

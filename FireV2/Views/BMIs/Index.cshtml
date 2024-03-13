@@ -1,0 +1,117 @@
+﻿@model IEnumerable<FireV2.Models.BMI>
+
+@{
+    ViewBag.Title = "..::..";
+    Layout = null;
+}
+       <style>
+           .Low {
+               background: #74cee5;
+               color: #000000;
+           }
+
+           .Normal {
+               background: #8cd890;
+               color: #000000;
+           }
+
+           .Overweight {
+               background: #f7de52;
+               color: #000000;
+           }
+
+           .ObesityClassI {
+               background: #ed9b62;
+               color: #000000;
+           }
+
+           .ObesityClassII {
+               background: #db746d;
+               color: #000000;
+           }
+           .MorbidObesity {
+               background: #ca1919;
+               color: #000000;
+           }
+ </style>
+    
+<div class="table-responsive">
+    <table class="table ">
+       
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Period.SeasonTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ABmiText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BMIRenj)
+            </th>
+
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+
+            string prclass = "pr-verylow";
+            //var BmiAthlete = Convert.ToDouble(item.BMIRenj);
+            var BmiAthlete =double.Parse( item.BMIRenj);
+            if (BmiAthlete < 18.5)
+            {
+                prclass = "Low";
+            }
+            else if (BmiAthlete >= 18.5 && BmiAthlete <= 24.9)
+            {
+                prclass = "Normal";
+            }
+            else if (BmiAthlete >= 25 && BmiAthlete <= 29.9)
+            {
+                prclass = "Overweight";
+            }
+            else if (BmiAthlete >= 30 && BmiAthlete <= 34.9)
+            {
+                prclass = "ObesityClassI";
+            }
+            else if (BmiAthlete >= 35 && BmiAthlete <= 39.9)
+            {
+                prclass = "ObesityClassII";
+            }
+            else if (BmiAthlete >= 40)
+            {
+                prclass = "MorbidObesity";
+            }
+    <tr class="@prclass">
+        <td>
+            @Html.DisplayFor(modelItem => item.Period.SeasonTitle)
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ABmiText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BMIRenj)
+        </td>
+
+        <td>
+            <a data-href="/BMIs/Delete/@item.ABmiid" data-toggle="modal" data-target="#myModal" class="controls fa  fa fa-trash fa-2x" style="color: #990c0c;" href="#">
+            </a>
+        </td>
+    </tr>
+}
+
+    </table>
+
+    </div>

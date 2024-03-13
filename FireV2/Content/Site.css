@@ -1,0 +1,88 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: url('image/background.png');
+    font-family:Tahoma;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family:Tahoma;
+
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    /*max-width: 280px;*/
+}
+.navbar-inverse .navbar-nav > li > a {
+
+    color: #ffffff;
+
+}
+.navbar-inverse {
+    background-color: #990c0c;
+    border-color: #808080;
+}
+
+.navbar-default {
+    background-color: #990c0c;
+    border-color: #e7e7e7;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+}
+st1{
+    color:#ff6a00
+}
+.ui-widget.ui-widget-content {
+    border: 1px solid #c5c5c5;
+    font-family: tahoma;
+    color:#650581;
+    font-size:medium
+}
+li{
+    list-style:none
+}
+.style3{
+    font-size:medium;
+
+}
+       .panel-default > .panel-heading {
+
+    color: #ddd;
+    background-color: #971f00;
+    border-color: #ddd;
+
+}
+.panel {
+    background-color: #fcf8e3;
+   
+}
+
+/*.modal-content {
+   
+    width: 800px;
+}*/
+
+.container {
+    max-width: 1870px;
+}
+ .st7 {
+        color: #650581;
+    }
+
+    .st6 {
+        color: #ffffff;
+    }

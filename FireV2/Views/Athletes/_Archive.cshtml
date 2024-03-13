@@ -1,0 +1,126 @@
+﻿@model IEnumerable<FireV2.Models.Athlete>
+
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "..::..";
+    var list = (IEnumerable<FireV2.Models.Athlete>
+     )ViewBag.count;
+    var i = 0;
+}
+<div class="panel panel-default  ">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-md-5">
+                لیست   آتشنشانان
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-striped  table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th style="width:30px">#</th>
+                        <th>
+                            کد رهگیری
+                        </th>
+                        <th>
+                           نام نام خانوادگی @Html.ActionLink(" ", "Archive", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter, currentFilter2 = ViewBag.CurrentFilter2 }, new { @class = "CreateLink fa fa-sort fa-2x  " })
+                            
+                        </th>
+                        <th>بایگانی/گردش درآوردن</th>
+                        <th>علت بایگانی  </th>
+                        <th>کاربر بایگانی کننده</th>
+                        <th>تاریخ بایگانی</th>
+                        <th>زمان بایگانی</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        {
+                            i += 1;
+                        }
+                        <tr>
+                            <td style="width:30px;"  >@i</td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.AthleteId)
+                            </td>
+                            <td>
+                                <a href="/BanooOstans/Info/@item.AthleteId"  href="#">
+                                    @Html.DisplayFor(modelItem => item.FullName)
+
+                                </a>
+                            </td>
+                            
+                            <td >
+                                @{ 
+                                    var tOf = item.Archives.OrderByDescending(d=>d.IsArchiveid).FirstOrDefault();
+                                }
+                                @if (tOf!=null)
+                                {
+                                    if (tOf.IsArchive == true)
+                                    {
+                                        <a data-href="/Archives/Circulate/@item.AthleteId" data-toggle="modal" data-target="#myModal" class="controls fa  fa fa-check fa-2x" href="#">
+                                        </a>
+
+                                    }
+                                    else
+                                    {
+                                        <a data-href="/Archives/Create/@item.AthleteId" data-toggle="modal" data-target="#myModal" class="controls fa fa-check-circle-o fa-2x" href="#">
+                                        </a>
+                                    }
+
+                                }
+                                else
+                                {
+                                    <a data-href="/Archives/Create/@item.AthleteId" data-toggle="modal" data-target="#myModal" class="controls fa fa-check-circle-o fa-2x"  href="#">
+                                    </a>
+                                }
+                            </td>
+                           
+                                <td>
+                                  @if (tOf!=null)
+                                  {
+                                      <p>
+                                         @tOf.ArchiveNote 
+                                      </p>
+                                                                 }
+                                </td>
+                            <td>
+                                @if (tOf != null)
+                                {
+                                    <p>
+                                            @tOf.UsetArchive
+                                    </p>
+                                }
+                            </td>
+                            <td>
+                                @if (tOf != null)
+                                {
+                                    <p>
+                                         @tOf.Date
+                                    </p>
+                                }
+                            </td>
+                            <td>
+                                @if (tOf != null)
+                                {
+                                    <p>
+                                        @tOf.Time
+                                    </p>
+                                }
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+

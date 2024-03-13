@@ -1,0 +1,141 @@
+﻿@model FireV2.Models.Athlete
+
+@{
+    ViewBag.Title = "..::..";
+    Layout = null;
+}
+
+
+<h3>آیا از حذف اطلاعات مطمئن هستید؟</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt>
+            نام پدر
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FatherName)
+        </dd>
+        <dt>
+           مدرک
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Degree.DegreeName)  @Html.DisplayFor(model => model.Reshteh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeStatu.EmStatusTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeStatu.EmStatusTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaritalStatu.MaritalStatusTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaritalStatu.MaritalStatusTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostSazmani.PSazmaniTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostSazmani.PSazmaniTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Share.IsShare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Share.IsShare)
+        </dd>
+
+        <dt>
+          ایستگاه
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShiftWork.Station.StationTitle)     @Html.DisplayFor(model => model.ShiftWork.ShWorkTitle)
+        </dd>
+        <dt>
+          شناسنامه 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shenasnameh)
+        </dd>
+
+        <dt>
+        کد ملی
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Melicode)
+        </dd>
+
+        <dt>
+           صادره
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sadereh)
+        </dd>
+
+        <dt>
+    شماره بیمه
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bimeh)
+        </dd>
+
+        <dt>
+           کد پرسنلی
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonalCode)
+        </dd>
+
+        <dt>
+        تاریخ تولد
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Birthdate)
+        </dd>
+        <dt>
+            تاریخ ورود به سازمان
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PointEnter)
+        </dd>
+        <dt>
+           توضیحات
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoteAthlete)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-danger" />
+        </div>
+    }
+</div>

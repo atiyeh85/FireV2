@@ -1,0 +1,20 @@
+﻿
+@model FireV2.ViewModels.AthleteHistoryVM
+
+<style>
+    a {
+        color: #903c32;
+        text-decoration: none;
+    }
+</style>
+<table width="100%" style="font-family:Tahoma;font-size:medium">
+    <tbody>
+        <tr>
+            <td>
+                <input type="checkbox" @(Model.SportsScore ? "checked" : "")> <label for=""> امتیاز ورزشی</label> <a href="/IndividualHistories/Create/@Model.PeriodId?atid=@Model.AthleteId" target="new">@(Model.IndividualOperations ? "ویرایش اطلاعات" : "ورود اطلاعات")</a>
+
+            </td>
+        </tr>
+      
+    </tbody>
+</table>

@@ -1,0 +1,50 @@
+﻿@model FirePhysical.Models.Archive
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Archive</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Athlete.Fnam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Athlete.Fnam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArchiveNote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArchiveNote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsArchive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsArchive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IsArchiveid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

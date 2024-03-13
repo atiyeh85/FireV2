@@ -1,0 +1,64 @@
+﻿@model IEnumerable<FireV2.Models.Dissusion>
+@{
+    var List = (List<int>)ViewBag.ListOfDocTitle;
+    var ll = (IEnumerable<FireV2.Models.DissType>)ViewBag.List;
+    var period = (IEnumerable<FireV2.Models.Period>)ViewBag.period;
+    var pr = ViewBag.pr;
+    var SessonTitle = "";
+    var count = 0;
+}
+<style>
+
+</style>
+@foreach (var p in pr)
+{
+    if (Model.Where(s => s.PeriodId == p).Count() > 0)
+    {
+        foreach (var pp in period)
+        {
+            <b>
+                @if (@pp.PeriodId == p)
+                {
+                    @(count += 1)   @pp.SeasonTitle
+                }
+            </b>
+        }
+        foreach (var item in ll)
+        {
+            <br />
+            <div class="row" id="DisList2">
+                <div class="col-md-12">
+
+                    <div class="col-md-12 ">
+                        @if (Model.Where(m => m.PeriodId == p && m.DissuasionsTitle.DissTypeid == item.DissTypeid).Count() > 0)
+                        {
+                            <b class="st7">
+                                @item.DissTypeTitle
+                            </b>
+                        }
+                        @foreach (var m in Model)
+                        {
+                            <div class="col-lg-12 ">
+
+                                @if (m.PeriodId == p && m.DissuasionsTitle.DissTypeid == item.DissTypeid)
+                                {
+                                    <div class="col-md-12">
+
+                                        <i style="color:#763506;font-size:large" class="glyphicon glyphicon-ok"></i>
+
+                                        @m.DissuasionsTitle.DissTitles
+                                        <a style="color:#F31B49" href="#" data-url="/Dissusion/DeleteDicTitle/@m.DissPerId" class="fa fa-remove fa-2x DeleteDicTitle"> </a>
+                                    </div>
+                                }
+
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+}

@@ -1,0 +1,266 @@
+﻿@model IEnumerable<FireV2.Models.Athlete>
+
+@{
+    ViewBag.Title = "..:لیست اطلاعات پایه:..";
+    var Count = 0;
+}
+
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="table-responsive" style="width:100%">
+                    <table id="example6" class="table table-bordered"width:100%>
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    تصویر
+                                </th>
+                                <th>
+                                    نام و نام خانوادگی
+                                </th>
+                                <th>
+                                    سن
+                                </th>
+                                <th>
+                                    گروه خونی
+                                </th>
+                                <th>
+                                    مدرک /رشته
+                                </th>
+                                <th>
+                                    مهارت های فنی و تخصصی
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PostSazmani.PSazmaniTitle)
+                                </th>
+                                <th>
+                                    ایستگاه
+                                </th>
+                                <th>
+                                    شیفت
+                                </th>
+                                <th>
+                                    توضیحات
+                                </th>
+                                <th>
+                                    BMI
+                                </th>
+                                <th>
+                                    پرونده پزشکی
+                                </th>
+                                <th>
+                                    ویرایش طلاعات
+                                </th>
+                                <th>
+                                    نمایش اطلاعات
+                                </th>
+                                <th>
+                                    وضعیت انصراف از آزمون
+                                </th>
+                                <th>
+                                    حذف
+                                </th>
+                            </tr>
+                        </thead>
+                        @foreach (var item in Model)
+                        {
+                            var age = Model.Where(m => m.AthleteId == item.AthleteId).Select(m => m.Birthdate).FirstOrDefault();
+                            <tr>
+                                <td>@(Count+=1)</td>
+                                <td>
+                                    @if (@item.Picture != null)
+                                    {
+
+                                        <a href="@Url.Content(@item.Picture)" target="_blank">
+                                            <img class="img-rounded img-responsive" style="width: 60px; height: 70px; float:left; margin:0 10px 5px 0" alt="@item.Fnam" src="@Url.Content(@item.Picture)" />
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <img class="img-rounded img-responsive" id="image_preview" style="width: 60px; height: 70px; float: left; margin: 0 10px 5px 0; " alt="" src="" />
+                                    }
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FullName)
+                                </td>
+                                <td>
+                                    @FireV2.Utility.PertionDate.GetAgeN(age)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.GoorohKhoni)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Degree.DegreeName)  @Html.DisplayFor(modelItem => item.Reshteh)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Expertise)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PostSazmani.PSazmaniTitle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ShiftWork.Station.StationTitle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ShiftWork.ShWorkTitle)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NoteAthlete)
+                                </td>
+                                <td class="" style="">
+
+                                    @Html.ActionLink(" ", "Create", "BMIS", new { id = item.AthleteId }, new { @class = "CreateLink fa fa-male fa-3x  ", style = "color:#10a5ac" })
+                                </td>
+                                <td>
+                                    @Html.ActionLink(" ", "Create", "Medicals", new { id = item.AthleteId }, new { @class = "CreateLink fa fa-heartbeat fa-3x  ", style = "color:red" })
+                                </td>
+                                <td>
+                                    @Html.ActionLink(" ", "Edit", new { id = item.AthleteId }, new { @class = "editLink fa fa-edit fa-3x  ", style = "color:green" })
+                                </td>
+                                <td>
+                                    @Html.ActionLink(" ", "Details", new { id = item.AthleteId }, new { @class = "DetailsLink glyphicon  glyphicon-th-list fa-2x  ", style = "color:#3156b4" })
+                                </td>
+                                <td>
+                                    <a href="/Dissusion/AddDisTitle/@item.AthleteId" class="controls fa  fa-bell fa-2x" style="color: #f6ea16;">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a data-href="/Athletes/Delete/@item.AthleteId" data-toggle="modal" data-target="#myModal" class="controls fa fa-trash fa-2x" style="color: #990c0c;" href="#">
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                        <tfoot>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            var t = $('#example6').DataTable({
+
+                'paging': true,
+                'lengthChange': true,
+                'searching': true,
+                'ordering': true,
+                'info': true,
+                'autoWidth': true,
+                "pageLength": 10,
+                "lengthMenu": [5, 10, 25, 50, "All"],
+                "language": {
+                    select: {
+                        rows: "%d سطرانتخاب شده "
+                    },
+
+                    "sEmptyTable": "هیچ داده‌ای در جدول وجود ندارد",
+                    "sInfo": "نمایش _START_ تا _END_ از _TOTAL_ ردیف",
+                    "sInfoEmpty": "نمایش 0 تا 0 از 0 ردیف",
+                    "sInfoFiltered": "(فیلتر شده از _MAX_ ردیف)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ",",
+                    "sLengthMenu": "نمایش _MENU_ ردیف",
+                    "sLoadingRecords": "در حال بارگزاری...",
+                    "sProcessing": "در حال پردازش...",
+                    "sSearch": "جستجو:",
+                    "sZeroRecords": "رکوردی با این مشخصات پیدا نشد",
+
+                    "oPaginate": {
+                        "sFirst": "برگه‌ی نخست",
+                        "sLast": "برگه‌ی آخر",
+                        "sNext": "بعدی",
+                        "sPrevious": "قبلی"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": فعال سازی نمایش به صورت صعودی",
+                        "sSortDescending": ": فعال سازی نمایش به صورت نزولی"
+                    },
+
+                },
+                'stateSave': true,
+
+                dom: 'Bfrtip',
+                buttons: [
+                    'pageLength',
+                    {
+
+                        extend: 'print',
+                        text: 'پرینت',
+                        exportOptions: {
+                            columns: ':visible'
+                        },
+                        customize: function (win) {
+                            $(win.document.body)
+                                .css('font-size', '10pt')
+                                .prepend(
+                            );
+
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                        }
+                    }
+                    ,
+
+
+                ],
+
+                columnDefs: [{
+                    targets: -1,
+                    visible: false
+                }],
+                initComplete: function () {
+                    this.api().columns().every(function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo($("#filters").find("th").eq(column.index()))
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val());
+
+                                column.search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        console.log(select);
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });
+                },
+                select: true
+            }); t.on('order.dt search.dt', function () {
+                t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
+            $('a.toggle-vis').on('click', function (e) {
+                e.preventDefault();
+                var column = table.column($(this).attr('data-column'));
+                column.visible(!column.visible());
+            });
+        });
+    </script>
+
+}
+
+
+
+
+

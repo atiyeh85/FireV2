@@ -1,0 +1,88 @@
+﻿@model FireV2.Models.Dissusion
+@{
+    ViewBag.Title = "..::..";
+    var FullName = ViewBag.FullName;
+    int i = 0;
+    var DiiTitle = (List<FireV2.Models.DissuasionsTitle>)ViewBag.ItemsByPeriod;
+    var disid = 0;
+    var athid = 0;
+    var id = 0;
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.DissPerId)
+        @Html.HiddenFor(model => model.AthleteId)
+        @Html.HiddenFor(model => model.PeriodId)
+        <input name="items" id="items" type="hidden" />
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-4 ">
+                            <span style="color:#a70808" class="fa fa-star faa-ring animated ">   &nbsp;   </span>
+                            نوع انصراف
+                            <div class="input-group " style="margin-bottom: 10px">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-vcard-o fa-2x">
+                                    </i>
+                                </span>
+                                @Html.DropDownList("DissTypeid", null, htmlAttributes: new { @class = "form-control input-lg" })
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            @foreach (var item in (List<FireV2.Models.DissuasionsTitle>)ViewBag.ItemsByPeriod)
+                {
+                                <div class="col-sm-12">
+                                    <input type="checkbox" class="ssp" value="@item.DissTitleId" @(Model.DissusionItemByPeroids.Any(d => d.DissTitleId == item.DissTitleId) ? "checked" : "") />
+                                    <label>@item.DissTitles</label>
+
+                                </div>
+                            }
+                            <br />
+                        </div>
+                    </div>
+                    <div class="row ">
+
+                        <div class="col-sm-12">
+                            توضیحات
+                            @Html.TextAreaFor(model => model.Note, new { @class = "form-control ", placeholder = " توضیحات", autocomplete = "off" })
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <hr />
+
+                        <div class="col-sm-12">
+                            <input type="submit" value="ثبت" id="btn-save" class="btn btn-success" />
+                            
+                            @*<a href="#" data-url="/Dissusion/vitiation/?disid=@Model.DissPerId&athid=@Model.AthleteId&id=@Model.PeriodId" class="fa fa-eraser  "> </a>*@
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+    <script>
+
+    $(document).delegate('#btn-save', 'click', function (e) {
+        e.preventDefault();
+        var items = '';
+        $('.ssp').each(function (idx, input) {
+            if ($(input).prop('checked') == true)
+                items += $(input).val() + ';';
+        })
+        $('#items').val(items);
+        $(this).closest('form').submit();
+    });
+</script>

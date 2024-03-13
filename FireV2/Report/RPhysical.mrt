@@ -1,0 +1,957 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="1">
+      <PhysicalR Ref="2" type="Stimulsoft.Report.Dictionary.StiBusinessObject" isKey="true">
+        <Alias>PhysicalR</Alias>
+        <BusinessObjects isList="true" count="0" />
+        <Category>PhysicalR</Category>
+        <Columns isList="true" count="18">
+          <value>DateInsert,System.String</value>
+          <value>Note,System.String</value>
+          <value>TotalScore,System.String</value>
+          <value>SportsScore,System.String</value>
+          <value>TeamWorkScore,System.String</value>
+          <value>TotalTimeWorkTime,System.String</value>
+          <value>TeamWorkFaltTime,System.String</value>
+          <value>TeamWorkTime,System.String</value>
+          <value>IndTotalScore,System.String</value>
+          <value>IndOperTotalFinalOper,System.String</value>
+          <value>TotalPhysicalScore,System.String</value>
+          <value>PeriodTitle,System.String</value>
+          <value>PSazmaniTitle,System.String</value>
+          <value>Age,System.String</value>
+          <value>FatherName,System.String</value>
+          <value>AthleteName,System.String</value>
+          <value>Picture,System.Drawing.Image</value>
+          <value>StatusScore,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Guid>fd95ea07d6ed416ba7b74c52a1a6dbf3</Guid>
+        <Name>PhysicalR</Name>
+      </PhysicalR>
+    </BusinessObjects>
+    <Databases isList="true" count="0" />
+    <DataSources isList="true" count="0" />
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="1">
+      <value>,Date,Date,System.String,,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="3" type="Page" isKey="true">
+      <Border>None;[110:134:140];1;Solid;True;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="4">
+        <PageHeaderBand1 Ref="4" type="PageHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,27.7,3.2</ClientRectangle>
+          <Components isList="true" count="16">
+            <Text1 Ref="5" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[238:236:225]</Brush>
+              <ClientRectangle>0.2,0.4,27.6,1.2</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,18,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>سامانه ورزشی آتشنشانان قزوین</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <HeaderPhysicalR_StatusScore Ref="6" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>0,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_StatusScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>وضعیت امتیاز</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_StatusScore>
+            <HeaderPhysicalR_Note Ref="7" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>1.8,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_Note</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>توضیحات</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_Note>
+            <HeaderPhysicalR_TotalScore Ref="8" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>3.6,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_TotalScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>مجموع امتیاز</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_TotalScore>
+            <HeaderPhysicalR_SportsScore Ref="9" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>5.4,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_SportsScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>امتیاز ورزشی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_SportsScore>
+            <HeaderPhysicalR_TeamWorkScore Ref="10" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>7.2,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_TeamWorkScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>امتیاز عملیات تیمی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_TeamWorkScore>
+            <HeaderPhysicalR_TotalTimeWorkTime Ref="11" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>9,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_TotalTimeWorkTime</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>مجموع زمان عملیات تیمی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_TotalTimeWorkTime>
+            <HeaderPhysicalR_TeamWorkFaltTime Ref="12" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>10.8,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_TeamWorkFaltTime</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>زمان خطا در عملیات تیمی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_TeamWorkFaltTime>
+            <HeaderPhysicalR_TeamWorkTime Ref="13" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>12.6,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_TeamWorkTime</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>زمان عملیات تیمی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_TeamWorkTime>
+            <HeaderPhysicalR_IndTotalScore Ref="14" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>14.4,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_IndTotalScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>مجموع امتیاز عملیات تیمی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_IndTotalScore>
+            <HeaderPhysicalR_IndOperTotalFinalOper Ref="15" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>16.2,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_IndOperTotalFinalOper</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>زمان عملیات انفرادی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_IndOperTotalFinalOper>
+            <HeaderPhysicalR_TotalPhysicalScore Ref="16" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>18,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_TotalPhysicalScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>امتیاز آمادگی جسمانی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_TotalPhysicalScore>
+            <HeaderPhysicalR_PeriodTitle Ref="17" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>19.8,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_PeriodTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>دوره</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_PeriodTitle>
+            <HeaderPhysicalR_PSazmaniTitle Ref="18" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>21.6,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_PSazmaniTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>پست سازمانی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_PSazmaniTitle>
+            <HeaderPhysicalR_Renj Ref="19" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>23.4,2.8,1.8,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_Renj</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>سن</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_Renj>
+            <HeaderPhysicalR_AthleteName Ref="20" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[49:133:155]</Brush>
+              <ClientRectangle>25.2,2.8,2.4,1.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPhysicalR_AthleteName</Name>
+              <Page isRef="3" />
+              <Parent isRef="4" />
+              <Text>نام نام خانوادگی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPhysicalR_AthleteName>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>PageHeaderBand1</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </PageHeaderBand1>
+        <Header Ref="21" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4.4,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <Name>Header</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </Header>
+        <Data Ref="22" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid>fd95ea07d6ed416ba7b74c52a1a6dbf3</BusinessObjectGuid>
+          <CanBreak>True</CanBreak>
+          <CanShrink>True</CanShrink>
+          <ClientRectangle>0,6,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="15">
+            <DataPhysicalR_StatusScore Ref="23" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_StatusScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.StatusScore}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_StatusScore>
+            <DataPhysicalR_Note Ref="24" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.8,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_Note</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.Note}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_Note>
+            <DataPhysicalR_TotalScore Ref="25" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>3.6,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_TotalScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.TotalScore}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_TotalScore>
+            <DataPhysicalR_SportsScore Ref="26" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.4,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_SportsScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.SportsScore}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_SportsScore>
+            <DataPhysicalR_TeamWorkScore Ref="27" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>7.2,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_TeamWorkScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.TeamWorkScore}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_TeamWorkScore>
+            <DataPhysicalR_TotalTimeWorkTime Ref="28" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_TotalTimeWorkTime</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.TotalTimeWorkTime}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_TotalTimeWorkTime>
+            <DataPhysicalR_TeamWorkFaltTime Ref="29" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>10.8,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_TeamWorkFaltTime</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.TeamWorkFaltTime}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_TeamWorkFaltTime>
+            <DataPhysicalR_TeamWorkTime Ref="30" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>12.6,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_TeamWorkTime</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.TeamWorkTime}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_TeamWorkTime>
+            <DataPhysicalR_IndTotalScore Ref="31" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>14.4,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_IndTotalScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.IndTotalScore}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_IndTotalScore>
+            <DataPhysicalR_IndOperTotalFinalOper Ref="32" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>16.2,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_IndOperTotalFinalOper</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.IndOperTotalFinalOper}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_IndOperTotalFinalOper>
+            <DataPhysicalR_TotalPhysicalScore Ref="33" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>18,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_TotalPhysicalScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.TotalPhysicalScore}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_TotalPhysicalScore>
+            <DataPhysicalR_PeriodTitle Ref="34" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>19.8,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_PeriodTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.PeriodTitle}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_PeriodTitle>
+            <DataPhysicalR_PSazmaniTitle Ref="35" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>21.6,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_PSazmaniTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.PSazmaniTitle}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_PSazmaniTitle>
+            <DataPhysicalR_Renj Ref="36" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>23.4,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_Renj</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.Age}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_Renj>
+            <DataPhysicalR_AthleteName Ref="37" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>25.2,0,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="1">
+                <value>ColorScale,PhysicalR.TotalScore,Color3,IndianRed,Gold,RoyalBlue,Value,100,Value,600,Value,1200</value>
+              </Conditions>
+              <Font>Tahoma,8</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPhysicalR_AthleteName</Name>
+              <Page isRef="3" />
+              <Parent isRef="22" />
+              <Text>{PhysicalR.AthleteName}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPhysicalR_AthleteName>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName isNull="true" />
+          <Filters isList="true" count="0" />
+          <Name>Data</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+          <PrintAtBottom>True</PrintAtBottom>
+          <PrintIfDetailEmpty>True</PrintIfDetailEmpty>
+          <PrintOnAllPages>True</PrintOnAllPages>
+          <ResetPageNumber>True</ResetPageNumber>
+          <Sort isList="true" count="0" />
+        </Data>
+        <Footer Ref="38" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,7.6,27.7,0.8</ClientRectangle>
+          <Components isList="true" count="16">
+            <FooterPhysicalR_StatusScore Ref="39" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>0,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_StatusScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_StatusScore>
+            <FooterPhysicalR_Note Ref="40" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>1.8,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_Note</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_Note>
+            <FooterPhysicalR_TotalScore Ref="41" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>3.6,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_TotalScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_TotalScore>
+            <FooterPhysicalR_SportsScore Ref="42" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>5.4,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_SportsScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_SportsScore>
+            <FooterPhysicalR_TeamWorkScore Ref="43" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>7.2,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_TeamWorkScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_TeamWorkScore>
+            <FooterPhysicalR_TotalTimeWorkTime Ref="44" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>9,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_TotalTimeWorkTime</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_TotalTimeWorkTime>
+            <FooterPhysicalR_TeamWorkFaltTime Ref="45" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>10.8,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_TeamWorkFaltTime</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_TeamWorkFaltTime>
+            <FooterPhysicalR_TeamWorkTime Ref="46" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>12.6,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_TeamWorkTime</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_TeamWorkTime>
+            <FooterPhysicalR_IndTotalScore Ref="47" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>14.4,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_IndTotalScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_IndTotalScore>
+            <FooterPhysicalR_IndOperTotalFinalOper Ref="48" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>16.2,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_IndOperTotalFinalOper</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_IndOperTotalFinalOper>
+            <FooterPhysicalR_TotalPhysicalScore Ref="49" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>18,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_TotalPhysicalScore</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_TotalPhysicalScore>
+            <FooterPhysicalR_PeriodTitle Ref="50" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>19.8,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_PeriodTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_PeriodTitle>
+            <FooterPhysicalR_PSazmaniTitle Ref="51" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>21.6,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_PSazmaniTitle</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_PSazmaniTitle>
+            <FooterPhysicalR_Renj Ref="52" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>23.4,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_Renj</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_Renj>
+            <FooterPhysicalR_FatherName Ref="53" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>25.2,0,1.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_FatherName</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_FatherName>
+            <FooterPhysicalR_AthleteName Ref="54" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;True;4;Black</Border>
+              <Brush>[219:238:243]</Brush>
+              <ClientRectangle>27,0,0.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterPhysicalR_AthleteName</Name>
+              <Page isRef="3" />
+              <Parent isRef="38" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </FooterPhysicalR_AthleteName>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>Footer</Name>
+          <Page isRef="3" />
+          <Parent isRef="3" />
+        </Footer>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>777637f9a912448d9fe8ec37f32f3ba4</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>21</PageHeight>
+      <PageWidth>29.7</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0" />
+      <TitleBeforeHeader>True</TitleBeforeHeader>
+      <Watermark Ref="55" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="56" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>7/5/2018 9:40:01 AM</ReportChanged>
+  <ReportCreated>10/2/2017 9:34:46 AM</ReportCreated>
+  <ReportFile>D:\آتشنشانی\970409\FireV2\FireV2\Report\RPhysical.mrt</ReportFile>
+  <ReportGuid>23b0d119746c4a57bf2f210f7ed666d5</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2014.3.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

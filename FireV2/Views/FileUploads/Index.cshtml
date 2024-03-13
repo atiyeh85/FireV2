@@ -1,0 +1,55 @@
+﻿@model IEnumerable<FireV2.Models.FileUpload>
+@{
+    ViewBag.Title = "..::..";
+    Layout = null;
+    int count = 0;
+}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="table-responsive">
+                    <table class="table table-hover ">
+                        @foreach (var item in Model)
+            {
+                            <tr>
+                                <td>
+                                    <a target="_blank" href="@Url.Content(@item.AddressFile)">
+                                        @*@(item.FileName == null ? "No Name" : item.FileName)*@
+                                        فایل پیوست      @(count += 1)     
+                                    </a>
+                                   
+                                </td>
+                                <td>
+                                    @if (@item.Medicalid != null)
+                                    {
+                                        <a href="@Url.Content(@item.AddressFile)" target="_blank">
+                                            <img class="img-rounded" style="width: 180px; height:180px; float:left; margin:0 10px 5px 0" alt="" src="@Url.Content(@item.AddressFile)" />
+                                        </a>
+
+                                    }
+                                    else
+                                    {
+                                        <img class="img-thumbnail" id="image_preview" style="width: 180px; height:180px; float:left; margin:0 10px 5px 0" alt="" src="" />
+                                    }
+                                </td>
+                                <td>
+                                    @if (@item.Medicalid != null)
+                                    {
+                                        <a style="color:#ca0808" href="#" data-url="/FileUploads/DeleteFile/@item.FileUploadid" class="fa fa-remove fa-2x DeleteDocTitle"> </a>
+                                    }
+
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

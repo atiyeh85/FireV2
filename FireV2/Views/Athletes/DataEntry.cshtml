@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "..:ثبت اطلاعات:..";
+}
+<style>
+    .panel {
+        background-color: rgba(153, 121, 100, 0.4);
+    }
+
+    label {
+        color: #654205;
+        font-size: 20px;
+        font-family: tahoma;
+    }
+
+        label b {
+            color: #990c0c;
+            font-size: 22px;
+        }
+</style>
+
+<br />
+<br />
+<br />
+<br />
+
+<input type="hidden" id="AthleteId" value="@(null!=Request.QueryString["atid"]? Request.QueryString["atid"]:"")" />
+
+<div id="page-wrapper">
+    <div class="panel panel-default panel-transparent">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="input-group" style="margin-bottom: 10px">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-user">
+                            </i>
+                        </span>
+                        @Html.DropDownList("PeriodId", null, null, new { @class = "form-control input-lg" })
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" name="AthleteQuery" id="AthleteQuery" class="form-control input-lg " value="@(null!=Request.QueryString["atid"]? Request.QueryString["atid"]:"")" />
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" id="searchAthlete" class="btn btn-success">
+                        <span class="glyphicon glyphicon-search"></span> جستجو
+                    </button>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    <div style="position: relative; padding: 10px 10px 10px 10px; background-image: url(../../Content/image/back2.jpg); background-size: cover; background-repeat: no-repeat; background-color: #fffbe0;" class="panel panel-default img-responsive">
+        <div >
+            <div>
+                <label id="AthleteName">
+                   
+                   
+                        @if (!string.IsNullOrWhiteSpace(Request.QueryString["atid"]))
+                        {
+                            
+                            <span>
+                                @Html.Action("SearchAthlete", "Athletes", new { query = Request.QueryString["atid"] })
+                            </span>
+                        }
+                 
+                </label>
+            </div>
+            <div class="panel-body">
+                <div class="row" style="height:400px">
+                    <div id="div-history">
+                        @if (!string.IsNullOrWhiteSpace(Request.QueryString["atid"]))
+                        {
+                            <div>
+                                @Html.Action("HistoryByPeriod", "Athletes", new { id = Request.RequestContext.RouteData.Values["id"], atid = Request.QueryString["atid"] })
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+        @section scripts{
+            <script>
+               
+                $(document).ready(function () {
+
+                    $('#AthleteQuery').autocomplete(
+                        {
+                            source: '@Url.Action("GetAutoComplete", "Athletes")'
+                        });
+                })
+                $(document).delegate('#searchAthlete', 'click', function (e) {
+                    e.preventDefault();
+                    $('#div-history').html('<p>لطفا منتظر باشید ...</p>');
+                    $('#AthleteId').val('');
+                    $('#AthleteName').text('');
+                    $.ajax({
+                        type: 'post',
+                        url: '/Athletes/SearchAthlete?query=' + $('#AthleteQuery').val(),
+                        //dataType: "json",
+                        data: null,
+                        success: function (data) {
+                            if (data.Success) {
+                                $('#AthleteId').val(data.Object.AthleteId);
+                                $('#AthleteName').text(data.Object.AthleteName);
+                                $('#div-history').html('<p>لطفا منتظر باشید ...</p>');
+                                $('#div-history').load('/Athletes/HistoryByPeriod/' + $('#PeriodId').val() + '?atid=' + $('#AthleteId').val());
+                                $('#div-SportScop').load('/Athletes/HistoryByPeriod/' + $('#PeriodId').val() + '?atid=' + $('#AthleteId').val());
+
+                            }
+                            else {
+                                $('#div-history').html('<p>موردی یافت نشد</p>');
+                            }
+                        }
+                    })
+                })
+                $(document).delegate('.DeleteDicTitle', 'click', function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        url: $(this).attr('data-url'),
+                        method: 'post',
+                        data: null,
+                        success: function (data) {
+                            if (data == 'true') {
+                                $('#DisList').load('/Dissusion/GetDisTitle/'+$('#AthleteId').val()+'?&pid='+$('#PeriodId').val());
+
+                            }
+                        }
+                    })
+                });
+            </script>
+
+        }

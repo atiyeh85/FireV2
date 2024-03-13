@@ -1,0 +1,66 @@
+﻿@model FireV2.Models.Dissusion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Dissusion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Athlete.UserInsert)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Athlete.UserInsert)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DissType.DissTypeTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DissType.DissTypeTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Period.SeasonTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Period.SeasonTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Isactive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Isactive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diss)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diss)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DissPerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

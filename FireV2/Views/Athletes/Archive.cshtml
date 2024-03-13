@@ -1,0 +1,207 @@
+﻿@model PagedList.IPagedList<FireV2.Models.Athlete>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "..:بایگانی :..";
+}
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#Fname').autocomplete(
+                {
+                    source: '@Url.Action("GetAutoCompleteFnam", "PhysicalExamHistories")'
+                });
+        })
+        $(document).ready(function () {
+
+            $('#Lname').autocomplete(
+                  {
+                      source: '@Url.Action("GetAutoCompleteLname", "PhysicalExamHistories")'
+                  });
+        })
+      
+        $(document).delegate('#personamcode', 'keyup', function (e) {
+
+            if ($(this).val().length ==10) {
+
+                $('#div-index').load('/PersonProfiles/Index/' + '?personamcode=' + $(this).val(), function () {
+                });
+            }
+            else if ($(this).val().length >= 0) {
+                $('#div-index').load('/PersonProfiles/Index/', function () {
+                });
+            }
+        });
+        $(document).delegate('#PersonProfileId', 'keyup', function (e) {
+            $('#div-index').load('/PersonProfiles/Index/' + '?PersonProfileId=' + $(this).val(), function () {
+            });
+        });
+       
+        $('#btnArchive').on('click', function (e) {
+            e.preventDefault();
+            var form = $('#form-CreateB');
+            $.ajax({
+                type: 'post',
+                url: $(form).attr('action'),
+                data: $(form).serialize(),
+                success: function (data) {
+                    if (data == "true") {
+                        $('#myModal').on('hide.bs.modal');
+                    }
+                    else { }
+                }
+            })
+        });
+        $('#myModal').on('hide.bs.modal', function (event) {
+            window.location.reload();
+        });
+        $('#myModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            $('#modal-body-form').html('');
+            $('#modal-body-form').load($(button).attr('data-href'));
+        });
+
+        $(document).ready(function () {
+            $("#clear").click(function () {
+                $("#Banooid").val("");
+                $("#PersonalCode").val("");
+                $("#Lname").val("");
+                $("#Fname").val("");
+            });
+         
+        });
+       
+    </script>
+}
+
+<style>
+    tbody {
+        display: block;
+        height: 600px;
+        overflow: auto;
+    }
+
+        thead, tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+    thead {
+        width: calc( 100% - 1em );
+    }
+
+    .st {
+        width: 150px;
+    }
+
+    .container {
+        width: 1900px;
+    }
+
+    td {
+        width: 20%;
+    }
+
+    th {
+        width: 20%;
+    }
+</style>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#eee">
+                <button type="button" class="close" data-dismiss="modal" aria-label="بستن"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">پیغام سیستم</h4>
+            </div>
+            <div class="modal-body">
+                <div id="modal-body-form">
+                </div>
+            </div>
+            <div class="modal-footer" style="background-color:#eee">
+                <button class="btn btn-primary" type="button" id="btnArchive">ثبت</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">بستن</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="panel panel-default">
+    <div class="panel-body">
+        @using (Html.BeginForm("Report", "PhysicalExamHistories", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            int k = 0;
+            foreach (var item in Model)
+            {
+               ;
+                string DissPerId = "idss[" + k.ToString() + "]";
+                if (item.AthleteId == 0)
+                {
+                    <input type="hidden" name="@AthleteId" id="@AthleteId" value="@item.AthleteId " />
+                    k++;
+                }
+             
+            }
+            <button type="submit" name="Export" id="Export" value="خروجی " class="btn" title="خروجی " formtarget="_blank"><span style="color:palevioletred" class="fa fa-file-o fa-2x"></span></button>
+        }
+    </div>
+</div>*@
+
+@using (Html.BeginForm("Archive", "Athletes", FormMethod.Get))
+{
+    <br /><br />
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            اطلاعات پایه
+        </div>
+        <div class="panel-body">
+
+            <div class="row ">
+                <div class="col-md-3 ">
+                        نام
+                        <div style="">
+                            <div class="input-group" style="margin-bottom: 10px">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user-circle-o fa-2x">
+                                    </i>
+                                </span>
+                                @Html.TextBox("Fname", ViewBag.CurrentFilter as string, new { @class = "form-control input-lg", placeholder = "نام ", autocomplete = "off" })
+                            </div>
+                    </div>
+                </div>
+                <div class="col-md-3 ">
+                     نام خانوادگی
+                    <div style="">
+                        <div class="input-group" style="margin-bottom: 10px">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user-circle-o fa-2x">
+                                </i>
+                            </span>
+                            @Html.TextBox("Lname", ViewBag.CurrentFilter2 as string, new { @class = "form-control input-lg", placeholder = "نام خانوادگی ", autocomplete = "off" })
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="row">
+                <hr />
+            </div>
+            <div class="row">
+                <div class="col-md-3 ">
+                    <button type="submit" class="btn btn-success">
+                        <span class="glyphicon glyphicon-search"></span> جستجو
+                    </button>
+                    <button type="button" class="btn btn-default" id="clear">
+                        <span class="glyphicon glyphicon-filter"></span> حذف فیلتر
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div id="loadgg">
+    @Html.Partial("_Archive", Model)
+</div>
+@Html.PagedListPager(Model, page => Url.Action("Archive",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, currentFilter2 = ViewBag.CurrentFilter2 }))

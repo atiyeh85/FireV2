@@ -1,0 +1,107 @@
+﻿@model FireV2.Models.Dissusion
+@{
+    var AthleteId = TempData["atid"];
+    //var id = TempData["id"];
+}
+<br />
+<br />
+<br />
+<br />
+<form action="/Dissusion/AddDisTitle" method="post" id="detailsForm">
+    @Html.Hidden("AthleteId", AthleteId)
+    @*@Html.Hidden("PeriodId", id)*@
+    <div class="panel panel-default">
+        <div class="panel-heading" style="text-align:center">
+            پرونده انصراف از آزمون های آتشنشان
+
+            <b>
+                @ViewBag.FullName
+            </b>
+
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.DropDownList("DissTypeid", null, null, new { @class = "form-control" })
+                </div>
+                <div class="col-md-6">
+                    @Html.DropDownList("PeriodId", null, null, new { @class = "form-control" })
+                </div>
+                <div class="col-md-12">
+                    <div id="details">
+                        @Html.Action("InfoDisTitleTypes", "Dissusion", new { id = 1, atid = Request.RequestContext.RouteData.Values["id"] })
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div id="detailsInputs">
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <br />
+                <input type="checkbox" id="isAgeSelected" />
+                <div id="txtAge" style="display:none">Age is something</div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <button type="submit" class="btn btn-success" data-dismiss="modal" id="btnSaveD">
+                        <span class="glyphicon glyphicon-ok"></span> ذخیره
+                    </button>
+                    |
+                    @Html.ActionLink("باز گشت  ", "AllList", "Athletes", null, new { @class = "btn btn-default" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12 " id="DisList">
+                    @Html.Action("GetFullDisTitle", "Dissusion", new { id = AthleteId })
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <script>
+        if(document.getElementById('isAgeSelected').checked) {
+        $("#txtAge").show();
+    } else {
+        $("#txtAge").hide();
+    }
+    $(document).delegate('#btnSaveD', 'click', function (e) {
+        e.preventDefault();
+        $('#detailsInputs').html('');
+        var i = 0;
+        $('input[type=checkbox].detailsItem').each(function (idx, item) {
+            if ($(item).prop('checked') == true) {
+                var name = "details[" + i + "].";
+                var input = "<input type='hidden' value='" + $(item).val() + "' name='" + name + "DissTitleId' />";
+                $('#detailsInputs').append(input);
+                i++;
+                console.log("input=" + input);
+            }
+            else {
+                console.log('input not selected');
+            }
+        });
+        var form = $("#detailsForm");
+        $.ajax({
+            url: $(form).attr('action'),
+            data: $(form).serialize(),
+            method: 'post',
+            success: function (data) {
+                if (data == 'true') {
+                    $('#DisList').load('/Dissusion/GetFullDisTitle/'+@AthleteId)
+
+                }
+            }
+        });
+    });
+        $(document).delegate('#DissTypeid', 'change', function (e) {
+            $('#details').load("/Dissusion/InfoDisTitleTypes/" + $(this).val()+'?&atid='+@AthleteId);
+        });
+    </script>

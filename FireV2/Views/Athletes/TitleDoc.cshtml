@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FireV2.Models.InfoDocumentTitleType>
+
+@{
+    ViewBag.Title = "لیست آیتم ها";
+    var VisitList = (List<int>)ViewBag.ListVisit;
+}
+<style>
+    .False {
+        background-color: red;
+    }
+
+    .True {
+        background-color: blue;
+    }
+    .disabled{
+        cursor:not-allowed;
+        color:#ebebeb;
+    }
+    .sgloc{
+        list-style:none;
+      
+    }
+    .sgloc li{
+        float:right;
+        margin-left:20px;
+        margin-bottom:20px;
+    }
+
+</style>
+<ul class="sgloc">
+    @foreach (var item in Model)
+    {
+           
+        <li>
+            <input type="checkbox" class="detailsItem " value="@item.InfoDocTitleTypeId" /><label class="control-label ">@item.InfoDocTitleType</label>
+        </li>
+       
+    }
+</ul>

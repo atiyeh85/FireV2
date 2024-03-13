@@ -1,0 +1,135 @@
+﻿@model FireV2.Models.BMI
+
+@{
+    ViewBag.Title = "..::..";
+    //Layout = null;
+    var AthleteId = ViewBag.AthleteId;
+    string FullName = ViewBag.FullName;
+    var Message = TempData["Message"];
+}
+<br />
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="AthleteId" value="@AthleteId" />
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        <div class="row">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success">
+                    <span class="glyphicon glyphicon-ok"></span> ثبت
+                </button>|
+                <a href="/Athletes/AllList" style="color:#ffffff" class="elements btn btn-info"><span>بازگشت</span></a>
+            </div>
+          
+        </div>
+
+        <div class="alert-success" style="text-align:center">
+             کمبود وزن <i class="fa fa-male fa-5x" aria-hidden="true" style="color: #74cee5; "></i>|
+
+             وزن نرمال <i class="fa fa-male fa-5x" aria-hidden="true" style="color: #8cd890; "></i>|
+            اضافه وزن <i class="fa fa-male fa-5x" aria-hidden="true" style="color: #f7de52"></i>|
+             چاقی درجه 1 <i class="fa fa-male fa-5x" aria-hidden="true" style="color: #ed9b62"></i>|
+             چاقی درجه 2 <i class="fa fa-male fa-5x" aria-hidden="true" style="color: #db746d"></i>|
+             چاقی مفرط <i class="fa fa-male fa-5x" aria-hidden="true" style="color: #ca1919"></i>
+
+
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-12">
+               <b>محاسبه توده بدنی آتشنشان   </b>     @FullName  
+                </div>
+            </div>
+            
+        </div>
+        <div class="row ">
+           
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    
+                    <div class="row " style="padding:5px;margin:5px">
+                        <div class="col-sm-8 ">
+                            @if (Message != null)
+                            {
+                                <div class="alert alert-danger">
+                                    @Message
+                                </div>
+                            }
+                        </div>
+                        <div class="col-sm-8 ">
+                            @Html.DropDownList("PeriodId", null, "---دوره   --- ", new { @class = "form-control " })
+                        </div>
+                        <div class="col-sm-8 ">
+                            <br />
+                        </div>
+                        <div class="col-sm-8 ">
+                            <div style="">
+                                <div class="input-group" style="margin-bottom: 10px">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-user-circle-o fa-2x">
+                                        </i>
+                                    </span>
+                                    @Html.TextBoxFor(model => model.Size, new { @class = "form-control input-lg", placeholder ="قد به سانتیمیر  ", autocomplete = "off" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-8 ">
+                            <div style="">
+                                <div class="input-group" style="margin-bottom: 10px">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-user-circle-o fa-2x">
+                                        </i>
+                                    </span>
+                                    @Html.TextBoxFor(model => model.Weight, new { @class = "form-control input-lg", placeholder = "وزن  ", autocomplete = "off" })
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Weight, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel panel-body">
+                        <div class="col-sm-12 container" id="div-listindex">
+                            @Html.Action("index", "BMIs", new { id = AthleteId })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#eee">
+                <button type="button" class="close" data-dismiss="modal" aria-label="بستن"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">پیغام سیستم</h4>
+            </div>
+            <div class="modal-body">
+                <div id="modal-body-form">
+
+                </div>
+            </div>
+            <div class="modal-footer" style="background-color:#eee">
+                <button type="button" class="btn btn-info" data-dismiss="modal">بستن</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $('#myModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            $('#modal-body-form').html('');
+            $('#modal-body-form').load($(button).attr('data-href'));
+        });
+    </script>
+}

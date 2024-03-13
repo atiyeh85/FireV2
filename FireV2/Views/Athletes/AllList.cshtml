@@ -1,0 +1,224 @@
+﻿@model IEnumerable<FireV2.Models.Athlete>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "..: لیست اطلاعات:..";
+    var PostSazmani = (IEnumerable<FireV2.Models.PostSazmani>)ViewBag.PostSazmani;
+
+}
+<br />
+<br />
+<br />
+<div class="panel panel-default" style="padding:20px">
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            <div class="row">
+                <div class="col-md-3">
+                    نام
+                    <input type="text" id="Fname" name="Fname" value="@ViewBag.Fname" class="form-control input-lg" />
+                </div>
+                <div class="col-md-3">
+                    نام خانوادگی
+                    <input type="text" id="Lname" name="Lname" value="@ViewBag.Lname" class="form-control input-lg" />
+                </div>
+                <div class="col-md-3 ">
+                    پست سازمانی
+                    @Html.DropDownList("PostSazmaniId", null, "---پست سازمانی---", new { @class = "form-control input-lg" })
+                </div>
+                <div class="col-md-3 ">
+                    پست سازمانی
+                    @Html.DropDownList("PostSazmaniId", null, "---پست سازمانی---", new { @class = "form-control input-lg" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <input type="submit" class="btn btn-success" value="جستجو" />
+                </div>
+
+
+            </div>
+        }
+        <div class="row">
+            <br />
+            @using (Html.BeginForm("ReportA", "Athletes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                int k = 0;
+                foreach (var item in Model)
+                {
+                    string AthleteId = "ids[" + k.ToString() + "]";
+                    <input type="hidden" name="@AthleteId" id="@AthleteId" value="@item.AthleteId " />
+                    k++;
+                }
+                <button type="submit" name="Export" id="Exportbtn" value="خروجی " class="btn" title="خروجی " formtarget="_blank"><span style="color:#ae2121" class="glyphicon glyphicon-file fa-2x"></span>دریافت خروجی</button>
+            }
+        </div>
+    </div>
+</div>
+<br />
+
+<div id="div-index">
+    @Html.Partial("_AllList", Model)
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#eee">
+                <button type="button" class="close" data-dismiss="modal" aria-label="بستن"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">پیغام سیستم</h4>
+            </div>
+            <div class="modal-body">
+                <div id="modal-body-form">
+
+                </div>
+            </div>
+            <div class="modal-footer" style="background-color:#eee">
+                <button type="button" class="btn btn-info" data-dismiss="modal">بستن</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+@section scripts{
+    <script type="text/javascript">
+
+
+        $('#myModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            $('#modal-body-form').html('');
+            $('#modal-body-form').load($(button).attr('data-href'));
+        });
+        $(document).ready(function () {
+            var t = $('#example6').DataTable({
+
+                'paging': true,
+                'lengthChange': true,
+                'searching': true,
+                'ordering': true,
+                'info': true,
+                'autoWidth': true,
+                "pageLength": 10,
+                "lengthMenu": [5, 10, 25, 50, "All"],
+                "language": {
+                    select: {
+                        rows: "%d سطرانتخاب شده "
+                    },
+
+                    "sEmptyTable": "هیچ داده‌ای در جدول وجود ندارد",
+                    "sInfo": "نمایش _START_ تا _END_ از _TOTAL_ ردیف",
+                    "sInfoEmpty": "نمایش 0 تا 0 از 0 ردیف",
+                    "sInfoFiltered": "(فیلتر شده از _MAX_ ردیف)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ",",
+                    "sLengthMenu": "نمایش _MENU_ ردیف",
+                    "sLoadingRecords": "در حال بارگزاری...",
+                    "sProcessing": "در حال پردازش...",
+                    "sSearch": "جستجو:",
+                    "sZeroRecords": "رکوردی با این مشخصات پیدا نشد",
+
+                    "oPaginate": {
+                        "sFirst": "برگه‌ی نخست",
+                        "sLast": "برگه‌ی آخر",
+                        "sNext": "بعدی",
+                        "sPrevious": "قبلی"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": فعال سازی نمایش به صورت صعودی",
+                        "sSortDescending": ": فعال سازی نمایش به صورت نزولی"
+                    },
+
+                },
+                'stateSave': true,
+
+                dom: 'Bfrtip',
+                buttons: [
+                    'pageLength',
+                    {
+
+                        extend: 'print',
+                        text: 'پرینت',
+                        exportOptions: {
+                            columns: ':visible'
+                        },
+                        customize: function (win) {
+                            $(win.document.body)
+                                .css('font-size', '10pt')
+                                .prepend(
+                            );
+
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                        }
+                    }
+                    ,
+
+
+                ],
+
+                columnDefs: [{
+                    targets: -1,
+                    visible: false
+                }],
+                initComplete: function () {
+                    this.api().columns().every(function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo($("#filters").find("th").eq(column.index()))
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val());
+
+                                column.search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        console.log(select);
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });
+                },
+                select: true
+            }); t.on('order.dt search.dt', function () {
+                t.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
+                    cell.innerHTML = i + 1;
+                });
+            }).draw();
+            $('a.toggle-vis').on('click', function (e) {
+                e.preventDefault();
+                var column = table.column($(this).attr('data-column'));
+                column.visible(!column.visible());
+            });
+        });
+    </script>
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

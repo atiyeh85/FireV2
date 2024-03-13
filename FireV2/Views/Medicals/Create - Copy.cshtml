@@ -1,0 +1,189 @@
+﻿@model FireV2.Models.Medical
+
+@{
+    ViewBag.Title = "..::..";
+    var AthleteId = ViewBag.AthleteId;
+    string FullName = ViewBag.FullName;
+}
+<style>
+    li {
+        list-style:none;
+        float: right;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+    /**/
+</style>
+    @using (Html.BeginForm("Create", "Medicals", FormMethod.Post, new { id = "form-items", enctype = "multipart/form-data" }))
+    {
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        <input type="hidden" name="AthleteId" value="@AthleteId" />
+            
+
+        <button type="submit" value="" class="btn btn-success"  id="btnSave">
+            <span class="glyphicon glyphicon-ok"></span> ثبت
+        </button>
+      |
+        @Html.ActionLink("بازگشت", "AllList", "Athletes", null, new { @class = "btn btn-info" })
+       
+        <div class="panel panel-default " >
+            <div class="panel-heading">
+                <b> پرونده سلامت  آتشنشان  </b>     @FullName
+            </div>
+            <div class="panel-body">
+                <div class="row ">
+                    <div class="col-md-4 ">
+                        دوره      
+                        @Html.DropDownList("PeriodId", null, "---دوره   --- ", new { @class = "form-control input-lg" })
+                        @Html.ValidationMessageFor(model => model.PeriodId, "", new { @class = "text-danger" })
+                                  </div>
+                    <div class="col-md-4 ">
+                        نوع تست
+                        @Html.DropDownList("TypeOfTestId", null, "---نوع تست   --- ", new { @class = "form-control input-lg" })
+                        @Html.ValidationMessageFor(model => model.TypeOfTestId, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-4 ">
+                        عنوان معاینات ادواری
+
+                        @Html.DropDownList("MedicalItemid", null, "---عنوان معاینات ادواری   --- ", new { @class = "form-control input-lg" })
+
+
+                    </div>
+                    <div class="col-md-12 ">
+                        <br />
+                        شرح معاینات
+                        <div id="div-MedicalItemType">
+
+                        </div>
+                        <br />
+
+                    </div>
+                    <br />
+                    @*<div class="col-md-6 ">
+                        فایل پیوست
+
+
+                        <input id="fileInput" name="file" class="form-control input-file" type="file" onchange="readfile(this);">
+                    </div>*@
+                    @*<div class="col-md-6 ">
+                        <img class="img-thumbnail img-responsive" id="image_preview" alt="" src="~/Content/user108-2.png" />
+                    </div>*@
+                </div>
+            </div>
+        </div>
+
+           
+        </div>
+}
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-12 container" id="div-listindex">
+                @Html.Action("index", "Medicals")
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade " id="dlgFileUpload" tabindex="-1" role="dialog" aria-hidden="true">
+
+</div><!-- /.modal -->
+
+@section Scripts {
+  <script>
+      $("#MedicalItemid").change(function () {
+          $('#div-MedicalItemType').html('');
+          $('#div-MedicalItemType').load('/Medicals/GetMedicalItemType?MedicalItemid=' + $('#MedicalItemid').val(), function () {
+          });
+      });
+
+
+      $(document).delegate('#btnSave', 'click', function (e) {
+          e.preventDefault();
+          var items = '';
+          $('.detailsItem').each(function (idx, item) {
+              if ($(item).prop('checked') == true) {
+                  items += $(item).val() + ';';
+              }
+
+          });
+
+          var form = $("#form-items");
+
+          $.ajax({
+              url: '/Medicals/Create/?items=' + items,
+              data: $(form).serialize(),
+              method: 'post',
+           
+              success: function (data) {
+                  if (data == 'true') {
+
+                      //$('#div-listindex').load('/Hojorats/index');
+                      //window.location.reload();
+                  }
+              }
+          });
+      });
+      
+      function readfile(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+
+              reader.onload = function (e) {
+                  $('#image_preview2').attr('src', e.target.result);
+              }
+              reader.readAsDataURL(input.files[0]);
+          }
+      };
+      $('#myModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget);
+          $('#modal-body-form').html('');
+          $('#modal-body-form').load($(button).attr('data-href'));
+      });
+      $('#myModalDel').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget);
+          $('#modal-body-form1').html('');
+          $('#modal-body-form1').load($(button).attr('data-href'));
+      });
+      </script>
+}
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#eee">
+                <button type="button" class="close" data-dismiss="modal" aria-label="بستن"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"> ویرایش اطلاعات پرونده</h4>
+            </div>
+            <div class="modal-body">
+                <div id="modal-body-form">
+
+                </div>
+            </div>
+            <div class="modal-footer" style="background-color:#eee">
+                <button type="button" class="btn btn-info" data-dismiss="modal">بستن</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModalDel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#eee">
+                <button type="button" class="close" data-dismiss="modal" aria-label="بستن"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">پیغام سیستم</h4>
+            </div>
+            <div class="modal-body">
+                <div id="modal-body-form1">
+
+                </div>
+            </div>
+            <div class="modal-footer" style="background-color:#eee">
+                <button type="button" class="btn btn-info" data-dismiss="modal">بستن</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,99 @@
+﻿@{
+    ViewBag.Title = "..: صفحه نخست :..";
+    DateTime date = DateTime.Now;
+}
+
+<style>
+    .panel-danger {
+        border-color: #51A7A4;
+    }
+
+    a.my-class {
+        color: #990C0C;
+    }
+
+    .navbar-invers {
+        background-color: #C53462;
+    }
+
+    .menuItem {
+        font-family: Tahoma;
+        font-size: 11pt;
+        font-weight: 300;
+    }
+
+        .menuItem .menuItemContainer {
+            background-color: rgba(214, 213, 213, 0.58);
+            border-radius: 10px;
+        }
+
+        .menuItem span.fa {
+            padding: 5px;
+            color: #B3200D;
+        }
+</style>
+
+<div class="container">
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="col-lg-4 menuItem">
+        <div class="menuItemContainer">
+            <i style="color: #990C0C">
+                <img src="~/Content/image/firefighter.png" style="height:70px;width:60px" />
+            </i>
+            @*<span class="fa fa-user-circle-o fa-4x">   </span>*@
+            <b>@Html.ActionLink("ثبت اطلاعات پایه ", "Create", "Athletes", null, new { @class = "my-class" })</b>
+        </div>
+    </div>
+    <div class="col-lg-4 menuItem">
+        <div class="menuItemContainer">
+            <i>
+                <img src="~/Content/image/running-icon.png" style="height:70px;width:60px" />
+            </i>
+            <b>@Html.ActionLink("ثبت آزمون های آمادگی جسمانی و عملیاتی", "DataEntry", "Athletes", null, new { @class = "my-class" })</b>
+        </div>
+    </div>
+
+    <div class="col-lg-4 menuItem">
+        <div class="menuItemContainer">
+            <span class="fa  fa-line-chart fa-4x">     </span>
+            <b>@Html.ActionLink("آتشنشانان ","index", "PhysicalExamHistories", null, new { @class = "my-class" })</b>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        var myVar = setInterval(function () { myTimer() }, 1000);
+
+        function myTimer() {
+            var d = new Date();
+            var t = d.toLocaleTimeString();
+            document.getElementById("demo").innerHTML = t;
+        }
+
+        function myStopFunction() {
+            clearInterval(myVar);
+        }
+    </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

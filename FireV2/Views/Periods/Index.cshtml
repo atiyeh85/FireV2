@@ -1,0 +1,99 @@
+﻿@model IEnumerable<FireV2.Models.Period>
+
+@{
+    ViewBag.Title = "..::..";
+    Layout = null;
+    var count = 0;
+}
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <caption class="text-center"> لیست دوره ها   </caption>
+                        <thead>
+                            <tr>
+                                <th>ردیف</th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SeasonTitle)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Year)
+
+
+                                </th>
+                                <th>
+                                    بسته عملیات انفرادی
+
+                                </th>
+                                <th>
+                                    بسته عملیات تیمی
+
+                                </th>
+                                <th>
+                                  از تاریخ
+                                </th>
+                                <th>
+                                    تا تاریخ
+                                </th>
+                                
+                                <th>
+                                    دستورات
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@(count += 1)</td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SeasonTitle)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Year)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PackPackInd.PackIndTItle)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PackPointTeam.PackTeamTItle)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FromDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Todate)
+                                    </td>
+                                   
+
+                                   
+                                    <td>
+                                       
+                                        <a data-href="/Periods/Edit/@item.PeriodId" data-toggle="modal" data-target="#myModal" class="controls fa  fa fa-edit fa-2x" style="color:#10b438;" href="#">
+                                        </a>
+                                        |
+                                        <a data-href="/Periods/Delete/@item.PeriodId" data-toggle="modal" data-target="#myModalDel" class="controls fa  fa fa-trash fa-2x" style="color: #990c0c;" href="#">
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="9">
+
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div><!--end of .table-responsive-->
+            </div>
+        </div>
+    </div>
+</div>
+

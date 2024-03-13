@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="~/Content/kamadatepicker.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/kamadatepicker.js"></script>
+
+
+    @RenderSection("styles", required: false)
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="~/Content/image/logoMain.png" /></a>
+                <a class="navbar-brand" href="#"><img src="~/Content/image/atash.png" /></a>
+            </div>
+            @if (Request.IsAuthenticated)
+            {
+                DateTime Date = DateTime.Now;
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right"></ul>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i style="color:#9f9d9d" class="fa fa-fw fa fa-fire-extinguisher fa-3x"></i>  <span class="caret"></span></a>
+                            <ul class="dropdown-menu multi-level">
+
+                                <li>
+                                    <a href="/PhysicalExamHistories/firstpage">
+                                        <i style="color: #990C0C">
+                                            <img src="~/Content/image/burning-house.gif" style="height:35px;width:40px" />
+                                        </i>
+                                        صفحه نخست
+                                    </a>
+                                    <hr />
+                                </li>
+                                @if (FireV2.Utility.UAC.Validate(User, "InsertInfoFireFighter"))
+                                {
+                                    <li>
+                                        <a href="/Athletes/create">
+                                            <i style="color: #990C0C">
+                                                <img src="~/Content/image/firefighter.png" style="height:50px;width:50px" />
+                                            </i>
+                                            ثبت اطلاعات پایه آتشنشانان
+                                        </a>
+                                        <hr />
+
+                                    </li>
+                                }
+                                @if (FireV2.Utility.UAC.Validate(User, "InsertExam"))
+                                {
+                                    <li>
+                                        <a href="/Athletes/DataEntry">
+                                            <i style="color: #990C0C">
+                                                <img src="~/Content/image/running-icon.png" style="height:50px;width:50px" />
+                                            </i>
+                                            ثبت آزمون های آمادگی جسمانی و عملیاتی
+                                        </a>
+                                        <hr />
+
+                                    </li>
+
+                                }
+
+                                @if (FireV2.Utility.UAC.Validate(User, "ListFireFighter"))
+                                {
+
+                                    <li>
+                                        <a href="/Athletes/AllList">
+                                            <i style="color: #990C0C">
+                                                <img src="~/Content/image/fireman.png" style="height:50px;width:50px" />
+                                            </i>
+                                            لیست آتشنشانان
+                                        </a>
+                                        <hr />
+                                    </li>
+                                }
+
+                                @if (FireV2.Utility.UAC.Validate(User, "ListReport"))
+                                {
+                                    <li>
+                                        <a href="/PhysicalExamHistories/index"><i style="color:#d0770b" class="fa fa-fw fa fa-line-chart fa-2x"></i> گزارش آتشنشانان  </a>
+                                        <hr />
+                                    </li>
+                                }
+
+                                @if (FireV2.Utility.UAC.Validate(User, "ListReport"))
+                                {
+                                    <li>
+                                        <a href="/Athletes/Archive" class="dropdown-toggle" style="margin:10px">
+                                            <span class="fa  fa-archive fa-2x" style="color:#05a50d"></span>
+                                            &nbsp;
+                                            بایگانی
+                                        </a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i style="color:#9f9d9d" class="fa  fa-fire fa-3x"></i>  اطلاعات پایه <span class="caret"></span></a>
+                            <ul class="dropdown-menu multi-level">
+                                <li class="dropdown-submenu">
+                                    @if (FireV2.Utility.UAC.Validate(User, "InsrtInfo"))
+                                    {
+
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <i style="color: #990C0C" class="fa fa-fire fa-3x">
+                                            </i>
+                                            &nbsp; &nbsp; &nbsp; &nbsp;
+
+                                            ثبت اطلاعات
+                                            <span class="fa fa-hand-o-left"></span>
+
+                                        </a>
+
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-submenu">
+                                                <a href="/Periods/create" class="dropdown-toggle" style="margin:10px">
+                                                    <span class="fa  fa fa-gift fa-2x" style="color:#ff6a00"></span>
+                                                    &nbsp;
+                                                    بسته های برگزاری آزمون عملیات انفرادی
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    }
+                                </li>
+
+                            </ul>
+
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav ">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i style="color:#9f9d9d" class="fa fa-gears fa-3x"></i> <span class="caret"></span>اطلاعات </a>
+                            <ul class="dropdown-menu">
+                                @if (FireV2.Utility.UAC.Validate(User, "InsrtInfo"))
+                                {
+                                    <li>
+                                        <a href="/Periods/create" class="dropdown-toggle" style="margin:10px">
+                                            <span class="fa  fa fa-gift fa-2x" style="color:#ff6a00"></span>
+                                            &nbsp;
+                                            بسته های برگزاری آزمون عملیات انفرادی
+                                        </a>
+                                    </li>
+                                }
+
+
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav ">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i style="color:#9f9d9d" class="fa fa-gears fa-3x"></i> <span class="caret"></span>سرویس ها</a>
+                            <ul class="dropdown-menu">
+                                @if (FireV2.Utility.UAC.Validate(User, "ChPass"))
+                                {
+                                    <li>
+                                        <a href="/Manage/ChangePassword">
+                                            <i style="color: darkgoldenrod" class="fa fa-lock fa-3x">
+
+                                            </i>&nbsp;
+                                            تغییر کلمه عبور
+                                        </a>
+                                    </li>
+                                }
+
+
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i style="color:#9f9d9d" class="fa fa-fw fa fa-user-circle-o fa-3x"></i> <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#"><i style="color:#2128dd" class="fa fa-fw fa fa-user-circle-o fa-2x"></i>  @User.Identity.Name  </a>
+                                    <hr />
+                                </li>
+                                <li>
+                                    <a href="#"><i style="color:#ffd800" class="fa fa-fw  	fa fa-hourglass-half fa-2x"></i>  <b id="demo"></b>  </a>
+                                    <hr />
+                                </li>
+                                <li>
+                                    <a href="#"><i style="color:#2128dd"></i>  @Html.Partial("_LoginPartial") </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            }
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="footer" style="color:#9f9d9d">
+            <p class="tect-muted" style="text-align:center">
+                تمام حقوق این وب سایت متعلق به سازمان آتشنشانی  شهرداری قزوین می باشد.
+            </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<script>
+    var myVar = setInterval(function () { myTimer() }, 1000);
+
+    function myTimer() {
+        var d = new Date();
+        var t = d.toLocaleTimeString();
+        document.getElementById("demo").innerHTML = t;
+    }
+
+    function myStopFunction() {
+        clearInterval(myVar);
+    }
+</script>

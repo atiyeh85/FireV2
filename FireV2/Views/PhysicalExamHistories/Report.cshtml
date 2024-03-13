@@ -1,0 +1,31 @@
+﻿
+    @using System.Web.UI.WebControls;
+    @using Stimulsoft.Report.Mvc;
+
+    @{
+        ViewBag.Title = "..:";
+        Layout = null;
+    }
+
+    <div class="container" style="width:100%">
+
+        @Html.Stimulsoft().RenderMvcViewerScripts()
+        @Html.Stimulsoft().RenderMvcDesignerScripts()
+        @Html.Stimulsoft().StiMvcViewer("MyViewr", new StiMvcViewerOptions()
+
+   {
+       ShowExportToHtml = false,
+
+       ActionGetReportSnapshot = "FromLoadFileReport",
+       ActionViewerEvent = "ViewerEvent",
+       Width = Unit.Percentage(100),
+       Theme = StiTheme.Office2007Black,
+       ShowTooltips = false,
+
+       ShowExportToExcelXml = false,
+       ShowExportToHtml5 = false,
+       ActionPrintReport = "PrintReport",
+       ActionExportReport = "ExportReport",
+       ToolbarBackgroundColor = System.Drawing.Color.Silver
+   })
+    </div>

@@ -1,0 +1,34 @@
+﻿@model FireV2.Models.Archive
+
+@{
+    ViewBag.Title = "..:به گردش درآوردن:..";
+    Layout = null;
+    var AthleteId = ViewBag.id;
+}
+@using (Html.BeginForm("Circulate", "Archives", FormMethod.Post, new { id = "form-CreateB" }))
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="AthleteId" value="@AthleteId" />
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-md-12">
+                علت به گردش درآوردن
+                <div style="">
+                    <div class="input-group" style="margin-bottom: 10px">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user-circle-o fa-2x">
+                            </i>
+                        </span>
+                        @Html.TextBoxFor(model => model.ArchiveNote, new { @class = "form-control input-lg", placeholder = "علت به گردش درآوردن ", autocomplete = "off" })
+                    </div>
+                    <b>
+                        @Html.ValidationMessageFor(model => model.ArchiveNote, "", new { @class = "text-danger" })
+                    </b>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
